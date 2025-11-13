@@ -83,6 +83,14 @@ export default function ProjectsSection() {
       url: "https://greenautoexpo.vercel.app/",
       tags: ["Automotive", "Sustainability", "Expo"],
       image: "/projects/greenauto-portfolio.jpeg"
+    },
+    {
+      id: 11,
+      title: "Fanzone Arena CAN 2025",
+      description: "Official fanzone platform for Africa Cup of Nations 2025 with interactive features and live updates",
+      url: "https://fanzonecan.com/",
+      tags: ["Sports", "Events", "Entertainment"],
+      image: "/projects/fanzone-portfolio.jpeg"
     }
   ];
 
