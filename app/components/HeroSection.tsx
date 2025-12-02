@@ -123,23 +123,6 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Tech Stack Icons */}
-        <motion.div 
-          variants={itemVariants}
-          transition={itemTransition}
-          className="flex flex-wrap justify-center gap-6"
-        >
-          {['⚛️', '📱', '🎨', '⚡'].map((emoji, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all duration-300 cursor-pointer"
-            >
-              <span className="text-2xl">{emoji}</span>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div 
