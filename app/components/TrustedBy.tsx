@@ -11,6 +11,7 @@ export default function TrustedBySection() {
     { src: '/logos/ayta.png', alt: 'Ayta' },
     { src: '/logos/parthenon.png', alt: 'Parthenon' },
     { src: '/logos/alhabtoor.svg', alt: 'Alhabtoor' },
+    { src: '/logos/gardenbakes.png', alt: 'Garden Bakes' },
     { src: '/logos/palooza.png', alt: 'Palooza' }
   ];
 

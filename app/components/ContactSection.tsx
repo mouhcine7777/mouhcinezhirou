@@ -80,7 +80,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-black py-20 px-6 relative overflow-hidden">
+    <div id="contact" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-black py-20 px-6 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         <motion.div

@@ -22,22 +22,6 @@ export default function ProjectsSection() {
     },
     {
       id: 3,
-      title: "Big District Dubai",
-      description: "Digital agency website designed with a clean, modern look to showcase services, portfolio and branding identity",
-      url: "https://bigdistrict.agency/",
-      tags: ["Agency", "Digital", "Branding"],
-      image: "/projects/bigdistrict-portfolio.jpeg"
-    },
-    {
-      id: 4,
-      title: "Ayta d'bladi Festival",
-      description: "Cultural festival website celebrating local traditions with vibrant visuals and event information",
-      url: "http://aytadbladi.com/",
-      tags: ["Festival", "Culture", "Events"],
-      image: "/projects/aytadbladi-portfolio.jpeg"
-    },
-    {
-      id: 5,
       title: "Nostalgia Lovers Festival",
       description: "Retro-themed festival platform bringing together music lovers for an unforgettable experience",
       url: "https://nostalgialovers.ma/",
@@ -45,7 +29,31 @@ export default function ProjectsSection() {
       image: "/projects/nostalgia-portfolio.jpeg"
     },
     {
+      id: 4,
+      title: "Big District Dubai",
+      description: "Digital agency website designed with a clean, modern look to showcase services, portfolio and branding identity",
+      url: "https://bigdistrict.agency/",
+      tags: ["Agency", "Digital", "Branding"],
+      image: "/projects/bigdistrict-portfolio.jpeg"
+    },
+    {
+      id: 5,
+      title: "Garden Eataly",
+      description: "Italian restaurant and pizzeria offering an authentic taste of Italy with a fresh, garden-inspired atmosphere",
+      url: "https://gardeneataly.vercel.app",
+      tags: ["Restaurant", "Italian", "Pizzeria"],
+      image: "/projects/gardeneataly-portfolio.jpeg"
+    },
+    {
       id: 6,
+      title: "Ayta d'bladi Festival",
+      description: "Cultural festival website celebrating local traditions with vibrant visuals and event information",
+      url: "http://aytadbladi.com/",
+      tags: ["Festival", "Culture", "Events"],
+      image: "/projects/aytadbladi-portfolio.jpeg"
+    },
+    {
+      id: 7,
       title: "Chiringuito Tanger",
       description: "Beach restaurant website featuring Mediterranean cuisine with stunning coastal views",
       url: "https://chiringuito-tanger.com/",
@@ -53,7 +61,7 @@ export default function ProjectsSection() {
       image: "/projects/Chiringuito-portfolio.jpeg"
     },
     {
-      id: 7,
+      id: 8,
       title: "Palooza Park",
       description: "Entertainment park website with interactive features and booking system for family fun",
       url: "https://www.paloozaland.com",
@@ -61,7 +69,7 @@ export default function ProjectsSection() {
       image: "/projects/palooza-portfolio.jpeg"
     },
     {
-      id: 8,
+      id: 9,
       title: "Alhabtoor City Hotels",
       description: "Luxury hotel chain website with elegant design, booking system, and premium experience",
       url: "https://alhabtoorcity.com/",
@@ -69,7 +77,23 @@ export default function ProjectsSection() {
       image: "/projects/alhabtoorcity-portfolio.jpeg"
     },
     {
-      id: 9,
+      id: 10,
+      title: "Garden Bake's",
+      description: "Artisan bakery offering freshly baked breads, pastries, and treats with a warm and welcoming experience",
+      url: "https://gardenbakes.vercel.app",
+      tags: ["Bakery", "Food", "Artisan"],
+      image: "/projects/gardenbakes-portfolio.jpeg"
+    },
+    {
+      id: 11,
+      title: "Tangerino Tanger & Rabat",
+      description: "Authentic restaurant with locations in Tanger and Rabat, offering a rich culinary experience rooted in local flavors and warm hospitality",
+      url: "https://tangerino-restaurant.com/",
+      tags: ["Restaurant", "Hospitality", "Food"],
+      image: "/projects/tangerino-portfolio.jpeg"
+    },
+    {
+      id: 12,
       title: "Parthenon Project Manager",
       description: "Full-featured project management application with team collaboration and task tracking",
       url: "https://clickdown-mauve.vercel.app/",
@@ -77,7 +101,7 @@ export default function ProjectsSection() {
       image: "/projects/clickdown-portflio.jpeg"
     },
     {
-      id: 10,
+      id: 13,
       title: "ONMT Event App",
       description: "Confidential event management system for national tourism office with advanced features",
       url: null,
@@ -85,7 +109,7 @@ export default function ProjectsSection() {
       image: "/projects/onmt-portfolio.jpeg"
     },
     {
-      id: 11,
+      id: 14,
       title: "Green Auto Expo",
       description: "Sustainable automotive exhibition platform promoting eco-friendly transportation solutions",
       url: "https://greenautoexpo.vercel.app/",
@@ -93,10 +117,10 @@ export default function ProjectsSection() {
       image: "/projects/greenauto-portfolio.jpeg"
     },
     {
-      id: 12,
+      id: 15,
       title: "Fanzone Arena CAN 2025",
       description: "Official fanzone platform for Africa Cup of Nations 2025 with interactive features and live updates",
-      url: "https://fanzonecan.com/",
+      url: "https://fanzone-taupe.vercel.app",
       tags: ["Sports", "Events", "Entertainment"],
       image: "/projects/fanzone-portfolio.jpeg"
     }
