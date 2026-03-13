@@ -123,7 +123,7 @@ export default function ContactSection() {
             className="inline-block mb-4"
           >
             <span className="px-6 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300 text-sm font-medium backdrop-blur-sm">
-              📬 Get In Touch
+              Get In Touch
             </span>
           </motion.div>
 
