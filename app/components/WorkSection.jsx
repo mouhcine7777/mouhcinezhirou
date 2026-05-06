@@ -1,4 +1,5 @@
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
+import { useState, useRef } from "react";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -37,9 +38,38 @@ const projects = [
   { id: 21, title: "Garden Bake's",                description: "Artisan bakery offering freshly baked breads, pastries, and treats with a warm welcoming experience.",  tags: ["Bakery", "Artisan"],        url: "https://gardenbakes.vercel.app",          image: "/projects/gardenbakes-portfolio.jpeg" },
 ];
 
+const PROJECTS_PER_PAGE = 9;
+
 export default function WorkSection() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const sectionRef = useRef(null);
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const endIndex = startIndex + PROJECTS_PER_PAGE;
+  const currentProjects = projects.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    if (page === currentPage) return; // Don't do anything if clicking same page
+    setCurrentPage(page);
+    // Use setTimeout to ensure the DOM updates before scrolling
+    setTimeout(() => {
+      if (sectionRef.current) {
+        const sectionTop = sectionRef.current.offsetTop;
+        window.scrollTo({
+          top: sectionTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 0);
+  };
+
   return (
-    <section id="work" className={`${bricolage.variable} ${instrument.variable} w-full bg-[#080808]`}>
+    <section 
+      id="work" 
+      ref={sectionRef}
+      className={`${bricolage.variable} ${instrument.variable} w-full bg-[#080808]`}
+    >
 
       {/* ── HEADER ── */}
       <div className="flex items-end justify-between border-b border-white/10 px-5 py-10 md:px-14 md:py-14">
@@ -63,6 +93,13 @@ export default function WorkSection() {
             & Work
           </h2>
         </div>
+        
+        {/* Page indicator */}
+        <div className="hidden md:block">
+          <span className="font-[family-name:var(--font-bricolage)] text-sm text-white/40">
+            Page {currentPage} of {totalPages}
+          </span>
+        </div>
       </div>
 
       {/* ── GRID ── */}
@@ -70,8 +107,9 @@ export default function WorkSection() {
         className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
         style={{ border: "1px solid rgba(255,255,255,0.1)", borderBottom: "none", borderRight: "none" }}
       >
-        {projects.map((project, index) => {
+        {currentProjects.map((project, index) => {
           const isNDA = !project.url;
+          const globalIndex = startIndex + index;
 
           const card = (
             <div className="group flex flex-col border-b border-r border-white/10 bg-[#080808] transition-colors duration-300 hover:bg-[#0d0d0d]">
@@ -84,7 +122,7 @@ export default function WorkSection() {
                   className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-3 top-3 font-[family-name:var(--font-bricolage)] text-[0.46rem] font-semibold tracking-[0.2em] text-white/50">
-                  {String(index + 1).padStart(2, "0")}
+                  {String(globalIndex + 1).padStart(2, "0")}
                 </span>
                 {isNDA && (
                   <span className="absolute right-3 top-3 border border-white/10 bg-black/60 px-2.5 py-1 font-[family-name:var(--font-bricolage)] text-[0.42rem] font-bold uppercase tracking-[0.16em] text-white/30 backdrop-blur-sm">
@@ -145,7 +183,79 @@ export default function WorkSection() {
         })}
       </div>
 
-      
+      {/* ── PAGINATION ── */}
+      <div className="flex items-center justify-center gap-3 px-5 py-10 md:px-14 md:py-14">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={`flex items-center gap-2 border px-4 py-2 font-[family-name:var(--font-bricolage)] text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+            currentPage === 1
+              ? "border-white/10 text-white/20 cursor-not-allowed"
+              : "border-white/30 text-white/70 hover:border-white/60 hover:bg-white/5 hover:text-white"
+          }`}
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M7 3L4 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Previous
+        </button>
+
+        <div className="flex items-center gap-2">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+            const isFirst = page === 1;
+            const isLast = page === totalPages;
+            const isCurrent = page === currentPage;
+            const isNeighbor = Math.abs(page - currentPage) === 1;
+            
+            if (isFirst || isLast || isCurrent || isNeighbor) {
+              return (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`h-8 w-8 font-[family-name:var(--font-bricolage)] text-sm font-semibold transition-all duration-200 ${
+                    isCurrent
+                      ? "bg-[#e8ff47] text-black"
+                      : "text-white/50 hover:bg-white/10 hover:text-white/80"
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            }
+            
+            if (page === currentPage - 2 && page > 2) {
+              return <span key={page} className="text-white/30">...</span>;
+            }
+            if (page === currentPage + 2 && page < totalPages - 1) {
+              return <span key={page} className="text-white/30">...</span>;
+            }
+            
+            return null;
+          })}
+        </div>
+
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className={`flex items-center gap-2 border px-4 py-2 font-[family-name:var(--font-bricolage)] text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+            currentPage === totalPages
+              ? "border-white/10 text-white/20 cursor-not-allowed"
+              : "border-white/30 text-white/70 hover:border-white/60 hover:bg-white/5 hover:text-white"
+          }`}
+        >
+          Next
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M5 3L8 6L5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile page indicator */}
+      <div className="pb-8 text-center md:hidden">
+        <span className="font-[family-name:var(--font-bricolage)] text-xs text-white/40">
+          Page {currentPage} of {totalPages}
+        </span>
+      </div>
     </section>
   );
 }
