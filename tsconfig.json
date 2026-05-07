@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/components/HeroSection", "app/components/HeroSection.jsx", "app/v2/components/TrustedBy.jsx"  ],
+, "app/components/HeroSection", "app/components/HeroSection.tsx", "app/v2/components/TrustedBy.jsx", "app/components/WorkSection.jsx"  ],
   "exclude": ["node_modules"]
 }

@@ -15,7 +15,7 @@ const instrument = Instrument_Serif({
 
 const socials = [
   {
-    label: "Call",
+    label: "Appel",
     handle: "+212 694 738 906",
     url: "tel:+212694738906",
     icon: (
@@ -47,7 +47,7 @@ const socials = [
     ),
   },
   {
-    label: "Email",
+    label: "E-mail",
     handle: "mouhssinezhirou@gmail.com",
     url: "mailto:mouhssinezhirou@gmail.com",
     icon: (
@@ -74,27 +74,27 @@ export default function ContactSection() {
             <div className="mb-4 flex items-center gap-4">
               <div className="h-px w-8 bg-black" />
               <span className="font-[family-name:var(--font-bricolage)] text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-black/35">
-                Get in Touch
+                Me Contacter
               </span>
             </div>
             <h2
               className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.88] tracking-[-0.04em] text-black"
               style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
             >
-              Let's Work
+              Travaillons
             </h2>
             <h2
               className="font-[family-name:var(--font-instrument)] italic leading-[0.88] tracking-[-0.02em] text-black/30"
               style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
             >
-              Together
+              Ensemble
             </h2>
           </div>
 
           {/* WhatsApp — primary CTA */}
           <div className="mt-10 lg:mt-8">
             <p className="mb-5 max-w-xs font-[family-name:var(--font-bricolage)] text-[0.65rem] leading-[1.8] text-black/40">
-              The fastest way to reach me. Send a message and I'll get back to you within the hour.
+              Le moyen le plus rapide de me joindre. Envoyez un message et je vous réponds dans l'heure.
             </p>
             <a
               href="https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0"
@@ -107,7 +107,7 @@ export default function ContactSection() {
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
               </svg>
               <span className="font-[family-name:var(--font-bricolage)] text-[0.6rem] font-bold uppercase tracking-[0.16em] text-white">
-                Message on WhatsApp
+                Écrire sur WhatsApp
               </span>
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="opacity-60">
                 <path d="M1 11L11 1M11 1H4M11 1V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -128,11 +128,11 @@ export default function ContactSection() {
           <div className="flex items-center gap-2 px-5 py-5 lg:px-14">
             <span className="h-[5px] w-[5px] animate-pulse rounded-full bg-emerald-500" />
             <span className="font-[family-name:var(--font-bricolage)] text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-black/35">
-              Available for new projects
+              Disponible pour de nouveaux projets
             </span>
           </div>
 
-          {/* Socials — flex-1 so each row grows equally to fill height */}
+          {/* Socials */}
           {socials.map((s) => (
             <a
               key={s.label}
@@ -170,10 +170,10 @@ export default function ContactSection() {
       {/* ── FOOTER BAR ── */}
       <div className="flex flex-col items-center justify-between gap-3 border-t border-black/10 px-5 py-5 sm:flex-row md:px-14">
         <span className="font-[family-name:var(--font-bricolage)] text-[0.5rem] font-medium uppercase tracking-[0.22em] text-black/22">
-          © 2026 Mouhcine Zhirou — All rights reserved
+          © 2026 Mouhcine Zhirou — Tous droits réservés
         </span>
         <span className="font-[family-name:var(--font-bricolage)] text-[0.5rem] font-medium uppercase tracking-[0.22em] text-black/22">
-          Full Stack Developer — Morocco
+          Développeur Full Stack — Maroc
         </span>
       </div>
     </section>

@@ -18,9 +18,9 @@ const instrument = Instrument_Serif({
 });
 
 const stats = [
-  { n: "5+",  l: "Years"    },
-  { n: "40+", l: "Projects" },
-  { n: "28+", l: "Clients"  },
+  { n: "5+",  l: "Années"  },
+  { n: "40+", l: "Projets" },
+  { n: "28+", l: "Clients" },
 ];
 
 const stack = [
@@ -29,9 +29,9 @@ const stack = [
 ];
 
 const navLinks = [
-  { label: "Work",    href: "#work",    id: "work"    },
-  { label: "Clients", href: "#clients", id: "clients" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Projets",  href: "#work",    id: "work"    },
+  { label: "Clients",  href: "#clients", id: "clients" },
+  { label: "Contact",  href: "#contact", id: "contact" },
 ];
 
 /* ─── Animated counter ─── */
@@ -120,32 +120,32 @@ function ScrollProgressLine() {
 /* ─── Language Switcher ─── */
 function LangSwitcher() {
   const router = useRouter();
-  const switchToFr = () => {
-    // Set cookie so middleware knows this was a manual choice
-    document.cookie = "lang-pref=fr; path=/; max-age=31536000; SameSite=Lax";
-    router.push("/fr");
+  const switchToEn = () => {
+    // Set cookie so middleware knows this was a manual choice — won't redirect back to /fr
+    document.cookie = "lang-pref=en; path=/; max-age=31536000; SameSite=Lax";
+    router.push("/");
   };
   return (
     <button
-      onClick={switchToFr}
-      aria-label="Switch to French"
+      onClick={switchToEn}
+      aria-label="Switch to English"
       className="flex items-center gap-1.5 group"
       style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
     >
       <span
         className="font-[family-name:var(--font-bricolage)] text-[0.5rem] font-semibold uppercase tracking-[0.16em] text-black/35 transition-colors duration-200 group-hover:text-black/65 sm:text-[0.5rem]"
       >
-        FR
+        EN
       </span>
       <span className="h-[10px] w-px bg-black/15" />
       <span className="font-[family-name:var(--font-bricolage)] text-[0.5rem] font-semibold uppercase tracking-[0.16em] text-black/20 transition-colors duration-200 group-hover:text-black/40 hidden sm:inline">
-        Français
+        English
       </span>
     </button>
   );
 }
 
-export default function HeroSection() {
+export default function HeroSectionFr() {
   const { animating, scrollToWork } = useScrollToWork();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -276,7 +276,7 @@ export default function HeroSection() {
 
           {/* Right: lang switcher + availability */}
           <div className="flex items-center gap-4">
-            {/* Language switcher — same quiet style as availability label */}
+            {/* Language switcher */}
             <LangSwitcher />
 
             {/* Thin separator */}
@@ -286,7 +286,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2">
               <span className="h-[5px] w-[5px] animate-pulse rounded-full bg-emerald-500" />
               <span className="hidden font-[family-name:var(--font-bricolage)] text-[0.5rem] font-medium uppercase tracking-[0.16em] text-black/35 sm:inline">
-                Available
+                Disponible
               </span>
             </div>
           </div>
@@ -320,7 +320,7 @@ export default function HeroSection() {
             className="font-[family-name:var(--font-instrument)] italic leading-[1.4] tracking-[-0.01em] text-black/60"
             style={{ fontSize: "clamp(1rem, 4vw, 1.2rem)" }}
           >
-            "Turning complex problems into fast, beautiful digital products — from the first commit to the final pixel."
+            "Transformer des problèmes complexes en produits digitaux rapides et élégants — du premier commit au dernier pixel."
           </p>
         </div>
 
@@ -354,13 +354,13 @@ export default function HeroSection() {
             `}
           >
             <span className={`inline-flex items-center gap-2 transition-all duration-500 ${animating ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}>
-              Selected Work
+              Mes Réalisations
             </span>
             <span className={`absolute inset-0 flex items-center justify-center gap-1.5 transition-all duration-500 ${animating ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}>
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ animation: animating ? "bounceDown 0.5s ease infinite alternate" : "none" }}>
                 <path d="M6 1v10M6 11L2 7M6 11l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Scrolling…
+              Défilement…
             </span>
             <span className={`absolute bottom-0 left-0 h-[2px] bg-white/40 transition-all ease-linear ${animating ? "w-full duration-[850ms]" : "w-0 duration-0"}`} />
           </button>
@@ -371,7 +371,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="font-[family-name:var(--font-bricolage)] text-[0.55rem] font-bold uppercase tracking-[0.16em] text-black/35 underline underline-offset-4 transition-colors hover:text-black/65"
           >
-            Let's talk →
+            Discutons →
           </a>
         </div>
 
@@ -417,7 +417,7 @@ export default function HeroSection() {
               <div className="mb-2 flex flex-col gap-1.5">
                 <span className="h-px w-8 bg-black/20" />
                 <span className="font-[family-name:var(--font-bricolage)] text-[0.55rem] font-medium uppercase tracking-[0.22em] text-black/30">
-                  Full Stack Developer
+                  Développeur Full Stack
                 </span>
               </div>
             </div>
@@ -432,7 +432,7 @@ export default function HeroSection() {
           <div className="my-4 flex items-center gap-5">
             <div className="h-px flex-1 bg-black/8" />
             <span className="font-[family-name:var(--font-bricolage)] text-[0.52rem] font-medium uppercase tracking-[0.22em] text-black/20">
-              Est. 2019
+              Depuis 2019
             </span>
             <div className="h-px w-12 bg-black/8" />
           </div>
@@ -443,7 +443,7 @@ export default function HeroSection() {
                 className="font-[family-name:var(--font-instrument)] italic leading-[1.35] tracking-[-0.01em] text-black/65"
                 style={{ fontSize: "clamp(1.1rem, 2.2vw, 1.5rem)" }}
               >
-                "Turning complex problems into fast, beautiful digital products — from the first commit to the final pixel."
+                "Transformer des problèmes complexes en produits digitaux rapides et élégants — du premier commit au dernier pixel."
               </p>
               <div className="mt-7 flex items-center gap-5">
                 <button
@@ -456,7 +456,7 @@ export default function HeroSection() {
                   `}
                 >
                   <span className={`flex items-center gap-2.5 transition-all duration-500 ${animating ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}>
-                    Selected Work
+                    Mes Réalisations
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={`transition-transform duration-300 ${animating ? "" : "group-hover:translate-y-0.5"}`}>
                       <path d="M5 1v8M5 9L2 6M5 9l3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -465,7 +465,7 @@ export default function HeroSection() {
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ animation: animating ? "bounceDown 0.6s ease infinite alternate" : "none" }}>
                       <path d="M6 1v10M6 11L2 7M6 11l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    Scrolling…
+                    Défilement…
                   </span>
                   <span className={`absolute bottom-0 left-0 h-[2px] bg-white/40 transition-all ease-linear ${animating ? "w-full duration-[850ms]" : "w-0 duration-0"}`} />
                 </button>
@@ -476,7 +476,7 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="font-[family-name:var(--font-bricolage)] text-[0.6rem] font-bold uppercase tracking-[0.16em] text-black/35 underline underline-offset-4 transition-colors hover:text-black/65"
                 >
-                  Let's talk →
+                  Discutons →
                 </a>
               </div>
             </div>
