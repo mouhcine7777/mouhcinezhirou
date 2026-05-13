@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
   description:
     "Mouhcine Zhirou, développeur web full stack basé au Maroc. Création de sites web modernes, applications web et mobile. Disponible pour des projets freelance.",
-
   keywords: [
     "développeur web Maroc",
     "développeur site web",
@@ -33,16 +32,12 @@ export const metadata: Metadata = {
     "website freelancer",
     "développeur de site web",
   ],
-
   authors: [{ name: "Mouhcine Zhirou", url: "https://mouhcinezhirou.com" }],
   creator: "Mouhcine Zhirou",
-
   metadataBase: new URL("https://mouhcinezhirou.com"),
-
   alternates: {
     canonical: "https://mouhcinezhirou.com",
   },
-
   openGraph: {
     title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
     description:
@@ -52,14 +47,12 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     type: "website",
   },
-
   twitter: {
     card: "summary",
     title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
     description:
       "Développeur web full stack basé au Maroc. Création de sites web modernes et applications sur mesure.",
   },
-
   robots: {
     index: true,
     follow: true,
@@ -71,13 +64,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
   verification: {
     google: "Io7wIEZKDVMIb5MKAoY-zaQYGs_MZcUqvktz7QZmLpI",
   },
 };
 
-// JSON-LD Structured Data
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -96,20 +87,14 @@ const jsonLd = {
     "www.linkedin.com/in/mouhcine-zhirou-499a8a1b0",
   ],
   knowsAbout: [
-    "React",
-    "Next.js",
-    "Node.js",
-    "TypeScript",
-    "Web Development",
-    "Full Stack Development",
+    "React", "Next.js", "Node.js", "TypeScript",
+    "Web Development", "Full Stack Development",
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
       <head>
@@ -118,9 +103,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${montserrat.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-28JHD3CS6T"
