@@ -21,24 +21,15 @@ const ACCENT = "#e8ff47";
 
 /*
   ──────────────────────────────────────────────────────────
-  CONCEPT — "Le site qui se construit"
+  CONCEPT — entrée animée propre
 
-    step 0  BOOT       terminal types the build command
-    step 2  WIREFRAME  blueprint skeletons of every block
-    step 3  BUILD      real content compiles in + code card types
-    step 4  PAINT      acid highlight sweeps, grid fades, "Disponible"
+    Au chargement, chaque bloc apparaît avec un fondu / glissement
+    / dé-floutage décalé. Pas de terminal de boot, pas de phase
+    de squelette filaire — le contenu apparaît et s'anime en place.
 
   VIEWPORT-PROPORTIONAL SCALING
   Every size is `max(mobileMinimum, X vw)` — proportional to the
   viewport with NO maximum. Reference design: 1440px wide.
-  Zooming out or viewing on a huge monitor shows the exact same
-  composition filling the screen, like permanent 100% zoom.
-
-  AUTO-PLAY RULE
-  The sequence auto-plays on page load at most 3 times per
-  visitor (localStorage counter "hero-build-count"). After that,
-  the page loads directly in its final state and the animation
-  is only available via the "Revoir la construction" button.
   ──────────────────────────────────────────────────────────
 */
 
@@ -49,7 +40,6 @@ const fs = {
   micro:   fl(0.5,  0.6),   //  ~8.6px  @1440 — labels, nav, ticker
   small:   fl(0.58, 0.72),  // ~10.4px  @1440 — eyebrow, buttons
   mono:    fl(0.66, 0.87),  // ~12.5px  @1440 — code card
-  boot:    fl(0.8,  1.05),  // ~15px    @1440 — boot terminal
   tagline: fl(1.05, 1.5),   // ~21.6px  @1440
   statNum: fl(1.7,  3.2),   // ~46px    @1440
   h1:      fl(3.4,  9.3),   // ~134px   @1440
@@ -81,9 +71,6 @@ const navLinks = [
   { label: "Clients",  href: "#clients", id: "clients" },
   { label: "Contact",  href: "#contact", id: "contact" },
 ];
-
-const BOOT_CMD = "$ npm run build:portfolio";
-const BOOT_OK  = "✓ Compilé en 0.9s — 0 erreur";
 
 /* ─── Code typed in the signature card ─── */
 const codeLines = [
@@ -232,139 +219,52 @@ function LocalTime() {
 }
 
 /* ════════════════════════════════════════════
-   BUILD SEQUENCE HOOK
+   ENTRANCE SEQUENCE HOOK  (no boot / no wireframe)
 ════════════════════════════════════════════ */
 function useBuildSequence() {
-  // step: 0 boot · 2 wireframe · 3 build · 4 done
+  // step: 0 = pre-entrance (hidden) · 4 = entered (done)
   const [step, setStep] = useState(0);
   const [runId, setRunId] = useState(0);
-  const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  const clear = () => {
-    timeouts.current.forEach(clearTimeout);
-    timeouts.current = [];
-  };
+  const raf = useRef(0);
 
   const play = useCallback(() => {
-    clear();
+    cancelAnimationFrame(raf.current);
     setStep(0);
     setRunId((r) => r + 1);
-    const t = (fn: () => void, ms: number) => timeouts.current.push(setTimeout(fn, ms));
-    t(() => setStep(2), 1450);
-    t(() => setStep(3), 2450);
-    t(() => setStep(4), 3450);
+    // paint the hidden state for one frame, then animate everything in
+    raf.current = requestAnimationFrame(() => {
+      raf.current = requestAnimationFrame(() => setStep(4));
+    });
   }, []);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       setStep(4);
-      return clear;
+      return;
     }
-    // Auto-play on reload at most 3 times; afterwards only via "Revoir la construction"
-    let count = 0;
-    try { count = parseInt(localStorage.getItem("hero-build-count") || "0", 10) || 0; } catch {}
-    if (count < 3) {
-      try { localStorage.setItem("hero-build-count", String(count + 1)); } catch {}
-      play();
-    } else {
-      setStep(4);
-    }
-    return clear;
+    play();
+    return () => cancelAnimationFrame(raf.current);
   }, [play]);
 
   return { step, runId, replay: play };
 }
 
 /* ════════════════════════════════════════════
-   BOOT OVERLAY — typing terminal
-════════════════════════════════════════════ */
-function BootOverlay({ step, runId }: { step: number; runId: number }) {
-  const [chars, setChars] = useState(0);
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    if (step !== 0) return;
-    setChars(0);
-    setOk(false);
-    let i = 0;
-    const id = setInterval(() => {
-      i++;
-      setChars(i);
-      if (i >= BOOT_CMD.length) {
-        clearInterval(id);
-        setTimeout(() => setOk(true), 280);
-      }
-    }, 26);
-    return () => clearInterval(id);
-  }, [step, runId]);
-
-  return (
-    <div
-      aria-hidden="true"
-      className="absolute inset-0 z-40 flex flex-col justify-between bg-[#F2F0EB]"
-      style={{
-        opacity: step === 0 ? 1 : 0,
-        visibility: step === 0 ? "visible" : "hidden",
-        transition: "opacity 0.55s cubic-bezier(0.22,1,0.36,1), visibility 0s linear 0.55s",
-        padding: `${fl(1.5, 2.8)} ${sp.padX}`,
-      }}
-    >
-      <div className="flex items-center justify-between">
-        <span
-          className="flex items-center justify-center border border-black/20 font-[family-name:var(--font-bricolage)] font-extrabold text-black/70"
-          style={{ fontSize: fs.micro, width: fl(1.5, 1.7), height: fl(1.5, 1.7) }}
-        >
-          MZ
-        </span>
-        <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.24em] text-black/25" style={{ fontSize: fs.micro }}>
-          Initialisation
-        </span>
-      </div>
-
-      <div className="font-mono leading-[2.2] text-black/75" style={{ fontSize: fs.boot }}>
-        <p className="m-0">
-          {BOOT_CMD.slice(0, chars)}
-          <span className="ml-0.5 inline-block h-[1.05em] w-[0.5em] translate-y-[0.18em]" style={{ background: ACCENT, animation: "blink 0.9s step-end infinite" }} />
-        </p>
-        <p className="m-0 text-black/45" style={{ opacity: ok ? 1 : 0, transition: "opacity 0.3s ease" }}>
-          {BOOT_OK}
-        </p>
-      </div>
-
-      <div className="h-px w-full bg-black/8">
-        <div
-          className="h-full"
-          style={{
-            background: ACCENT,
-            width: ok ? "100%" : `${(chars / BOOT_CMD.length) * 80}%`,
-            transition: "width 0.3s ease",
-            boxShadow: `0 0 12px ${ACCENT}`,
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
-/* ════════════════════════════════════════════
-   BLOCK — wireframe skeleton → real content
+   BLOCK — staggered entrance reveal
 ════════════════════════════════════════════ */
 function Block({
-  tag,
   step,
   order,
   children,
   className = "",
 }: {
-  tag: string;
   step: number;
   order: number;
   children: React.ReactNode;
   className?: string;
 }) {
   const built = step >= 3;
-  const visible = step >= 2;
   const delay = order * 110;
 
   return (
@@ -379,32 +279,12 @@ function Block({
       >
         {children}
       </div>
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 border border-dashed border-black/30 bg-black/[0.015]"
-        style={{
-          opacity: visible && !built ? 1 : 0,
-          transform: visible ? "scale(1)" : "scale(0.985)",
-          transition: built
-            ? `opacity 0.35s ease ${delay}ms, transform 0.35s ease ${delay}ms`
-            : `opacity 0.4s cubic-bezier(0.22,1,0.36,1) ${order * 70}ms, transform 0.4s cubic-bezier(0.22,1,0.36,1) ${order * 70}ms`,
-        }}
-      >
-        <span className="absolute -top-[1px] left-0 -translate-y-full bg-black/70 px-1.5 py-0.5 font-mono text-[#F2F0EB]" style={{ fontSize: fs.micro }}>
-          {tag}
-        </span>
-        <span className="absolute left-0 top-0 h-2 w-2 border-l-2 border-t-2 border-black/50" />
-        <span className="absolute right-0 top-0 h-2 w-2 border-r-2 border-t-2 border-black/50" />
-        <span className="absolute bottom-0 left-0 h-2 w-2 border-b-2 border-l-2 border-black/50" />
-        <span className="absolute bottom-0 right-0 h-2 w-2 border-b-2 border-r-2 border-black/50" />
-      </div>
     </div>
   );
 }
 
 /* ════════════════════════════════════════════
-   TYPING CODE CARD — starts when the build lands
+   TYPING CODE CARD — starts when the entrance lands
 ════════════════════════════════════════════ */
 function CodeCard({ start, runId }: { start: boolean; runId: number }) {
   const [visibleChars, setVisibleChars] = useState(0);
@@ -503,7 +383,7 @@ function CodeCard({ start, runId }: { start: boolean; runId: number }) {
 ════════════════════════════════════════════ */
 export default function HeroSectionFr() {
   const { animating, scrollToWork } = useScrollToWork();
-  const { step, runId, replay } = useBuildSequence();
+  const { step, runId } = useBuildSequence();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [clickedItem, setClickedItem] = useState<string | null>(null);
@@ -551,12 +431,12 @@ export default function HeroSectionFr() {
         flex min-h-[100svh] flex-col
       `}
     >
-      {/* ── BLUEPRINT GRID — fades once built ── */}
+      {/* ── BACKGROUND GRID ── */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          opacity: done ? 0.22 : 1,
+          opacity: done ? 0.22 : 0,
           transition: "opacity 1.2s ease 0.3s",
         }}
       >
@@ -577,9 +457,6 @@ export default function HeroSectionFr() {
         ))}
       </div>
 
-      {/* ── BOOT TERMINAL OVERLAY ── */}
-      <BootOverlay step={step} runId={runId} />
-
       {/* ══════════════ NAVBAR ══════════════ */}
       <nav
         className={`
@@ -589,7 +466,7 @@ export default function HeroSectionFr() {
           ${scrolled ? "shadow-[0_2px_20px_0_rgba(0,0,0,0.06)]" : ""}
         `}
         style={{
-          opacity: step >= 2 ? 1 : 0,
+          opacity: built ? 1 : 0,
           transition: "opacity 0.5s ease",
         }}
       >
@@ -659,7 +536,7 @@ export default function HeroSectionFr() {
                 <span className={`relative inline-flex h-full w-full rounded-full transition-colors duration-500 ${done ? "bg-emerald-500" : "bg-amber-500"}`} />
               </span>
               <span className="hidden font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.16em] text-black/35 sm:inline" style={{ fontSize: fs.micro }}>
-                {done ? "Disponible" : "Compilation…"}
+                {done ? "Disponible" : "Chargement…"}
               </span>
             </div>
           </div>
@@ -682,7 +559,7 @@ export default function HeroSectionFr() {
             }}
           >
             {/* Eyebrow */}
-            <Block tag="<role/>" step={step} order={0} className="w-fit" >
+            <Block step={step} order={0} className="w-fit" >
               <div className="flex items-center gap-3 px-0.5 py-0.5">
                 <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
                 <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small }}>
@@ -692,7 +569,7 @@ export default function HeroSectionFr() {
             </Block>
 
             {/* Headline */}
-            <Block tag="<h1/>" step={step} order={1} className="w-fit max-w-full" >
+            <Block step={step} order={1} className="w-fit max-w-full" >
               <h1
                 className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.88] tracking-[-0.045em] text-black"
                 style={{ fontSize: fs.h1, marginTop: fl(1.4, 1.6) }}
@@ -701,7 +578,7 @@ export default function HeroSectionFr() {
               </h1>
             </Block>
 
-            <Block tag="<h1/>" step={step} order={2} className="mt-1 w-fit max-w-full">
+            <Block step={step} order={2} className="mt-1 w-fit max-w-full">
               <h1
                 className="relative font-[family-name:var(--font-instrument)] italic leading-[0.95] tracking-[-0.02em] text-black"
                 style={{ fontSize: fs.h1 }}
@@ -720,18 +597,18 @@ export default function HeroSectionFr() {
             </Block>
 
             {/* Tagline */}
-            <Block tag="<p/>" step={step} order={3} className="w-fit" >
+            <Block step={step} order={3} className="w-fit" >
               <p
                 className="font-[family-name:var(--font-instrument)] italic leading-[1.45] text-black/60"
                 style={{ fontSize: fs.tagline, maxWidth: fl(20, 32), marginTop: fl(1.4, 1.8) }}
               >
-                Vous venez de voir ce site se construire en direct.{" "}
-                <span className="text-black">Imaginez ce qu'on peut construire ensemble</span> — du premier commit au dernier pixel.
+                Je conçois des applications web rapides et fiables, du premier commit au dernier pixel.{" "}
+                <span className="text-black">Construisons quelque chose de grand ensemble</span>.
               </p>
             </Block>
 
             {/* CTAs */}
-            <Block tag="<cta/>" step={step} order={4} className="w-fit" >
+            <Block step={step} order={4} className="w-fit" >
               <div className="flex flex-wrap items-center p-0.5" style={{ gap: fl(1.1, 1.4), marginTop: fl(1.8, 2.2) }}>
                 <button
                   onClick={scrollToWork}
@@ -786,7 +663,7 @@ export default function HeroSectionFr() {
               className="flex flex-1 items-center justify-center border-b border-black/10"
               style={{ padding: `${fl(2.5, 2.8)} ${fl(1.25, 3.3)}` }}
             >
-              <Block tag="<code/>" step={step} order={3} className="w-full">
+              <Block step={step} order={3} className="w-full">
                 <div className="mx-auto w-full" style={{ maxWidth: fl(24, 29) }}>
                   <CodeCard start={built} runId={runId} />
                 </div>
@@ -794,7 +671,7 @@ export default function HeroSectionFr() {
             </div>
 
             {/* Stats */}
-            <Block tag="<stats/>" step={step} order={5}>
+            <Block step={step} order={5}>
               <div className="grid grid-cols-3">
                 {stats.map((s, i) => (
                   <div
@@ -818,29 +695,10 @@ export default function HeroSectionFr() {
           </div>
         </div>
 
-        {/* ── BOTTOM BAR — replay + ticker + time ── */}
-        <Block tag="<footer/>" step={step} order={6}>
+        {/* ── BOTTOM BAR — ticker + time ── */}
+        <Block step={step} order={6}>
           <div className="border-t border-black/10 bg-[#F2F0EB]">
-            <div className="flex flex-col md:grid md:grid-cols-[auto_1fr_auto] md:items-stretch">
-
-              {/* Replay */}
-              <button
-                onClick={replay}
-                className="group flex items-center justify-center gap-2.5 border-b border-black/10 cursor-pointer transition-colors hover:bg-black/[0.03] md:border-b-0 md:border-r"
-                style={{ background: "none", padding: `${fl(0.8, 0.95)} ${fl(1.8, 2.2)}` }}
-              >
-                <svg
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="text-black/40 transition-transform duration-500 group-hover:rotate-[-200deg] group-hover:text-black"
-                  style={{ width: "1em", height: "1em", fontSize: fs.small }}
-                >
-                  <path d="M3 12a9 9 0 1 0 3-6.7" />
-                  <path d="M3 3v5h5" />
-                </svg>
-                <span className="whitespace-nowrap font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.2em] text-black/40 transition-colors group-hover:text-black" style={{ fontSize: fs.micro }}>
-                  Revoir la construction
-                </span>
-              </button>
+            <div className="flex flex-col md:grid md:grid-cols-[1fr_auto] md:items-stretch">
 
               {/* Tech ticker */}
               <div className="relative overflow-hidden border-b border-black/10 md:border-b-0">
