@@ -32,17 +32,21 @@ export const metadata: Metadata = {
     "website freelancer",
     "développeur de site web",
   ],
-  authors: [{ name: "Mouhcine Zhirou", url: "https://mouhcinezhirou.com" }],
+  authors: [{ name: "Mouhcine Zhirou", url: "https://www.mouhcinezhirou.com" }],
   creator: "Mouhcine Zhirou",
-  metadataBase: new URL("https://mouhcinezhirou.com"),
+  metadataBase: new URL("https://www.mouhcinezhirou.com"),
   alternates: {
-    canonical: "https://mouhcinezhirou.com",
+    canonical: "https://www.mouhcinezhirou.com/",
+    languages: {
+      "x-default": "https://www.mouhcinezhirou.com/",
+      "fr": "https://www.mouhcinezhirou.com/fr",
+    },
   },
   openGraph: {
     title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
     description:
       "Développeur web full stack basé au Maroc. Création de sites web modernes et applications sur mesure.",
-    url: "https://mouhcinezhirou.com",
+    url: "https://www.mouhcinezhirou.com/",
     siteName: "Mouhcine Zhirou",
     locale: "fr_MA",
     type: "website",
@@ -73,7 +77,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Mouhcine Zhirou",
-  url: "https://mouhcinezhirou.com",
+  url: "https://www.mouhcinezhirou.com",
   jobTitle: "Développeur Web Full Stack",
   description:
     "Développeur web full stack basé au Maroc, spécialisé en React, Next.js et Node.js.",
@@ -84,7 +88,7 @@ const jsonLd = {
   },
   sameAs: [
     "https://github.com/mouhcine7777",
-    "www.linkedin.com/in/mouhcine-zhirou-499a8a1b0",
+    "https://www.linkedin.com/in/mouhcine-zhirou-499a8a1b0",
   ],
   knowsAbout: [
     "React", "Next.js", "Node.js", "TypeScript",
