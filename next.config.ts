@@ -9,6 +9,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Inline the (small) CSS into the HTML so it no longer blocks first paint.
+  experimental: {
+    inlineCss: true,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,
