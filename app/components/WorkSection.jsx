@@ -1,5 +1,6 @@
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -119,11 +120,12 @@ export default function WorkSection() {
 
               {/* IMAGE */}
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1500/770" }}>
-                <img
+                <Image
                   src={project.image}
                   alt={`${project.title} — website designed and developed by Mouhcine Zhirou, freelance full stack web developer`}
-                  loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-3 top-3 font-[family-name:var(--font-bricolage)] text-[0.46rem] font-semibold tracking-[0.2em] text-white/50">
                   {String(globalIndex + 1).padStart(2, "0")}

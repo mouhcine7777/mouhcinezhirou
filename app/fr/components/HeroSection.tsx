@@ -264,19 +264,14 @@ function Block({
   children: React.ReactNode;
   className?: string;
 }) {
-  const built = step >= 3;
+  // Reveal via CSS animation (not JS-gated opacity) so the LCP heading
+  // paints on first load instead of waiting for hydration.
+  void step;
   const delay = order * 110;
 
   return (
     <div className={`relative ${className}`}>
-      <div
-        style={{
-          opacity: built ? 1 : 0,
-          transform: built ? "translateY(0)" : "translateY(14px)",
-          filter: built ? "blur(0px)" : "blur(6px)",
-          transition: `opacity 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${delay}ms, filter 0.6s ease ${delay}ms`,
-        }}
-      >
+      <div className="hero-reveal" style={{ animationDelay: `${delay}ms` }}>
         {children}
       </div>
     </div>
@@ -734,6 +729,11 @@ export default function HeroSectionFr() {
           from { transform: translateX(0); }
           to   { transform: translateX(-33.333%); }
         }
+        @keyframes heroReveal {
+          from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+          to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .hero-reveal { animation: heroReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; }
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50%      { opacity: 0; }

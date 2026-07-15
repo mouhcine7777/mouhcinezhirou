@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Montserrat } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -200,14 +194,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${montserrat.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistMono.variable} antialiased`}>
 
-        {/* Google Analytics */}
+        {/* Google Analytics — lazyOnload keeps it off the critical path */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-28JHD3CS6T"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
