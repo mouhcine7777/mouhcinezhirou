@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useRef, useEffect } from "react";
 
@@ -41,11 +42,13 @@ const row2Logos = logos.slice(9);
 function LogoItem({ logo }) {
   return (
     <div className="mx-4 flex shrink-0 items-center justify-center md:mx-8">
-      <div className="flex h-10 w-20 items-center justify-center md:h-16 md:w-36">
-        <img
+      <div className="relative h-10 w-20 md:h-16 md:w-36">
+        <Image
           src={logo.src}
           alt={logo.alt}
-          className="max-h-full max-w-full object-contain opacity-60 transition-opacity duration-300 hover:opacity-100"
+          fill
+          sizes="(max-width: 768px) 80px, 144px"
+          className="object-contain opacity-60 transition-opacity duration-300 hover:opacity-100"
         />
       </div>
     </div>
