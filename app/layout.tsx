@@ -15,22 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
+  title: {
+    default:
+      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web – Mouhcine Zhirou",
+    template: "%s | Mouhcine Zhirou",
+  },
   description:
-    "Mouhcine Zhirou, développeur web full stack basé au Maroc. Création de sites web modernes, applications web et mobile. Disponible pour des projets freelance.",
+    "Développeur web full stack freelance au Maroc (Casablanca). Création de sites web modernes, e-commerce et applications sur mesure en React & Next.js. Devis gratuit — disponible pour vos projets.",
   keywords: [
-    "développeur web Maroc",
-    "développeur site web",
-    "full stack developer Morocco",
+    "développeur web freelance",
+    "développeur full stack freelance",
+    "création site web",
     "création site web Maroc",
-    "développeur freelance Maroc",
-    "React developer Morocco",
-    "Next.js developer",
+    "création site web Casablanca",
+    "développeur web Maroc",
     "développeur web Casablanca",
-    "Mouhcine Zhirou",
+    "développeur freelance Maroc",
+    "créer un site web",
+    "faire un site web",
+    "développeur React",
+    "développeur Next.js",
+    "développeur site e-commerce",
+    "agence web Maroc",
     "web developer Morocco",
-    "website freelancer",
-    "développeur de site web",
+    "full stack developer Morocco",
+    "freelance web developer",
+    "Mouhcine Zhirou",
   ],
   authors: [{ name: "Mouhcine Zhirou", url: "https://www.mouhcinezhirou.com" }],
   creator: "Mouhcine Zhirou",
@@ -43,19 +53,21 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
+    title:
+      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web",
     description:
-      "Développeur web full stack basé au Maroc. Création de sites web modernes et applications sur mesure.",
+      "Création de sites web modernes, e-commerce et applications sur mesure en React & Next.js. Développeur freelance basé à Casablanca, Maroc — disponible pour vos projets.",
     url: "https://www.mouhcinezhirou.com/",
-    siteName: "Mouhcine Zhirou",
+    siteName: "Mouhcine Zhirou — Développeur Web Freelance",
     locale: "fr_MA",
     type: "website",
   },
   twitter: {
-    card: "summary",
-    title: "Mouhcine Zhirou | Développeur Web Full Stack – Maroc",
+    card: "summary_large_image",
+    title:
+      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web",
     description:
-      "Développeur web full stack basé au Maroc. Création de sites web modernes et applications sur mesure.",
+      "Création de sites web modernes et applications sur mesure en React & Next.js. Développeur freelance à Casablanca, Maroc.",
   },
   robots: {
     index: true,
@@ -73,26 +85,107 @@ export const metadata: Metadata = {
   },
 };
 
+const SITE = "https://www.mouhcinezhirou.com";
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Mouhcine Zhirou",
-  url: "https://www.mouhcinezhirou.com",
-  jobTitle: "Développeur Web Full Stack",
-  description:
-    "Développeur web full stack basé au Maroc, spécialisé en React, Next.js et Node.js.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Casablanca",
-    addressCountry: "MA",
-  },
-  sameAs: [
-    "https://github.com/mouhcine7777",
-    "https://www.linkedin.com/in/mouhcine-zhirou-499a8a1b0",
-  ],
-  knowsAbout: [
-    "React", "Next.js", "Node.js", "TypeScript",
-    "Web Development", "Full Stack Development",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE}/#person`,
+      name: "Mouhcine Zhirou",
+      url: SITE,
+      jobTitle: "Développeur Web Full Stack Freelance",
+      description:
+        "Développeur web full stack freelance basé au Maroc, spécialisé dans la création de sites web et d'applications sur mesure en React, Next.js et Node.js.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Casablanca",
+        addressCountry: "MA",
+      },
+      sameAs: [
+        "https://github.com/mouhcine7777",
+        "https://www.linkedin.com/in/mouhcine-zhirou-499a8a1b0",
+      ],
+      knowsLanguage: ["fr", "en", "ar"],
+      knowsAbout: [
+        "React", "Next.js", "Node.js", "TypeScript",
+        "Création de site web", "Développement web", "E-commerce",
+        "Full Stack Development", "Web Design",
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE}/#service`,
+      name: "Mouhcine Zhirou — Développeur Web Freelance",
+      url: SITE,
+      image: `${SITE}/opengraph-image`,
+      priceRange: "$$",
+      description:
+        "Création de sites web modernes, sites vitrines, e-commerce et applications web sur mesure. Développeur full stack freelance au Maroc, disponible en télétravail dans le monde entier.",
+      provider: { "@id": `${SITE}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Casablanca" },
+        { "@type": "City", name: "Rabat" },
+        { "@type": "City", name: "Marrakech" },
+        { "@type": "Country", name: "Morocco" },
+        { "@type": "Country", name: "France" },
+        "Worldwide",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Casablanca",
+        addressRegion: "Casablanca-Settat",
+        addressCountry: "MA",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 33.5731,
+        longitude: -7.5898,
+      },
+      availableLanguage: ["French", "English", "Arabic"],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Services de développement web",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Création de site web vitrine",
+              description:
+                "Sites web modernes et performants pour présenter votre activité.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Création de site e-commerce",
+              description:
+                "Boutiques en ligne sur mesure pour vendre vos produits.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Développement d'application web sur mesure",
+              description:
+                "Applications web full stack en React, Next.js et Node.js.",
+            },
+          },
+        ],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: SITE,
+      name: "Mouhcine Zhirou — Développeur Web Freelance",
+      inLanguage: "fr-MA",
+      publisher: { "@id": `${SITE}/#person` },
+    },
   ],
 };
 

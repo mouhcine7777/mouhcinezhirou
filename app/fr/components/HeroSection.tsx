@@ -563,7 +563,7 @@ export default function HeroSectionFr() {
               <div className="flex items-center gap-3 px-0.5 py-0.5">
                 <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
                 <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small }}>
-                  Développeur Full Stack — Depuis 2019
+                  Développeur Web Full Stack Freelance · Casablanca, Maroc
                 </span>
               </div>
             </Block>
@@ -602,7 +602,7 @@ export default function HeroSectionFr() {
                 className="font-[family-name:var(--font-instrument)] italic leading-[1.45] text-black/60"
                 style={{ fontSize: fs.tagline, maxWidth: fl(20, 32), marginTop: fl(1.4, 1.8) }}
               >
-                Je conçois des applications web rapides et fiables, du premier commit au dernier pixel.{" "}
+                Développeur web freelance au Maroc : je conçois des sites web et applications sur mesure, rapides et fiables, du premier commit au dernier pixel.{" "}
                 <span className="text-black">Construisons quelque chose de grand ensemble</span>.
               </p>
             </Block>

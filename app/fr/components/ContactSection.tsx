@@ -2,6 +2,7 @@
 
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -353,9 +354,21 @@ export default function ContactSection() {
           © 2026 Mouhcine Zhirou — Tous droits réservés
         </span>
 
-        <span className="hidden font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.22em] text-black/25 sm:inline" style={{ fontSize: fs.micro }}>
-          Développeur Full Stack — Maroc
-        </span>
+        <nav className="flex items-center gap-x-5 gap-y-1" style={{ fontSize: fs.micro }}>
+          {[
+            { label: "Accueil", href: "/fr" },
+            { label: "Création de site web", href: "/creation-site-web-maroc" },
+            { label: "FAQ", href: "/faq" },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.22em] text-black/35 transition-colors hover:text-black"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
 
         <button
           onClick={scrollTop}

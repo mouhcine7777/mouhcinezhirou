@@ -92,6 +92,9 @@ export default function WorkSection() {
           >
             & Work
           </h2>
+          <p className="mt-5 max-w-md font-[family-name:var(--font-bricolage)] text-sm leading-relaxed text-white/40">
+            Websites, e-commerce stores and web apps — designed and developed for brands in Morocco and worldwide.
+          </p>
         </div>
         
         {/* Page indicator */}
@@ -118,7 +121,8 @@ export default function WorkSection() {
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1500/770" }}>
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — website designed and developed by Mouhcine Zhirou, freelance full stack web developer`}
+                  loading="lazy"
                   className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-3 top-3 font-[family-name:var(--font-bricolage)] text-[0.46rem] font-semibold tracking-[0.2em] text-white/50">

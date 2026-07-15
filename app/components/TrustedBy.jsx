@@ -138,6 +138,9 @@ export default function TrustedSection() {
           >
             my work
           </h2>
+          <p className="mt-3 max-w-md text-center font-[family-name:var(--font-bricolage)] text-sm leading-relaxed text-white/40">
+            Freelance web development trusted by brands across Morocco and beyond.
+          </p>
         </div>
       </div>
 

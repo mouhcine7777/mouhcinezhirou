@@ -133,6 +133,9 @@ export default function TrustedSection() {
           >
             confiance à mon travail
           </h2>
+          <p className="mt-3 max-w-md text-center font-[family-name:var(--font-bricolage)] text-sm leading-relaxed text-white/40">
+            Développeur web freelance au Maroc, au service de marques ambitieuses.
+          </p>
         </div>
       </div>
 

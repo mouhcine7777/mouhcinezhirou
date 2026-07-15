@@ -564,7 +564,7 @@ export default function HeroSectionEn() {
               <div className="flex items-center gap-3 px-0.5 py-0.5">
                 <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
                 <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small }}>
-                  Full Stack Developer — Since 2019
+                  Freelance Full Stack Web Developer · Casablanca, Morocco
                 </span>
               </div>
             </Block>
@@ -603,7 +603,7 @@ export default function HeroSectionEn() {
                 className="font-[family-name:var(--font-instrument)] italic leading-[1.45] text-black/60"
                 style={{ fontSize: fs.tagline, maxWidth: fl(20, 32), marginTop: fl(1.4, 1.8) }}
               >
-                Crafting fast, reliable web apps from first commit to final pixel.{" "}
+                Freelance full stack web developer in Morocco, crafting fast, reliable custom websites and web apps — from first commit to final pixel.{" "}
                 <span className="text-black">Let&apos;s build something great together</span>.
               </p>
             </Block>
