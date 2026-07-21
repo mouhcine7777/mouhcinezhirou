@@ -196,12 +196,13 @@ export default function RootLayout({
       </head>
       <body className={`${geistMono.variable} antialiased`}>
 
-        {/* Google Analytics — lazyOnload keeps it off the critical path */}
+        {/* Google Analytics — afterInteractive so gtag is ready early enough
+            that whatsapp_click conversions aren't missed on fast taps. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-28JHD3CS6T"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "../components/Footer";
+import WhatsAppLink from "../components/WhatsAppLink";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -133,14 +134,12 @@ export default function FaqPage() {
           >
             Création de site web
           </Link>
-          <a
+          <WhatsAppLink
             href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
             className="border border-black bg-black px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-colors hover:bg-transparent hover:text-black"
           >
             Devis gratuit
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
 
@@ -200,14 +199,12 @@ export default function FaqPage() {
             Écrivez-moi directement — je réponds en moins d&apos;une heure. Devis gratuit et sans engagement.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
+            <WhatsAppLink
               href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-[#e8ff47] px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.98]"
             >
               Poser ma question sur WhatsApp →
-            </a>
+            </WhatsAppLink>
             <Link
               href={HOME}
               className="border border-white/25 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/80 transition-colors hover:border-white hover:text-white"

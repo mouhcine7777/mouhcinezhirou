@@ -3,6 +3,7 @@
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import WhatsAppLink from "./WhatsAppLink";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -123,10 +124,8 @@ function WaIcon({ style }: { style?: React.CSSProperties }) {
 
 function GiantWhatsAppButton() {
   return (
-    <a
+    <WhatsAppLink
       href={waLink(quickMessages[0].text)}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group relative inline-flex w-full max-w-full items-center justify-between overflow-hidden bg-black text-left sm:w-auto"
       style={{
         padding: `${fl(1.1, 1.4)} ${fl(1.4, 2)}`,
@@ -161,7 +160,7 @@ function GiantWhatsAppButton() {
           <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </span>
-    </a>
+    </WhatsAppLink>
   );
 }
 
@@ -285,10 +284,8 @@ export default function ContactSectionEn() {
       </div>
 
       {/* ══════════════ ACID BAND — second-chance CTA ══════════════ */}
-      <a
+      <WhatsAppLink
         href={waLink(quickMessages[0].text)}
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label="Message on WhatsApp"
         className="group relative block overflow-hidden border-y-2 border-black"
         style={{ background: ACCENT }}
@@ -313,7 +310,7 @@ export default function ContactSectionEn() {
             </span>
           ))}
         </div>
-      </a>
+      </WhatsAppLink>
 
       {/* ══════════════ FOOTER BAR ══════════════ */}
       <div

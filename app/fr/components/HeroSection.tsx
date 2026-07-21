@@ -3,6 +3,7 @@
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import WhatsAppLink from "../../components/WhatsAppLink";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -636,10 +637,8 @@ export default function HeroSectionFr() {
                   />
                 </button>
 
-                <a
+                <WhatsAppLink
                   href="https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group flex items-center gap-2 font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
                   style={{ fontSize: fs.small }}
                 >
@@ -647,7 +646,7 @@ export default function HeroSectionFr() {
                     Discutons sur WhatsApp
                   </span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
+                </WhatsAppLink>
               </div>
             </Block>
           </div>
