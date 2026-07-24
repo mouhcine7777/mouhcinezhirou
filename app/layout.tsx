@@ -77,6 +77,10 @@ export const metadata: Metadata = {
   verification: {
     google: "Io7wIEZKDVMIb5MKAoY-zaQYGs_MZcUqvktz7QZmLpI",
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 const SITE = "https://www.mouhcinezhirou.com";
