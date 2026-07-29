@@ -559,24 +559,24 @@ export default function HeroSectionEn() {
             <Block step={step} order={0} className="w-fit" >
               <div className="flex items-center gap-3 px-0.5 py-0.5">
                 <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
-                <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small }}>
+                <h1 className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small, margin: 0 }}>
                   Freelance Full Stack Web Developer · Casablanca, Morocco
-                </span>
+                </h1>
               </div>
             </Block>
 
             {/* Headline */}
             <Block step={step} order={1} className="w-fit max-w-full" >
-              <h1
+              <p
                 className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.88] tracking-[-0.045em] text-black"
                 style={{ fontSize: fs.h1, marginTop: fl(1.4, 1.6) }}
               >
                 Mouhcine
-              </h1>
+              </p>
             </Block>
 
             <Block step={step} order={2} className="mt-1 w-fit max-w-full">
-              <h1
+              <p
                 className="relative font-[family-name:var(--font-instrument)] italic leading-[0.95] tracking-[-0.02em] text-black"
                 style={{ fontSize: fs.h1 }}
               >
@@ -590,7 +590,7 @@ export default function HeroSectionEn() {
                   }}
                 />
                 Zhirou
-              </h1>
+              </p>
             </Block>
 
             {/* Tagline */}
