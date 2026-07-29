@@ -288,7 +288,7 @@ export default function CreationSiteWebMaroc() {
           {/* stats */}
           <div className="reveal mt-16 grid max-w-2xl grid-cols-3 border-y border-black/10">
             {stats.map((s, i) => (
-              <div key={s.l} className={`py-6 ${i < 2 ? "border-r border-black/10" : ""}`}>
+              <div key={s.l} className={`py-6 pl-4 first:pl-0 ${i < 2 ? "border-r border-black/10" : ""}`}>
                 <div className="text-3xl font-extrabold tracking-tight text-black md:text-4xl">{s.n}</div>
                 <div className="mt-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-black/30">
                   {s.l}

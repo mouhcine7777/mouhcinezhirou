@@ -6,6 +6,7 @@ const COPY = {
     links: [
       { label: "Home", href: "/" },
       { label: "Web development", href: "/creation-site-web-maroc" },
+      { label: "Freelance Developer Casablanca", href: "/developpeur-web-freelance-casablanca" },
       { label: "FAQ", href: "/faq" },
     ],
     rights: "All rights reserved",
@@ -15,6 +16,7 @@ const COPY = {
     links: [
       { label: "Accueil", href: "/fr" },
       { label: "Création de site web", href: "/creation-site-web-maroc" },
+      { label: "Développeur Freelance Casablanca", href: "/developpeur-web-freelance-casablanca" },
       { label: "FAQ", href: "/faq" },
     ],
     rights: "Tous droits réservés",

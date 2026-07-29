@@ -325,6 +325,7 @@ export default function ContactSectionEn() {
           {[
             { label: "Home", href: "/" },
             { label: "Web development", href: "/creation-site-web-maroc" },
+            { label: "Freelance Developer Casablanca", href: "/developpeur-web-freelance-casablanca" },
             { label: "FAQ", href: "/faq" },
           ].map((l) => (
             <Link

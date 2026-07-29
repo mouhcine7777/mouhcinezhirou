@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "x-default": `${BASE}/`,
+          en: `${BASE}/`,
           fr: `${BASE}/fr`,
         },
       },
@@ -26,12 +27,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "x-default": `${BASE}/`,
+          en: `${BASE}/`,
           fr: `${BASE}/fr`,
         },
       },
     },
     {
       url: `${BASE}/creation-site-web-maroc`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE}/developpeur-web-freelance-casablanca`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,

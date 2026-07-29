@@ -355,6 +355,7 @@ export default function ContactSection() {
           {[
             { label: "Accueil", href: "/fr" },
             { label: "Création de site web", href: "/creation-site-web-maroc" },
+            { label: "Développeur Freelance Casablanca", href: "/developpeur-web-freelance-casablanca" },
             { label: "FAQ", href: "/faq" },
           ].map((l) => (
             <Link

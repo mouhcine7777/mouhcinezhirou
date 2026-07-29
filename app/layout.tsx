@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mouhcinezhirou.com/",
     languages: {
       "x-default": "https://www.mouhcinezhirou.com/",
+      "en": "https://www.mouhcinezhirou.com/",
       "fr": "https://www.mouhcinezhirou.com/fr",
     },
   },
@@ -193,6 +194,16 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* Every route here is French except "/" and "/v2" (English). A dynamic
+            per-request lang would force the whole site off static rendering,
+            so this corrects the attribute client-side instead — it runs
+            synchronously before paint. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'var p=location.pathname;if(p==="/"||p.indexOf("/v2")===0){document.documentElement.lang="en";}',
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

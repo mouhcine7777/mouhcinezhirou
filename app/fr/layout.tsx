@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mouhcinezhirou.com/fr",
     languages: {
       "x-default": "https://www.mouhcinezhirou.com/",
+      "en": "https://www.mouhcinezhirou.com/",
       "fr": "https://www.mouhcinezhirou.com/fr",
     },
   },
