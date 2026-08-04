@@ -18,7 +18,7 @@ const instrument = Instrument_Serif({
 
 const ACCENT = "#e8ff47";
 const SITE = "https://www.mouhcinezhirou.com";
-const HOME = "/fr";
+const HOME = "/";
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
@@ -104,7 +104,7 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/fr` },
+    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/` },
     { "@type": "ListItem", position: 2, name: "FAQ", item: `${SITE}/faq` },
   ],
 };
@@ -133,6 +133,12 @@ export default function FaqPage() {
             className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
           >
             Création de site web
+          </Link>
+          <Link
+            href="/blog"
+            className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
+          >
+            Blog
           </Link>
           <WhatsAppLink
             href={WHATSAPP}

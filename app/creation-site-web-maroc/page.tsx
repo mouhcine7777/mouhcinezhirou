@@ -18,7 +18,7 @@ const instrument = Instrument_Serif({
 
 const ACCENT = "#e8ff47";
 const SITE = "https://www.mouhcinezhirou.com";
-const HOME = "/fr";
+const HOME = "/";
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
@@ -173,7 +173,7 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/fr` },
+    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/` },
     {
       "@type": "ListItem",
       position: 2,
@@ -218,9 +218,15 @@ export default function CreationSiteWebMaroc() {
         <div className="flex items-center gap-5">
           <Link
             href={HOME}
-            className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
+            className="bg-[#e8ff47] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.97]"
           >
             Portfolio
+          </Link>
+          <Link
+            href="/blog"
+            className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
+          >
+            Blog
           </Link>
           <WhatsAppLink
             href={WHATSAPP}
@@ -422,6 +428,13 @@ export default function CreationSiteWebMaroc() {
             Voir la FAQ →
           </Link>
         </div>
+        <p className="mx-auto mt-6 max-w-5xl text-sm text-black/45">
+          Basé à Casablanca et disponible partout au Maroc — découvrez mon profil de{" "}
+          <Link href="/developpeur-web-freelance-casablanca" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            développeur web freelance à Casablanca
+          </Link>
+          .
+        </p>
       </section>
 
       {/* ══ FINAL CTA ══ */}

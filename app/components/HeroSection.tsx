@@ -22,11 +22,11 @@ const ACCENT = "#e8ff47";
 
 /*
   ──────────────────────────────────────────────────────────
-  CONCEPT — clean entrance reveal
+  CONCEPT — entrée animée propre
 
-    On load, every block fades / slides / un-blurs into place
-    with a staggered delay. No boot terminal, no wireframe
-    skeleton phase — content appears immediately and animates in.
+    Au chargement, chaque bloc apparaît avec un fondu / glissement
+    / dé-floutage décalé. Pas de terminal de boot, pas de phase
+    de squelette filaire — le contenu apparaît et s'anime en place.
 
   VIEWPORT-PROPORTIONAL SCALING
   Every size is `max(mobileMinimum, X vw)` — proportional to the
@@ -57,9 +57,9 @@ const sp = {
 };
 
 const stats = [
-  { n: "5+",  l: "Years of experience" },
-  { n: "40+", l: "Projects delivered"  },
-  { n: "28+", l: "Happy clients"       },
+  { n: "5+",  l: "Années d'expérience" },
+  { n: "40+", l: "Projets livrés"      },
+  { n: "28+", l: "Clients satisfaits"  },
 ];
 
 const stack = [
@@ -68,20 +68,20 @@ const stack = [
 ];
 
 const navLinks = [
-  { label: "Work",    href: "#work",    id: "work"    },
-  { label: "Clients", href: "#clients", id: "clients" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Projets",  href: "#work",    id: "work"    },
+  { label: "Clients",  href: "#clients", id: "clients" },
+  { label: "Contact",  href: "#contact", id: "contact" },
 ];
 
 /* ─── Code typed in the signature card ─── */
 const codeLines = [
   { indent: 0, parts: [{ t: "const ", c: "key" }, { t: "dev", c: "var" }, { t: " = {", c: "plain" }] },
-  { indent: 1, parts: [{ t: "name", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Mouhcine Zhirou'", c: "str" }, { t: ",", c: "plain" }] },
-  { indent: 1, parts: [{ t: "role", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Full Stack Dev'", c: "str" }, { t: ",", c: "plain" }] },
-  { indent: 1, parts: [{ t: "based", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Morocco 🇲🇦'", c: "str" }, { t: ",", c: "plain" }] },
+  { indent: 1, parts: [{ t: "nom", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Mouhcine Zhirou'", c: "str" }, { t: ",", c: "plain" }] },
+  { indent: 1, parts: [{ t: "rôle", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Full Stack Dev'", c: "str" }, { t: ",", c: "plain" }] },
+  { indent: 1, parts: [{ t: "base", c: "prop" }, { t: ": ", c: "plain" }, { t: "'Maroc 🇲🇦'", c: "str" }, { t: ",", c: "plain" }] },
   { indent: 1, parts: [{ t: "stack", c: "prop" }, { t: ": [", c: "plain" }, { t: "'React'", c: "str" }, { t: ", ", c: "plain" }, { t: "'Node'", c: "str" }, { t: ", ", c: "plain" }, { t: "'…'", c: "str" }, { t: "],", c: "plain" }] },
-  { indent: 1, parts: [{ t: "coffee", c: "prop" }, { t: ": ", c: "plain" }, { t: "Infinity", c: "num" }, { t: ",", c: "plain" }] },
-  { indent: 1, parts: [{ t: "available", c: "prop" }, { t: ": ", c: "plain" }, { t: "true", c: "num" }, { t: ",", c: "plain" }] },
+  { indent: 1, parts: [{ t: "café", c: "prop" }, { t: ": ", c: "plain" }, { t: "Infinity", c: "num" }, { t: ",", c: "plain" }] },
+  { indent: 1, parts: [{ t: "disponible", c: "prop" }, { t: ": ", c: "plain" }, { t: "true", c: "num" }, { t: ",", c: "plain" }] },
   { indent: 0, parts: [{ t: "};", c: "plain" }] },
 ];
 
@@ -179,24 +179,22 @@ function ScrollProgressLine() {
 
 function LangSwitcher() {
   const router = useRouter();
-  const switchToFr = () => {
-    // Set cookie so middleware knows this was a manual choice — won't redirect back to /
-    document.cookie = "lang-pref=fr; path=/; max-age=31536000; SameSite=Lax";
-    router.push("/fr");
+  const switchToEn = () => {
+    router.push("/en");
   };
   return (
     <button
-      onClick={switchToFr}
-      aria-label="Passer en français"
+      onClick={switchToEn}
+      aria-label="Switch to English"
       className="flex items-center gap-1.5 group cursor-pointer"
       style={{ background: "none", border: "none", padding: 0 }}
     >
       <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.16em] text-black/35 transition-colors duration-200 group-hover:text-black/70" style={{ fontSize: fs.micro }}>
-        FR
+        EN
       </span>
       <span className="w-px bg-black/15" style={{ height: "0.7em", fontSize: fs.micro }} />
       <span className="hidden font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.16em] text-black/20 transition-colors duration-200 group-hover:text-black/45 sm:inline" style={{ fontSize: fs.micro }}>
-        Français
+        English
       </span>
     </button>
   );
@@ -207,7 +205,7 @@ function LocalTime() {
   useEffect(() => {
     const update = () =>
       setTime(
-        new Intl.DateTimeFormat("en-GB", {
+        new Intl.DateTimeFormat("fr-FR", {
           hour: "2-digit",
           minute: "2-digit",
           timeZone: "Africa/Casablanca",
@@ -337,7 +335,7 @@ function CodeCard({ start, runId }: { start: boolean; runId: number }) {
           dev.ts
         </span>
         <span className="font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.16em]" style={{ fontSize: fs.micro, color: done ? ACCENT : "rgba(255,255,255,0.2)" }}>
-          {done ? "● compiled" : "○ typing…"}
+          {done ? "● compilé" : "○ saisie…"}
         </span>
       </div>
 
@@ -378,7 +376,7 @@ function CodeCard({ start, runId }: { start: boolean; runId: number }) {
 /* ════════════════════════════════════════════
    HERO
 ════════════════════════════════════════════ */
-export default function HeroSectionEn() {
+export default function HeroSectionFr() {
   const { animating, scrollToWork } = useScrollToWork();
   const { step, runId } = useBuildSequence();
   const [scrolled, setScrolled] = useState(false);
@@ -525,6 +523,14 @@ export default function HeroSectionEn() {
           </div>
 
           <div className="flex items-center gap-4">
+            <a
+              href="/blog"
+              className="hidden font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.22em] text-black/75 transition-colors hover:text-black sm:inline"
+              style={{ fontSize: fs.micro }}
+            >
+              Blog
+            </a>
+            <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />
             <LangSwitcher />
             <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />
             <div className="flex items-center gap-2">
@@ -533,7 +539,7 @@ export default function HeroSectionEn() {
                 <span className={`relative inline-flex h-full w-full rounded-full transition-colors duration-500 ${done ? "bg-emerald-500" : "bg-amber-500"}`} />
               </span>
               <span className="hidden font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.16em] text-black/35 sm:inline" style={{ fontSize: fs.micro }}>
-                {done ? "Available" : "Loading…"}
+                {done ? "Disponible" : "Chargement…"}
               </span>
             </div>
           </div>
@@ -560,7 +566,7 @@ export default function HeroSectionEn() {
               <div className="flex items-center gap-3 px-0.5 py-0.5">
                 <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
                 <h1 className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/45" style={{ fontSize: fs.small, margin: 0 }}>
-                  Freelance Full Stack Web Developer · Casablanca, Morocco
+                  Développeur Web Full Stack Freelance · Casablanca, Maroc
                 </h1>
               </div>
             </Block>
@@ -599,8 +605,8 @@ export default function HeroSectionEn() {
                 className="font-[family-name:var(--font-instrument)] italic leading-[1.45] text-black/60"
                 style={{ fontSize: fs.tagline, maxWidth: fl(20, 32), marginTop: fl(1.4, 1.8) }}
               >
-                Freelance full stack web developer in Morocco, crafting fast, reliable custom websites and web apps — from first commit to final pixel.{" "}
-                <span className="text-black">Let&apos;s build something great together</span>.
+                Développeur web freelance au Maroc : je conçois des sites web et applications sur mesure, rapides et fiables, du premier commit au dernier pixel.{" "}
+                <span className="text-black">Construisons quelque chose de grand ensemble</span>.
               </p>
             </Block>
 
@@ -621,7 +627,7 @@ export default function HeroSectionEn() {
                   }}
                 >
                   <span className={`relative z-10 flex items-center gap-2.5 transition-all duration-500 ${animating ? "-translate-y-[200%] opacity-0" : "translate-y-0 opacity-100"} group-hover:text-black`}>
-                    View my work
+                    Voir mes réalisations
                     <svg viewBox="0 0 10 10" fill="none" style={{ width: "0.9em", height: "0.9em" }}>
                       <path d="M5 1v8M5 9L2 6M5 9l3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -630,7 +636,7 @@ export default function HeroSectionEn() {
                     <svg viewBox="0 0 12 12" fill="none" style={{ width: "1em", height: "1em", animation: animating ? "bounceDown 0.6s ease infinite alternate" : "none" }}>
                       <path d="M6 1v10M6 11L2 7M6 11l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    Scrolling…
+                    Défilement…
                   </span>
                   <span
                     className={`absolute inset-0 origin-bottom transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${animating ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"}`}
@@ -644,7 +650,7 @@ export default function HeroSectionEn() {
                   style={{ fontSize: fs.small }}
                 >
                   <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
-                    Let&apos;s chat on WhatsApp
+                    Discutons sur WhatsApp
                   </span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </WhatsAppLink>

@@ -4,9 +4,10 @@ const COPY = {
   en: {
     tagline: "Freelance full stack web developer — Casablanca, Morocco",
     links: [
-      { label: "Home", href: "/" },
+      { label: "Home", href: "/en" },
       { label: "Web development", href: "/creation-site-web-maroc" },
       { label: "Freelance Developer Casablanca", href: "/developpeur-web-freelance-casablanca" },
+      { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
     ],
     rights: "All rights reserved",
@@ -14,9 +15,10 @@ const COPY = {
   fr: {
     tagline: "Développeur web full stack freelance — Casablanca, Maroc",
     links: [
-      { label: "Accueil", href: "/fr" },
+      { label: "Accueil", href: "/" },
       { label: "Création de site web", href: "/creation-site-web-maroc" },
       { label: "Développeur Freelance Casablanca", href: "/developpeur-web-freelance-casablanca" },
+      { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
     ],
     rights: "Tous droits réservés",
@@ -25,7 +27,7 @@ const COPY = {
 
 export default function Footer({ lang = "en" }: { lang?: "en" | "fr" }) {
   const t = COPY[lang];
-  const year = 2025;
+  const year = 2026;
 
   return (
     <footer className="w-full border-t border-white/10 bg-[#080808] px-6 py-10 md:px-14">
@@ -39,7 +41,7 @@ export default function Footer({ lang = "en" }: { lang?: "en" | "fr" }) {
           </span>
         </div>
 
-        <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <nav className="grid grid-cols-2 gap-x-6 gap-y-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
           {t.links.map((l) => (
             <Link
               key={l.href}

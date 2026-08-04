@@ -55,6 +55,10 @@ function LogoItem({ logo }) {
   );
 }
 
+// JS-driven marquee using requestAnimationFrame.
+// Renders exactly 2 identical copies side-by-side.
+// When pos reaches the width of 1 copy, it snaps back to 0 —
+// which is invisible because copy 2 is sitting exactly where copy 1 was.
 function Marquee({ logos, speed = 0.4, direction = "left" }) {
   const trackRef = useRef(null);
   const posRef   = useRef(0);
@@ -80,6 +84,7 @@ function Marquee({ logos, speed = 0.4, direction = "left" }) {
       rafRef.current = requestAnimationFrame(tick);
     };
 
+    // For "right" direction start mid-way so logos enter from the right naturally
     if (direction === "right") posRef.current = track.scrollWidth / 2;
 
     rafRef.current = requestAnimationFrame(tick);
@@ -101,7 +106,7 @@ function Marquee({ logos, speed = 0.4, direction = "left" }) {
 export default function TrustedSection() {
   return (
     <section
-      id="clients"
+    id="clients"
       className={`${bricolage.variable} ${instrument.variable} relative w-full overflow-hidden bg-[#080808]`}
     >
       <div className="h-px w-full bg-white/[0.06]" />
@@ -120,24 +125,24 @@ export default function TrustedSection() {
           <div className="flex items-center gap-4">
             <div className="h-px w-8 bg-[#e8ff47]" />
             <span className="font-[family-name:var(--font-bricolage)] text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-white/35">
-              Ils me font confiance
+              Trusted By
             </span>
             <div className="h-px w-8 bg-[#e8ff47]" />
           </div>
           <h2
             className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.9] tracking-[-0.04em] text-white"
-            style={{ fontSize: "clamp(2.1rem, 6vw, 5rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)" }}
           >
-            Les marques qui font
+            Brands that trust
           </h2>
           <h2
             className="font-[family-name:var(--font-instrument)] italic leading-[0.9] tracking-[-0.02em] text-white/30"
             style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)" }}
           >
-            confiance à mon travail
+            my work
           </h2>
           <p className="mt-3 max-w-md text-center font-[family-name:var(--font-bricolage)] text-sm leading-relaxed text-white/40">
-            Développeur web freelance au Maroc, au service de marques ambitieuses.
+            Freelance web development trusted by brands across Morocco and beyond.
           </p>
         </div>
       </div>
@@ -163,9 +168,9 @@ export default function TrustedSection() {
       {/* ── STAT BAR ── */}
       <div className="grid grid-cols-3 border-t border-white/[0.06]">
         {[
-          { n: "18+", l: "Marques"    },
-          { n: "5+",  l: "Secteurs"   },
-          { n: "3",   l: "Pays"       },
+          { n: "18+", l: "Brands"     },
+          { n: "5+",  l: "Industries" },
+          { n: "3",   l: "Countries"  },
         ].map((s, i) => (
           <div
             key={s.n}

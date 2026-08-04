@@ -29,12 +29,10 @@ export const metadata: Metadata = {
     "faire un site web",
     "développeur React",
     "développeur Next.js",
-    "développeur site e-commerce",
     "agence web Maroc",
     "web developer Morocco",
     "full stack developer Morocco",
     "freelance web developer",
-    "Mouhcine Zhirou",
   ],
   authors: [{ name: "Mouhcine Zhirou", url: "https://www.mouhcinezhirou.com" }],
   creator: "Mouhcine Zhirou",
@@ -43,8 +41,8 @@ export const metadata: Metadata = {
     canonical: "https://www.mouhcinezhirou.com/",
     languages: {
       "x-default": "https://www.mouhcinezhirou.com/",
-      "en": "https://www.mouhcinezhirou.com/",
-      "fr": "https://www.mouhcinezhirou.com/fr",
+      "fr": "https://www.mouhcinezhirou.com/",
+      "en": "https://www.mouhcinezhirou.com/en",
     },
   },
   openGraph: {
@@ -194,14 +192,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Every route here is French except "/" and "/v2" (English). A dynamic
-            per-request lang would force the whole site off static rendering,
-            so this corrects the attribute client-side instead — it runs
-            synchronously before paint. */}
+        {/* Every route here is French except "/en". A dynamic per-request lang
+            would force the whole site off static rendering, so this corrects
+            the attribute client-side instead — it runs synchronously before paint. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              'var p=location.pathname;if(p==="/"||p.indexOf("/v2")===0){document.documentElement.lang="en";}',
+              'var p=location.pathname;if(p.indexOf("/en")===0){document.documentElement.lang="en";}',
           }}
         />
         <script

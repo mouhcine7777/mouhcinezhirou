@@ -22,6 +22,24 @@ const ACCENT = "#e8ff47";
 const WA_GREEN = "#25D366";
 const PHONE = "%2B212694738906";
 
+/*
+  ──────────────────────────────────────────────────────────
+  CONVERSION DESIGN — one giant button, zero ambiguity
+
+  Everything in this section points to ONE action: the huge
+  WhatsApp button center stage. Pulsing glow, WhatsApp-green
+  icon, two-line label, animated arrow — unmistakably a button.
+
+  Supporting cast (all secondary):
+  · trust microcopy under the button (gratuit / sans engagement / <1h)
+  · compact social cards
+  · full-width acid marquee band (second chance CTA)
+
+  Same viewport-proportional fl() scale as the hero.
+  ──────────────────────────────────────────────────────────
+*/
+
+/* X px @1440 reference → vw = X/14.4 */
 const fl = (minRem: number, vw: number) => `max(${minRem}rem, ${vw}vw)`;
 
 const fs = {
@@ -41,10 +59,11 @@ const sp = {
   padX: fl(1.25, 3.9),
 };
 
+/* Pre-written messages — tap = WhatsApp opens with the text typed */
 const quickMessages = [
-  { label: "💼 I have a web project",   text: "Hi Mouhcine 👋 I have a web project I'd love to discuss with you." },
-  { label: "💰 I'd like a quote",       text: "Hi Mouhcine! I'd like to get a quote for my project. When can we talk?" },
-  { label: "⚡ Quick question",         text: "Hey Mouhcine, I have a quick question for you!" },
+  { label: "💼 J'ai un projet de site web", text: "Bonjour Mouhcine 👋 J'ai un projet de site web et j'aimerais en discuter avec vous." },
+  { label: "💰 Je veux un devis",           text: "Bonjour Mouhcine ! J'aimerais avoir un devis pour mon projet. Quand pouvons-nous en parler ?" },
+  { label: "⚡ Question rapide",            text: "Salut Mouhcine, j'ai une question rapide à vous poser !" },
 ];
 
 const waLink = (text?: string) =>
@@ -52,7 +71,7 @@ const waLink = (text?: string) =>
 
 const socials = [
   {
-    label: "Call",
+    label: "Appel direct",
     handle: "+212 694 738 906",
     url: "tel:+212694738906",
     icon: (
@@ -101,7 +120,7 @@ function LocalTime() {
   useEffect(() => {
     const update = () =>
       setTime(
-        new Intl.DateTimeFormat("en-GB", {
+        new Intl.DateTimeFormat("fr-FR", {
           hour: "2-digit",
           minute: "2-digit",
           timeZone: "Africa/Casablanca",
@@ -114,6 +133,7 @@ function LocalTime() {
   return <span suppressHydrationWarning>{time}</span>;
 }
 
+/* WhatsApp logo */
 function WaIcon({ style }: { style?: React.CSSProperties }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" style={style}>
@@ -122,6 +142,9 @@ function WaIcon({ style }: { style?: React.CSSProperties }) {
   );
 }
 
+/* ════════════════════════════════════════════
+   THE GIANT BUTTON — the only star of this section
+════════════════════════════════════════════ */
 function GiantWhatsAppButton() {
   return (
     <WhatsAppLink
@@ -134,8 +157,10 @@ function GiantWhatsAppButton() {
         borderRadius: "2px",
       }}
     >
+      {/* acid fill slides up on hover */}
       <span className="absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" style={{ background: ACCENT }} />
 
+      {/* WhatsApp icon in green disc with ping ring */}
       <span className="relative flex shrink-0 items-center justify-center" style={{ width: fl(3, 3.8), height: fl(3, 3.8) }}>
         <span className="absolute inset-0 animate-ping rounded-full opacity-30" style={{ background: WA_GREEN }} />
         <span className="relative z-10 flex h-full w-full items-center justify-center rounded-full text-white" style={{ background: WA_GREEN }}>
@@ -143,15 +168,17 @@ function GiantWhatsAppButton() {
         </span>
       </span>
 
+      {/* Two-line label */}
       <span className="relative z-10 flex min-w-0 flex-1 flex-col" style={{ gap: fl(0.2, 0.25) }}>
         <span className="font-[family-name:var(--font-bricolage)] font-extrabold uppercase leading-none tracking-[0.08em] text-white transition-colors duration-300 group-hover:text-black" style={{ fontSize: fs.ctaMain }}>
-          Message on WhatsApp
+          Écrire sur WhatsApp
         </span>
         <span className="font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.18em] text-white/45 transition-colors duration-300 group-hover:text-black/60" style={{ fontSize: fs.ctaSub }}>
-          Message ready to send — reply in &lt; 1h
+          Message prêt à envoyer — réponse en &lt; 1h
         </span>
       </span>
 
+      {/* Arrow */}
       <span
         className="relative z-10 flex shrink-0 items-center justify-center border border-white/20 text-white transition-all duration-300 group-hover:translate-x-1 group-hover:border-black/30 group-hover:text-black"
         style={{ width: fl(2.4, 3), height: fl(2.4, 3) }}
@@ -164,7 +191,10 @@ function GiantWhatsAppButton() {
   );
 }
 
-export default function ContactSectionEn() {
+/* ════════════════════════════════════════════
+   CONTACT SECTION
+════════════════════════════════════════════ */
+export default function ContactSection() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
@@ -182,7 +212,7 @@ export default function ContactSectionEn() {
         <div className="flex items-center gap-3" style={{ marginBottom: fl(1, 1.2) }}>
           <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
           <span className="font-[family-name:var(--font-bricolage)] font-semibold uppercase tracking-[0.28em] text-black/40" style={{ fontSize: fs.small }}>
-            Get in touch — Last step
+            Me Contacter — Dernière étape
           </span>
           <span className="h-px" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}`, width: fl(2, 2.2) }} />
         </div>
@@ -192,7 +222,7 @@ export default function ContactSectionEn() {
           className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.9] tracking-[-0.04em] text-black"
           style={{ fontSize: fs.h2 }}
         >
-          Got a project?
+          Un projet ?
         </h2>
         <h2
           className="relative w-fit font-[family-name:var(--font-instrument)] italic leading-[0.95] tracking-[-0.02em] text-black"
@@ -203,7 +233,7 @@ export default function ContactSectionEn() {
             className="absolute -inset-x-[0.12em] inset-y-[0.06em] -z-10 -rotate-1"
             style={{ background: ACCENT }}
           />
-          Let's talk.
+          Parlons-en.
         </h2>
 
         {/* Sub */}
@@ -211,8 +241,8 @@ export default function ContactSectionEn() {
           className="font-[family-name:var(--font-instrument)] italic leading-[1.5] text-black/55 lg:whitespace-nowrap"
           style={{ fontSize: fs.tagline, marginTop: fl(0.9, 1.0) }}
         >
-          One click — the message is already written for you.{" "}
-          <span className="text-black">All you have to do is hit send.</span>
+          Un seul clic — le message est déjà écrit pour vous.{" "}
+          <span className="text-black">Il ne reste qu'à appuyer sur envoyer.</span>
         </p>
 
         {/* THE BUTTON */}
@@ -229,14 +259,14 @@ export default function ContactSectionEn() {
             <svg viewBox="0 0 12 12" fill="none" style={{ width: "1em", height: "1em" }}>
               <path d="M2 6.5L4.8 9.5L10 3" stroke={WA_GREEN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Free
+            Gratuit
           </span>
           <span className="text-black/15">·</span>
           <span className="flex items-center gap-1.5">
             <svg viewBox="0 0 12 12" fill="none" style={{ width: "1em", height: "1em" }}>
               <path d="M2 6.5L4.8 9.5L10 3" stroke={WA_GREEN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            No commitment
+            Sans engagement
           </span>
           <span className="text-black/15">·</span>
           <span className="flex items-center gap-1.5">
@@ -244,12 +274,12 @@ export default function ContactSectionEn() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex h-full w-full rounded-full bg-emerald-500" />
             </span>
-            Available now — Casablanca <LocalTime />
+            Disponible maintenant — Casablanca <LocalTime />
           </span>
         </div>
       </div>
 
-      {/* ══════════════ OTHER CHANNELS ══════════════ */}
+      {/* ══════════════ OTHER CHANNELS — compact row ══════════════ */}
       <div className="grid grid-cols-2 border-t border-black/10 lg:grid-cols-4">
         {socials.map((s, i) => (
           <a
@@ -283,10 +313,10 @@ export default function ContactSectionEn() {
         ))}
       </div>
 
-      {/* ══════════════ ACID BAND — second-chance CTA ══════════════ */}
+      {/* ══════════════ THE ACID BAND — second-chance CTA ══════════════ */}
       <WhatsAppLink
         href={waLink(quickMessages[0].text)}
-        aria-label="Message on WhatsApp"
+        aria-label="Écrire sur WhatsApp"
         className="group relative block overflow-hidden border-y-2 border-black"
         style={{ background: ACCENT }}
       >
@@ -298,13 +328,13 @@ export default function ContactSectionEn() {
           {Array.from({ length: 6 }).map((_, i) => (
             <span
               key={i}
-              className="flex items-center font-[family-name:var(--font-bricolage)] font-extrabold uppercase text-black transition-colors duration-300 group-hover:text-[#e8ff47]"
+              className="flex items-center font-[family-name:var(--font-bricolage)] font-extrabold uppercase  text-black transition-colors duration-300 group-hover:text-[#e8ff47]"
               style={{ fontSize: fs.band, gap: fl(1.2, 1.6), marginRight: fl(1.2, 1.6) }}
             >
-              Message on WhatsApp
+              Écrire sur WhatsApp
               <WaIcon style={{ width: "0.85em", height: "0.85em" }} />
               <span className="font-[family-name:var(--font-instrument)] font-normal normal-case italic tracking-normal">
-                reply in less than an hour
+                réponse en moins d'une heure
               </span>
               <span aria-hidden="true">✦</span>
             </span>
@@ -318,14 +348,15 @@ export default function ContactSectionEn() {
         style={{ padding: `${fl(0.9, 1.0)} ${sp.padX}` }}
       >
         <span className="font-[family-name:var(--font-bricolage)] font-medium uppercase tracking-[0.22em] text-black/25" style={{ fontSize: fs.micro }}>
-          © 2026 Mouhcine Zhirou — All rights reserved
+          © 2026 Mouhcine Zhirou — Tous droits réservés
         </span>
 
-        <nav className="flex items-center gap-x-5 gap-y-1" style={{ fontSize: fs.micro }}>
+        <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1" style={{ fontSize: fs.micro }}>
           {[
-            { label: "Home", href: "/" },
-            { label: "Web development", href: "/creation-site-web-maroc" },
-            { label: "Freelance Developer Casablanca", href: "/developpeur-web-freelance-casablanca" },
+            { label: "Accueil", href: "/" },
+            { label: "Création de site web", href: "/creation-site-web-maroc" },
+            { label: "Développeur Freelance Casablanca", href: "/developpeur-web-freelance-casablanca" },
+            { label: "Blog", href: "/blog" },
             { label: "FAQ", href: "/faq" },
           ].map((l) => (
             <Link
@@ -343,7 +374,7 @@ export default function ContactSectionEn() {
           className="group flex cursor-pointer items-center gap-2 font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.2em] text-black/35 transition-colors hover:text-black"
           style={{ background: "none", border: "none", padding: 0, fontSize: fs.micro }}
         >
-          Back to top
+          Haut de page
           <span className="flex items-center justify-center border border-black/15 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-black" style={{ width: fl(1.4, 1.6), height: fl(1.4, 1.6) }}>
             <svg viewBox="0 0 12 12" fill="none" style={{ width: "0.6em", height: "0.6em", fontSize: fs.body }}>
               <path d="M6 10V2M6 2L2.5 5.5M6 2l3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

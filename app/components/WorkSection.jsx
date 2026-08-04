@@ -16,30 +16,30 @@ const instrument = Instrument_Serif({
 });
 
 const projects = [
-  { id: 1,  title: "Alhabtoor City Hotels",       description: "Luxury hotel chain website with elegant design, booking system, and premium experience.",               tags: ["Luxury", "Hotels"],         url: "https://alhabtoorcity.com/",              image: "/projects/alhabtoorcity-portfolio.jpeg" },
-  { id: 2,  title: "Adventure Road",               description: "Polaris Buggies Club in Marrakesh — thrilling off-road adventures through desert and mountains.",       tags: ["Adventure", "Marrakesh"],   url: "https://www.adventure-road.ma/",          image: "/projects/adventure-road-portfolio.jpeg" },
-  { id: 3,  title: "Palooza Park",                 description: "Entertainment park website with interactive features and booking system for family fun.",               tags: ["Entertainment", "Family"],  url: "https://www.paloozaland.com",             image: "/projects/palooza-portfolio.jpeg" },
-  { id: 4,  title: "Parthenon Holding",            description: "Corporate website showcasing investment portfolio and company vision with elegant design.",              tags: ["Corporate", "Business"],    url: "https://www.parthenon.ma",                image: "/projects/parthenon-portfolio.jpeg" },
-  { id: 5,  title: "Nostalgia Lovers Festival",    description: "Retro-themed festival platform bringing together music lovers for an unforgettable experience.",        tags: ["Music", "Festival"],        url: "https://nostalgialovers.ma/",             image: "/projects/nostalgia-portfolio.jpeg" },
-  { id: 6,  title: "Oxygen Village",               description: "A unique container hotel nestled in Midelt — nature, architecture and tranquility combined.",           tags: ["Hotel", "Eco", "Midelt"],   url: "https://oxygen-village.ma/",              image: "/projects/oxygen-portfolio.jpeg" },
-  { id: 7,  title: "Garden Corner",                description: "Un univers pensé pour vivre, partager et profiter pleinement — a lifestyle destination.",               tags: ["Lifestyle", "Hospitality"], url: "https://gardencorner.vercel.app/",        image: "/projects/gardencorner-portfolio.jpeg" },
-  { id: 8,  title: "Public Events Website",        description: "A modern platform for discovering and managing public events with seamless user experience.",            tags: ["Events", "Web App"],        url: "https://newpe-5j8u.vercel.app/",          image: "/projects/pe-portfolio.jpeg" },
-  { id: 9,  title: "Chiringuito Tanger",           description: "Beach restaurant website featuring Mediterranean cuisine with stunning coastal views.",                  tags: ["Restaurant", "Food"],       url: "https://chiringuito-tanger.com/",         image: "/projects/Chiringuito-portfolio.jpeg" },
-  { id: 10, title: "Magic Garden Festival",        description: "Enchanting lights festival — a magical garden experience brought to life with stunning illuminations.",  tags: ["Festival", "Lights"],       url: "https://magicgarden.ma/",                 image: "/projects/magicgarden-portfolio.jpeg" },
-  { id: 11, title: "Big District Dubai",           description: "Digital agency website designed to showcase services, portfolio and branding identity.",                 tags: ["Agency", "Branding"],       url: "https://bigdistrict.agency/",             image: "/projects/bigdistrict-portfolio.jpeg" },
-  { id: 12, title: "Fanzone Arena CAN 2025",       description: "Official fanzone platform for Africa Cup of Nations 2025 with interactive features and live updates.",  tags: ["Sports", "Events"],         url: "https://fanzone-taupe.vercel.app",        image: "/projects/fanzone-portfolio.jpeg" },
-  { id: 13, title: "Parthenon Project Manager",    description: "Full-featured project management application with team collaboration and task tracking.",               tags: ["SaaS", "Enterprise"],       url: "https://clickdown-mauve.vercel.app/",     image: "/projects/clickdown-portflio.jpeg" },
-  { id: 14, title: "Ayta d'bladi Festival",        description: "Cultural festival website celebrating local traditions with vibrant visuals and event information.",     tags: ["Festival", "Culture"],      url: "http://aytadbladi.com/",                  image: "/projects/aytadbladi-portfolio.jpeg" },
-  { id: 15, title: "Tangerino Restaurant",         description: "Authentic restaurant in Tanger and Rabat offering a rich culinary experience rooted in local flavors.", tags: ["Restaurant", "Food"],       url: "https://tangerino-restaurant.com/",       image: "/projects/tangerino-portfolio.jpeg" },
-  { id: 16, title: "Le Guépard Tanger",            description: "An elegant restaurant in the heart of Tanger offering a refined dining experience.",                   tags: ["Restaurant", "Tanger"],     url: "http://leguepard-tanger.com/",           image: "/projects/leguepard-portfolio.jpeg" },
-  { id: 17, title: "Garden Eataly",                description: "Italian restaurant and pizzeria offering an authentic taste of Italy with a garden-inspired atmosphere.", tags: ["Restaurant", "Italian"],    url: "https://gardeneataly.vercel.app",         image: "/projects/gardeneataly-portfolio.jpeg" },
-  { id: 18, title: "ONMT Event App",               description: "Confidential event management system for national tourism office with advanced features.",               tags: ["Government", "Events"],     url: null,                                      image: "/projects/onmt-portfolio.jpeg" },
-  { id: 19, title: "Green Auto Expo",              description: "Sustainable automotive exhibition platform promoting eco-friendly transportation solutions.",             tags: ["Automotive", "Expo"],       url: "https://greenautoexpo.vercel.app/",       image: "/projects/greenauto-portfolio.jpeg" },
-  { id: 20, title: "Cash Smart Guide",             description: "Smart financial guidance platform helping users make informed decisions about personal finance.",         tags: ["Finance", "Smart Money"],   url: "https://cashsmartguide.com/",             image: "/projects/cashsmartguide-portfolio.jpeg" },
-  { id: 21, title: "Garden Bake's",                description: "Artisan bakery offering freshly baked breads, pastries, and treats with a warm welcoming experience.",  tags: ["Bakery", "Artisan"],        url: "https://gardenbakes.vercel.app",          image: "/projects/gardenbakes-portfolio.jpeg" },
-  { id: 22, title: "Anzar Restaurant Tanger",      description: "Restaurant website in Tanger showcasing the menu and atmosphere with a warm, inviting design.",              tags: ["Restaurant", "Tanger"],     url: "https://anzar-morocco.com/",              image: "/projects/anzar-portfolio.jpeg" },
-  { id: 23, title: "Céline Dion — Concert Tickets", description: "High-conversion ticket landing page for Céline Dion's concert in Morocco, built for speed under heavy traffic.", tags: ["Landing Page", "Events"],  url: "https://publicevents.ma/celine-dion/",    image: "/projects/celinedione-portfolio.jpeg" },
-  { id: 24, title: "Moubadala",                    description: "A platform for professionals to exchange goods and services with each other.",                                  tags: ["Marketplace", "B2B"],      url: "https://moubadala.vercel.app/",           image: "/projects/moubadala-portfolio.jpeg" },
+  { id: 1,  title: "Alhabtoor City Hotels",       description: "Site web d'une chaîne hôtelière de luxe avec un design élégant, un système de réservation et une expérience haut de gamme.",               tags: ["Luxe", "Hôtels"],           url: "https://alhabtoorcity.com/",              image: "/projects/alhabtoorcity-portfolio.jpeg" },
+  { id: 2,  title: "Adventure Road",               description: "Club Polaris Buggies à Marrakech — aventures tout-terrain palpitantes à travers le désert et les montagnes.",                              tags: ["Aventure", "Marrakech"],    url: "https://www.adventure-road.ma/",          image: "/projects/adventure-road-portfolio.jpeg" },
+  { id: 3,  title: "Palooza Park",                 description: "Site web de parc de loisirs avec des fonctionnalités interactives et un système de réservation pour le plaisir en famille.",              tags: ["Loisirs", "Famille"],       url: "https://www.paloozaland.com",             image: "/projects/palooza-portfolio.jpeg" },
+  { id: 4,  title: "Parthenon Holding",            description: "Site web corporate présentant le portefeuille d'investissements et la vision de l'entreprise avec un design raffiné.",                    tags: ["Corporate", "Business"],    url: "https://www.parthenon.ma",                image: "/projects/parthenon-portfolio.jpeg" },
+  { id: 5,  title: "Nostalgia Lovers Festival",    description: "Plateforme de festival rétro réunissant les amateurs de musique pour une expérience inoubliable.",                                        tags: ["Musique", "Festival"],      url: "https://nostalgialovers.ma/",             image: "/projects/nostalgia-portfolio.jpeg" },
+  { id: 6,  title: "Oxygen Village",               description: "Un hôtel en containers unique niché à Midelt — nature, architecture et tranquillité réunies.",                                            tags: ["Hôtel", "Éco", "Midelt"],   url: "https://oxygen-village.ma/",              image: "/projects/oxygen-portfolio.jpeg" },
+  { id: 7,  title: "Garden Corner",                description: "Un univers pensé pour vivre, partager et profiter pleinement — une destination lifestyle.",                                               tags: ["Lifestyle", "Hospitalité"], url: "https://gardencorner.ma/",        image: "/projects/gardencorner-portfolio.jpeg" },
+  { id: 8,  title: "Public Events Website",        description: "Une plateforme moderne pour découvrir et gérer des événements publics avec une expérience utilisateur fluide.",                             tags: ["Événements", "Web App"],    url: "https://newpe-5j8u.vercel.app/",          image: "/projects/pe-portfolio.jpeg" },
+  { id: 9,  title: "Chiringuito Tanger",           description: "Site web de restaurant de plage proposant une cuisine méditerranéenne avec une vue côtière époustouflante.",                              tags: ["Restaurant", "Cuisine"],    url: "https://chiringuito-tanger.com/",         image: "/projects/Chiringuito-portfolio.jpeg" },
+  { id: 10, title: "Magic Garden Festival",        description: "Festival d'illuminations enchanteresses — une expérience magique dans un jardin féerique aux lumières éblouissantes.",                   tags: ["Festival", "Lumières"],     url: "https://magicgarden.ma/",                 image: "/projects/magicgarden-portfolio.jpeg" },
+  { id: 11, title: "Big District Dubai",           description: "Site web d'agence digitale conçu pour présenter les services, le portfolio et l'identité de marque.",                                    tags: ["Agence", "Branding"],       url: "https://bigdistrict.agency/",             image: "/projects/bigdistrict-portfolio.jpeg" },
+  { id: 12, title: "Fanzone Arena CAN 2025",       description: "Plateforme officielle de la fanzone pour la CAN 2025 avec des fonctionnalités interactives et des mises à jour en direct.",              tags: ["Sport", "Événements"],      url: "https://fanzone-taupe.vercel.app",        image: "/projects/fanzone-portfolio.jpeg" },
+  { id: 13, title: "Parthenon Project Manager",    description: "Application complète de gestion de projets avec collaboration d'équipe et suivi des tâches.",                                            tags: ["SaaS", "Entreprise"],       url: "https://clickdown-mauve.vercel.app/",     image: "/projects/clickdown-portflio.jpeg" },
+  { id: 14, title: "Ayta d'bladi Festival",        description: "Site web de festival culturel célébrant les traditions locales avec des visuels vibrants et des informations sur les événements.",       tags: ["Festival", "Culture"],      url: "http://aytadbladi.com/",                  image: "/projects/aytadbladi-portfolio.jpeg" },
+  { id: 15, title: "Tangerino Restaurant",         description: "Restaurant authentique à Tanger et Rabat offrant une riche expérience culinaire ancrée dans les saveurs locales.",                       tags: ["Restaurant", "Cuisine"],    url: "https://tangerino-restaurant.com/",       image: "/projects/tangerino-portfolio.jpeg" },
+  { id: 16, title: "Le Guépard Tanger",            description: "Un restaurant élégant au cœur de Tanger offrant une expérience gastronomique raffinée.",                                                 tags: ["Restaurant", "Tanger"],     url: "http://leguepard-tanger.com/",            image: "/projects/leguepard-portfolio.jpeg" },
+  { id: 17, title: "Garden Eataly",                description: "Restaurant et pizzeria italien proposant une expérience authentique avec une atmosphère inspirée des jardins.",                           tags: ["Restaurant", "Italien"],    url: "https://gardeneataly.vercel.app",         image: "/projects/gardeneataly-portfolio.jpeg" },
+  { id: 18, title: "ONMT Event App",               description: "Système confidentiel de gestion d'événements pour l'office national du tourisme avec des fonctionnalités avancées.",                     tags: ["Gouvernement", "Événements"], url: null,                                    image: "/projects/onmt-portfolio.jpeg" },
+  { id: 19, title: "Green Auto Expo",              description: "Plateforme d'exposition automobile durable promouvant des solutions de transport écologiques.",                                           tags: ["Automobile", "Expo"],       url: "https://greenautoexpo.vercel.app/",       image: "/projects/greenauto-portfolio.jpeg" },
+  { id: 20, title: "Cash Smart Guide",             description: "Plateforme de conseil financier intelligent aidant les utilisateurs à prendre des décisions éclairées sur leurs finances personnelles.",  tags: ["Finance", "Gestion"],       url: "https://cashsmartguide.com/",             image: "/projects/cashsmartguide-portfolio.jpeg" },
+  { id: 21, title: "Garden Bake's",                description: "Boulangerie artisanale proposant pains, pâtisseries et gourmandises fraîchement préparés dans une atmosphère chaleureuse.",              tags: ["Boulangerie", "Artisan"],   url: "https://gardenbakes.vercel.app",          image: "/projects/gardenbakes-portfolio.jpeg" },
+  { id: 22, title: "Anzar Restaurant Tanger",      description: "Site web de restaurant à Tanger mettant en valeur le menu et l'ambiance avec un design chaleureux et accueillant.",                      tags: ["Restaurant", "Tanger"],     url: "https://anzar-morocco.com/",              image: "/projects/anzar-portfolio.jpeg" },
+  { id: 23, title: "Céline Dion — Billetterie Concert", description: "Landing page de billetterie à fort taux de conversion pour le concert de Céline Dion au Maroc, optimisée pour tenir un trafic important.", tags: ["Landing Page", "Événements"], url: "https://publicevents.ma/celine-dion/", image: "/projects/celinedione-portfolio.jpeg" },
+  { id: 24, title: "Moubadala",                    description: "La plateforme pour échanger vos biens et services entre professionnels.",                                       tags: ["Marketplace", "B2B"],     url: "https://moubadala.vercel.app/",           image: "/projects/moubadala-portfolio.jpeg" },
 ];
 
 const PROJECTS_PER_PAGE = 9;
@@ -54,9 +54,8 @@ export default function WorkSection() {
   const currentProjects = projects.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
-    if (page === currentPage) return; // Don't do anything if clicking same page
+    if (page === currentPage) return;
     setCurrentPage(page);
-    // Use setTimeout to ensure the DOM updates before scrolling
     setTimeout(() => {
       if (sectionRef.current) {
         const sectionTop = sectionRef.current.offsetTop;
@@ -81,30 +80,30 @@ export default function WorkSection() {
           <div className="mb-4 flex items-center gap-4">
             <div className="h-px w-8 bg-[#e8ff47]" />
             <span className="font-[family-name:var(--font-bricolage)] text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-white/35">
-              Selected Work
+              Mes Réalisations
             </span>
           </div>
           <h2
             className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.88] tracking-[-0.04em] text-white"
             style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}
           >
-            Projects
+            Projets
           </h2>
           <h2
             className="font-[family-name:var(--font-instrument)] italic leading-[0.88] tracking-[-0.02em] text-white/30"
             style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}
           >
-            & Work
+            & Travaux
           </h2>
           <p className="mt-5 max-w-md font-[family-name:var(--font-bricolage)] text-sm leading-relaxed text-white/40">
-            Websites, e-commerce stores and web apps — designed and developed for brands in Morocco and worldwide.
+            Sites web, boutiques e-commerce et applications — conçus et développés pour des marques au Maroc et à l&apos;international.
           </p>
         </div>
         
         {/* Page indicator */}
         <div className="hidden md:block">
           <span className="font-[family-name:var(--font-bricolage)] text-sm text-white/40">
-            Page {currentPage} of {totalPages}
+            Page {currentPage} sur {totalPages}
           </span>
         </div>
       </div>
@@ -125,7 +124,7 @@ export default function WorkSection() {
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1500/770" }}>
                 <Image
                   src={project.image}
-                  alt={`${project.title} — website designed and developed by Mouhcine Zhirou, freelance full stack web developer`}
+                  alt={`${project.title} — site web conçu et développé par Mouhcine Zhirou, développeur web full stack freelance`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -166,12 +165,12 @@ export default function WorkSection() {
 
                 {isNDA ? (
                   <span className="mt-0.5 shrink-0 font-[family-name:var(--font-bricolage)] text-[0.44rem] font-semibold uppercase tracking-[0.18em] text-white/20">
-                    Confidential
+                    Confidentiel
                   </span>
                 ) : (
                   <div className="mt-0.5 flex shrink-0 items-center gap-2 border border-white/20 px-3 py-2 transition-all duration-200 group-hover:border-white/40 group-hover:bg-white/5">
                     <span className="font-[family-name:var(--font-bricolage)] text-[0.48rem] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors duration-200 group-hover:text-white">
-                      Visit
+                      Visiter
                     </span>
                     <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
                       <path d="M1 11L11 1M11 1H4M11 1V8" stroke="white" strokeOpacity="0.7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -193,22 +192,25 @@ export default function WorkSection() {
       </div>
 
       {/* ── PAGINATION ── */}
-      <div className="flex items-center justify-center gap-3 px-5 py-10 md:px-14 md:py-14">
+      <div className="flex items-center justify-center gap-2 px-5 py-10 md:px-14 md:py-14">
+
+        {/* Précédent */}
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className={`flex items-center gap-2 border px-4 py-2 font-[family-name:var(--font-bricolage)] text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+          className={`flex items-center gap-1 border px-2.5 py-1 md:gap-2 md:px-4 md:py-2 font-[family-name:var(--font-bricolage)] text-[0.44rem] md:text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
             currentPage === 1
               ? "border-white/10 text-white/20 cursor-not-allowed"
               : "border-white/30 text-white/70 hover:border-white/60 hover:bg-white/5 hover:text-white"
           }`}
         >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none" className="md:w-3 md:h-3">
             <path d="M7 3L4 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Previous
+          Précédent
         </button>
 
+        {/* Page numbers — unchanged */}
         <div className="flex items-center gap-2">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
             const isFirst = page === 1;
@@ -243,17 +245,18 @@ export default function WorkSection() {
           })}
         </div>
 
+        {/* Suivant */}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className={`flex items-center gap-2 border px-4 py-2 font-[family-name:var(--font-bricolage)] text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+          className={`flex items-center gap-1 border px-2.5 py-1 md:gap-2 md:px-4 md:py-2 font-[family-name:var(--font-bricolage)] text-[0.44rem] md:text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
             currentPage === totalPages
               ? "border-white/10 text-white/20 cursor-not-allowed"
               : "border-white/30 text-white/70 hover:border-white/60 hover:bg-white/5 hover:text-white"
           }`}
         >
-          Next
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          Suivant
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none" className="md:w-3 md:h-3">
             <path d="M5 3L8 6L5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
@@ -262,7 +265,7 @@ export default function WorkSection() {
       {/* Mobile page indicator */}
       <div className="pb-8 text-center md:hidden">
         <span className="font-[family-name:var(--font-bricolage)] text-xs text-white/40">
-          Page {currentPage} of {totalPages}
+          Page {currentPage} sur {totalPages}
         </span>
       </div>
     </section>

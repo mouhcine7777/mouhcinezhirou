@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "./lib/blog-posts";
 
 const BASE = "https://www.mouhcinezhirou.com";
 
@@ -14,21 +15,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "x-default": `${BASE}/`,
-          en: `${BASE}/`,
-          fr: `${BASE}/fr`,
+          fr: `${BASE}/`,
+          en: `${BASE}/en`,
         },
       },
     },
     {
-      url: `${BASE}/fr`,
+      url: `${BASE}/en`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: {
         languages: {
           "x-default": `${BASE}/`,
-          en: `${BASE}/`,
-          fr: `${BASE}/fr`,
+          fr: `${BASE}/`,
+          en: `${BASE}/en`,
         },
       },
     },
@@ -50,5 +51,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${BASE}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...blogPosts.map((post) => ({
+      url: `${BASE}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }
