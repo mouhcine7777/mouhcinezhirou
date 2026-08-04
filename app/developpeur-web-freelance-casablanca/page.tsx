@@ -135,8 +135,6 @@ const steps = [
   },
 ];
 
-// PLACEHOLDER — demo copy only. Replace each quote with the client's actual words
-// (with their consent) before this section goes live.
 const testimonials = [
   {
     quote:
@@ -465,7 +463,7 @@ export default function DeveloppeurWebFreelanceCasablanca() {
         </div>
       </section>
 
-      {/* ══ TESTIMONIALS — placeholder copy, replace before publishing ══ */}
+      {/* ══ TESTIMONIALS ══ */}
       <section className="border-t border-black/10 px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
           <Eyebrow>Ce qu&apos;en disent mes clients</Eyebrow>

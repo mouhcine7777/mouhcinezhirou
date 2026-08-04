@@ -139,7 +139,7 @@ export default function BlogIndex() {
             backgroundSize: "3vw 3vw",
           }}
         />
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto max-w-7xl">
           <Eyebrow>Le blog</Eyebrow>
           <h1 className="reveal max-w-3xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
             Conseils &amp;{" "}
@@ -162,7 +162,7 @@ export default function BlogIndex() {
       {/* ══ FEATURED ══ */}
       {featured && (
         <section className="px-6 pb-8 md:px-14">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-7xl">
             <Link
               href={`/blog/${featured.slug}`}
               className="reveal group grid grid-cols-1 overflow-hidden border border-black/10 bg-white/40 transition-colors hover:border-black/25 md:grid-cols-2"
@@ -192,8 +192,8 @@ export default function BlogIndex() {
 
       {/* ══ ARTICLE GRID ══ */}
       <section className="px-6 py-16 md:px-14">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <Link
                 key={post.slug}

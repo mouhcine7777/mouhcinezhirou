@@ -86,11 +86,40 @@ function formatDate(iso: string) {
   });
 }
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+// Supports inline `[label](/path)` links inside plain paragraph/list text.
+function renderInline(text: string) {
+  return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!m) return part;
+    return (
+      <Link
+        key={i}
+        href={m[2]}
+        className="font-semibold text-black underline decoration-black/25 underline-offset-2 hover:decoration-black"
+      >
+        {m[1]}
+      </Link>
+    );
+  });
+}
+
 function Block({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "h2":
       return (
-        <h2 className="reveal mt-14 text-2xl font-extrabold tracking-[-0.02em] text-black md:text-3xl">
+        <h2
+          id={slugify(block.text)}
+          className="reveal mt-14 scroll-mt-24 text-2xl font-extrabold tracking-[-0.02em] text-black md:text-3xl"
+        >
           {block.text}
         </h2>
       );
@@ -102,7 +131,7 @@ function Block({ block }: { block: BlogBlock }) {
       );
     case "p":
       return (
-        <p className="reveal mt-5 text-lg leading-relaxed text-black/65">{block.text}</p>
+        <p className="reveal mt-5 text-lg leading-relaxed text-black/65">{renderInline(block.text)}</p>
       );
     case "ul":
       return (
@@ -110,7 +139,7 @@ function Block({ block }: { block: BlogBlock }) {
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3 text-lg leading-relaxed text-black/65">
               <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: ACCENT, boxShadow: `0 0 6px ${ACCENT}` }} />
-              <span>{item}</span>
+              <span>{renderInline(item)}</span>
             </li>
           ))}
         </ul>
@@ -136,7 +165,16 @@ export default async function BlogArticle({
   if (!post) notFound();
 
   const url = `${SITE}/blog/${post.slug}`;
-  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  // Sorted by recency (not declaration order) so newly published posts get
+  // surfaced from every older article instead of only the first two ever written.
+  const related = [...blogPosts]
+    .filter((p) => p.slug !== post.slug)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2);
+
+  const toc = post.content
+    .filter((b): b is { type: "h2"; text: string } => b.type === "h2")
+    .map((b) => ({ text: b.text, id: slugify(b.text) }));
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -201,48 +239,106 @@ export default async function BlogArticle({
         </div>
       </div>
 
-      {/* ══ BREADCRUMB ══ */}
-      <div className="px-6 pt-8 md:px-14">
-        <nav className="mx-auto flex max-w-2xl items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-black/35">
-          <Link href={HOME} className="transition-colors hover:text-black">Accueil</Link>
-          <span>/</span>
-          <Link href="/blog" className="transition-colors hover:text-black">Blog</Link>
-        </nav>
-      </div>
+      <div className="px-6 md:px-14 lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start lg:gap-16">
+        <div className="min-w-0">
+          {/* ══ BREADCRUMB ══ */}
+          <nav className="mx-auto flex max-w-2xl items-center gap-2 pt-8 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-black/35">
+            <Link href={HOME} className="transition-colors hover:text-black">Accueil</Link>
+            <span>/</span>
+            <Link href="/blog" className="transition-colors hover:text-black">Blog</Link>
+          </nav>
 
-      {/* ══ ARTICLE HEADER ══ */}
-      <header className="px-6 pb-10 pt-6 md:px-14">
-        <div className="mx-auto max-w-2xl">
-          <Eyebrow>{post.category}</Eyebrow>
-          <h1 className="reveal text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-black md:text-5xl">
-            {post.title}
-          </h1>
-          <p className="reveal mt-6 text-lg leading-relaxed text-black/55">{post.description}</p>
-          <div className="reveal mt-6 flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-black/35">
-            <span>Mouhcine Zhirou</span>
-            <span aria-hidden>·</span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <span aria-hidden>·</span>
-            <span>{post.readTime} de lecture</span>
+          {/* ══ ARTICLE HEADER ══ */}
+          <header className="pb-10 pt-6">
+            <div className="mx-auto max-w-2xl">
+              <Eyebrow>{post.category}</Eyebrow>
+              <h1 className="reveal text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-black md:text-5xl">
+                {post.title}
+              </h1>
+              <p className="reveal mt-6 text-lg leading-relaxed text-black/55">{post.description}</p>
+              <div className="reveal mt-6 flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-black/35">
+                <span>Mouhcine Zhirou</span>
+                <span aria-hidden>·</span>
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+                <span aria-hidden>·</span>
+                <span>{post.readTime} de lecture</span>
+              </div>
+            </div>
+          </header>
+
+          {/* ══ COVER IMAGE ══ */}
+          <div className="pb-10">
+            <div className="mx-auto max-w-3xl">
+              <BlogCover slug={post.slug} title={post.title} category={post.category} priority />
+            </div>
           </div>
-        </div>
-      </header>
 
-      {/* ══ COVER IMAGE ══ */}
-      <div className="px-6 pb-10 md:px-14">
-        <div className="mx-auto max-w-3xl">
-          <BlogCover slug={post.slug} title={post.title} category={post.category} priority />
+          {/* ══ ARTICLE BODY ══ */}
+          <article className="pb-16">
+            <div className="mx-auto max-w-2xl">
+              {post.content.map((block, i) => (
+                <Block key={i} block={block} />
+              ))}
+            </div>
+          </article>
         </div>
+
+        {/* ══ SIDEBAR (desktop only) ══ */}
+        <aside className="sticky top-24 hidden pb-16 pt-8 lg:block">
+          {toc.length > 0 && (
+            <nav aria-label="Sommaire" className="border border-black/10 p-5">
+              <span className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-black/40">
+                Sommaire
+              </span>
+              <ul className="mt-4 space-y-3 border-l border-black/10 pl-4">
+                {toc.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      className="block text-sm leading-snug text-black/55 transition-colors hover:text-black"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          <div className="mt-6 bg-black p-5">
+            <p className="text-sm font-semibold leading-snug text-white">
+              Un projet web en tête ?
+            </p>
+            <p className="mt-1.5 text-[0.8rem] text-white/50">Devis clair et gratuit sous 24h.</p>
+            <WhatsAppLink
+              href={WHATSAPP}
+              className="mt-4 block w-full bg-[#e8ff47] px-4 py-2.5 text-center text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.98]"
+            >
+              WhatsApp →
+            </WhatsAppLink>
+          </div>
+
+          {related.length > 0 && (
+            <div className="mt-6">
+              <span className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-black/40">
+                À lire aussi
+              </span>
+              <ul className="mt-4 space-y-4">
+                {related.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/blog/${p.slug}`}
+                      className="block text-sm font-semibold leading-snug text-black/70 underline decoration-black/15 underline-offset-2 transition-colors hover:text-black hover:decoration-black/40"
+                    >
+                      {p.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
       </div>
-
-      {/* ══ ARTICLE BODY ══ */}
-      <article className="px-6 pb-16 md:px-14">
-        <div className="mx-auto max-w-2xl">
-          {post.content.map((block, i) => (
-            <Block key={i} block={block} />
-          ))}
-        </div>
-      </article>
 
       {/* ══ INLINE CTA ══ */}
       <section className="border-y border-black/10 bg-white/40 px-6 py-14 md:px-14">

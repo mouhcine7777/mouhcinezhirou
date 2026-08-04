@@ -433,6 +433,10 @@ export default function CreationSiteWebMaroc() {
           <Link href="/developpeur-web-freelance-casablanca" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             développeur web freelance à Casablanca
           </Link>
+          . Votre site actuel traîne à charger ? Je détaille les causes et les solutions dans{" "}
+          <Link href="/blog/site-web-lent-wordpress-vitesse-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            cet article sur la vitesse d&apos;un site web au Maroc
+          </Link>
           .
         </p>
       </section>

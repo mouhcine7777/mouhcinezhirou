@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "3. Penser mobile et vitesse dès le départ" },
       {
         type: "p",
-        text: "Plus de 70% du trafic web au Maroc passe par mobile. Un site pensé « desktop d'abord puis adapté » se sent toujours moins naturel qu'un site conçu mobile-first. Et la vitesse n'est pas un détail technique : c'est un critère de classement Google direct (Core Web Vitals) et le premier facteur qui fait fuir un visiteur avant même de lire votre contenu.",
+        text: "Plus de 70% du trafic web au Maroc passe par mobile. Un site pensé « desktop d'abord puis adapté » se sent toujours moins naturel qu'un site conçu mobile-first. Et la vitesse n'est pas un détail technique : c'est un critère de classement Google direct (Core Web Vitals) et le premier facteur qui fait fuir un visiteur avant même de lire votre contenu. Si vous voulez comprendre concrètement [pourquoi un site est lent et comment le corriger](/blog/site-web-lent-wordpress-vitesse-maroc), j'ai détaillé le sujet dans un article dédié.",
       },
       { type: "h2", text: "4. Construire pour le référencement, pas l'ajouter après coup" },
       {
@@ -220,6 +220,77 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         text: "Prêt à lancer votre projet ? Discutons de vos objectifs sur WhatsApp pour un devis clair et gratuit sous 24h.",
+      },
+    ],
+  },
+  {
+    slug: "site-web-lent-wordpress-vitesse-maroc",
+    title: "Site web lent au Maroc : pourquoi, et comment le corriger",
+    description:
+      "Votre site est lent malgré un bon hébergement ? Les vraies causes (souvent WordPress) et les solutions concrètes pour un site rapide, bien classé sur Google.",
+    category: "Performance",
+    date: "2026-08-06",
+    readTime: "8 min",
+    keywords: [
+      "site web lent maroc",
+      "vitesse site web google",
+      "core web vitals maroc",
+      "react vs wordpress vitesse",
+      "améliorer vitesse site wordpress",
+    ],
+    excerpt:
+      "Un site lent perd des visiteurs avant même qu'ils ne lisent votre contenu, et Google le sait. Voici les vraies causes et comment les corriger.",
+    content: [
+      {
+        type: "p",
+        text: "« Mon site est lent, mais mon hébergement est pourtant bon » : c'est une phrase que j'entends souvent. Le problème est presque toujours ailleurs. Voici comment savoir si votre site est vraiment lent, pourquoi c'est le cas la plupart du temps, et ce qui règle le problème pour de bon.",
+      },
+      { type: "h2", text: "Comment savoir si votre site est vraiment lent" },
+      {
+        type: "p",
+        text: "Google mesure la vitesse avec trois indicateurs concrets, les Core Web Vitals : le temps d'affichage du contenu principal (LCP), la stabilité visuelle pendant le chargement (CLS), et la réactivité au premier clic (INP). Ces chiffres sont publics et gratuits à consulter sur PageSpeed Insights, en entrant simplement l'adresse de votre site. Un score rouge ou orange sur mobile, c'est un signal direct que Google pénalise votre classement, pas juste un détail technique.",
+      },
+      { type: "h2", text: "Pourquoi WordPress est souvent le coupable" },
+      {
+        type: "p",
+        text: "WordPress n'est pas lent par nature. Il le devient avec l'usage : un plugin ajouté pour chaque nouvelle fonctionnalité, un thème générique chargé de fonctionnalités inutilisées, des images jamais compressées, et un hébergement partagé bon marché qui sert des centaines d'autres sites en même temps. Après un an ou deux, un site WordPress traîne souvent 15 à 30 plugins actifs, chacun ajoutant son propre code JavaScript au chargement de la page.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Trop de plugins actifs, dont certains redondants ou oubliés",
+          "Un thème générique lourd, avec des fonctionnalités jamais utilisées",
+          "Des images en pleine résolution, jamais compressées ni redimensionnées",
+          "Un hébergement partagé, sans cache configuré correctement",
+          "Des mises à jour manquées qui accumulent des failles et du code dépassé",
+        ],
+      },
+      { type: "h2", text: "Pourquoi React et Next.js partent avec un avantage structurel" },
+      {
+        type: "p",
+        text: "Un site développé en React et Next.js n'a pas ce problème par construction. Les pages sont pré-générées ou rendues côté serveur, le code est automatiquement découpé pour ne charger que ce qui est nécessaire à chaque page, et l'optimisation des images est intégrée nativement plutôt qu'ajoutée après coup via un plugin. Ce n'est pas une question de talent du développeur : c'est l'architecture elle-même qui élimine la plupart des causes de lenteur avant qu'elles n'existent. C'est justement l'approche que j'utilise pour chaque [création de site web sur mesure au Maroc](/creation-site-web-maroc).",
+      },
+      {
+        type: "quote",
+        text: "Un visiteur qui attend plus de 3 secondes a déjà quitté la page avant de voir votre contenu. Et Google, qui mesure exactement ce délai, en tire les mêmes conclusions que lui.",
+      },
+      { type: "h2", text: "Les solutions concrètes selon votre situation" },
+      {
+        type: "p",
+        text: "Si vous êtes sur WordPress et que le site doit rester en l'état, plusieurs actions ramènent un vrai gain : un plugin de cache correctement configuré, la compression de toutes les images existantes, la désactivation des plugins inutilisés, et un hébergement dédié plutôt que partagé. Ces actions réduisent la lenteur, mais ne l'éliminent pas complètement : l'architecture de base reste la même.",
+      },
+      {
+        type: "p",
+        text: "Si le site est ancien, refait tous les deux ou trois ans, ou critique pour votre activité (e-commerce, génération de leads), la [refonte en développement sur mesure](/creation-site-web-maroc) règle le problème à la racine plutôt que de le limiter. C'est aussi souvent moins coûteux sur la durée qu'une succession de correctifs. Le détail des prix est dans mon [guide des tarifs pour un site web au Maroc](/blog/combien-coute-un-site-web-au-maroc).",
+      },
+      { type: "h2", text: "La vitesse n'est pas qu'un détail technique" },
+      {
+        type: "p",
+        text: "Un site rapide se classe mieux sur Google, retient plus longtemps les visiteurs, et convertit davantage sur mobile, qui représente la majorité du trafic au Maroc. Investir dans la vitesse dès la conception, plutôt que d'essayer de la rattraper après coup, reste la décision la plus rentable qu'on puisse prendre sur un projet web.",
+      },
+      {
+        type: "p",
+        text: "Vous voulez savoir si votre site actuel a un problème de vitesse, ou combien coûterait une refonte plus rapide ? Envoyez-moi le lien sur WhatsApp, je vous donne un avis honnête sous 24h.",
       },
     ],
   },
