@@ -27,7 +27,7 @@ const WHATSAPP =
 export const metadata: Metadata = {
   title: "Développeur Web Freelance à Casablanca",
   description:
-    "Développeur web freelance à Casablanca, spécialisé React & Next.js. Un seul interlocuteur, un devis clair sous 24h, aucune sous-traitance. Sites vitrines, e-commerce et applications sur mesure pour les entreprises de Casablanca.",
+    "Développeur web freelance à Casablanca, spécialisé React et Next.js. Un seul interlocuteur, devis clair sous 24h, sites vitrines et e-commerce sur mesure.",
   keywords: [
     "développeur web freelance Casablanca",
     "développeur freelance Casablanca",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Développeur Web Freelance à Casablanca | Mouhcine Zhirou",
     description:
-      "Un seul interlocuteur, un devis clair sous 24h, zéro sous-traitance. Développeur web freelance à Casablanca spécialisé React & Next.js.",
+      "Un seul interlocuteur, devis clair sous 24h. Développeur web freelance à Casablanca spécialisé React et Next.js.",
     url: `${SITE}${PAGE_PATH}`,
     locale: "fr_MA",
     type: "website",

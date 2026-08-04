@@ -25,9 +25,9 @@ const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
 export const metadata: Metadata = {
-  title: "Blog : Conseils sur la création de site web au Maroc",
+  title: "Blog : Conseils Création de Site Web au Maroc",
   description:
-    "Conseils, guides et retours d'expérience sur la création de site web, le prix d'un site au Maroc, le SEO et le développement React & Next.js, par un développeur web freelance à Casablanca.",
+    "Conseils et guides sur la création de site web, le prix d'un site au Maroc et le SEO, par un développeur web freelance à Casablanca.",
   keywords: [
     "blog développeur web maroc",
     "conseils création site web",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE}/blog` },
   openGraph: {
-    title: "Blog : Conseils sur la création de site web au Maroc",
+    title: "Blog : Conseils Création de Site Web au Maroc",
     description:
       "Guides et conseils sur la création de site web, le prix, et le SEO au Maroc, par un développeur web freelance à Casablanca.",
     url: `${SITE}/blog`,

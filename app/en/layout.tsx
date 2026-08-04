@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Freelance Full Stack Web Developer in Morocco | Custom Website Development",
+  title: "Freelance Full Stack Developer in Morocco",
   description:
-    "Looking for a developer to build your website? Freelance full stack developer based in Casablanca: business websites, e-commerce and custom web apps in React & Next.js. Free quote.",
+    "Freelance full stack web developer based in Casablanca, Morocco. Custom websites, e-commerce and web apps in React and Next.js. Free quote.",
   alternates: {
     canonical: "https://www.mouhcinezhirou.com/en",
     languages: {
@@ -14,10 +13,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title:
-      "Freelance Full Stack Web Developer in Morocco | Custom Website Development",
+    title: "Freelance Full Stack Developer in Morocco",
     description:
-      "Freelance full stack developer based in Casablanca: business websites, e-commerce and custom web apps in React & Next.js.",
+      "Custom websites, e-commerce and web apps in React and Next.js. Freelance developer based in Casablanca, Morocco.",
     url: "https://www.mouhcinezhirou.com/en",
     locale: "en_US",
   },

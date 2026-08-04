@@ -23,10 +23,9 @@ const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
 export const metadata: Metadata = {
-  title:
-    "Création de Site Web au Maroc | Développeur Web Freelance à Casablanca",
+  title: "Création de Site Web au Maroc | Casablanca",
   description:
-    "Création de site web au Maroc par un développeur freelance à Casablanca : sites vitrines, e-commerce et applications sur mesure en React & Next.js. Sites rapides, modernes, responsive et optimisés SEO. Devis gratuit sous 24h.",
+    "Création de site web au Maroc par un développeur freelance à Casablanca : sites vitrines, e-commerce et applications sur mesure en React et Next.js.",
   keywords: [
     "création site web Maroc",
     "création site web Casablanca",
@@ -46,10 +45,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE}/creation-site-web-maroc` },
   openGraph: {
-    title:
-      "Création de Site Web au Maroc | Développeur Web Freelance à Casablanca",
+    title: "Création de Site Web au Maroc | Casablanca",
     description:
-      "Sites vitrines, e-commerce et applications sur mesure en React & Next.js. Développeur web freelance à Casablanca, Maroc. Devis gratuit sous 24h.",
+      "Sites vitrines, e-commerce et applications sur mesure en React et Next.js. Développeur web freelance à Casablanca, Maroc.",
     url: `${SITE}/creation-site-web-maroc`,
     locale: "fr_MA",
     type: "website",

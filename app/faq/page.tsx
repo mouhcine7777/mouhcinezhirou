@@ -23,10 +23,9 @@ const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
 export const metadata: Metadata = {
-  title:
-    "FAQ — Création de Site Web au Maroc | Prix, Délais & Développeur Freelance",
+  title: "FAQ : Prix, Délais et Création de Site Web au Maroc",
   description:
-    "Questions fréquentes sur la création de site web au Maroc : prix, délais, technologies, référencement SEO, e-commerce et maintenance. Réponses d'un développeur web freelance à Casablanca.",
+    "Questions fréquentes sur la création de site web au Maroc : prix, délais, technologies, SEO et maintenance. Réponses d'un développeur freelance à Casablanca.",
   keywords: [
     "prix création site web Maroc",
     "combien coûte un site web Maroc",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE}/faq` },
   openGraph: {
-    title: "FAQ — Création de Site Web au Maroc | Prix, Délais & Développeur Freelance",
+    title: "FAQ : Prix, Délais et Création de Site Web au Maroc",
     description:
       "Prix, délais, technologies et référencement : les réponses d'un développeur web freelance à Casablanca.",
     url: `${SITE}/faq`,

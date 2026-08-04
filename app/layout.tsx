@@ -10,12 +10,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web – Mouhcine Zhirou",
+    default: "Développeur Web Freelance Full Stack au Maroc | Mouhcine Zhirou",
     template: "%s | Mouhcine Zhirou",
   },
   description:
-    "Développeur web full stack freelance au Maroc (Casablanca). Création de sites web modernes, e-commerce et applications sur mesure en React & Next.js. Devis gratuit — disponible pour vos projets.",
+    "Développeur web full stack freelance au Maroc (Casablanca). Sites vitrines, e-commerce et applications sur mesure en React et Next.js. Devis gratuit.",
   keywords: [
     "développeur web freelance",
     "développeur full stack freelance",
@@ -46,10 +45,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title:
-      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web",
+    title: "Développeur Web Freelance Full Stack au Maroc",
     description:
-      "Création de sites web modernes, e-commerce et applications sur mesure en React & Next.js. Développeur freelance basé à Casablanca, Maroc — disponible pour vos projets.",
+      "Sites vitrines, e-commerce et applications sur mesure en React et Next.js. Développeur freelance basé à Casablanca, Maroc.",
     url: "https://www.mouhcinezhirou.com/",
     siteName: "Mouhcine Zhirou — Développeur Web Freelance",
     locale: "fr_MA",
@@ -57,10 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Développeur Web Full Stack Freelance au Maroc | Création de Site Web",
+    title: "Développeur Web Freelance Full Stack au Maroc",
     description:
-      "Création de sites web modernes et applications sur mesure en React & Next.js. Développeur freelance à Casablanca, Maroc.",
+      "Sites vitrines et applications sur mesure en React et Next.js. Développeur freelance à Casablanca, Maroc.",
   },
   robots: {
     index: true,
