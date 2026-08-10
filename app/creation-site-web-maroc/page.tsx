@@ -147,6 +147,14 @@ const cities = [
   "Agadir", "Meknès", "Oujda", "Kénitra", "Tétouan",
 ];
 
+const citySlugs: Record<string, string> = {
+  Casablanca: "developpeur-web-freelance-casablanca",
+  Rabat: "developpeur-web-freelance-rabat",
+  Marrakech: "developpeur-web-freelance-marrakech",
+  Tanger: "developpeur-web-freelance-tanger",
+  Agadir: "developpeur-web-freelance-agadir",
+};
+
 /* ── Structured data ── */
 const serviceLd = {
   "@context": "https://schema.org",
@@ -398,14 +406,24 @@ export default function CreationSiteWebMaroc() {
             Création de site web partout au Maroc
           </h2>
           <div className="reveal mt-8 flex flex-wrap gap-3">
-            {cities.map((c) => (
-              <span
-                key={c}
-                className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55"
-              >
-                {c}
-              </span>
-            ))}
+            {cities.map((c) =>
+              citySlugs[c] ? (
+                <Link
+                  key={c}
+                  href={`/${citySlugs[c]}`}
+                  className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55 transition-colors hover:border-black hover:text-black"
+                >
+                  {c}
+                </Link>
+              ) : (
+                <span
+                  key={c}
+                  className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55"
+                >
+                  {c}
+                </span>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -427,9 +445,13 @@ export default function CreationSiteWebMaroc() {
           </Link>
         </div>
         <p className="mx-auto mt-6 max-w-5xl text-sm text-black/45">
-          Basé à Casablanca et disponible partout au Maroc — découvrez mon profil de{" "}
+          Basé à Casablanca et disponible partout au Maroc, découvrez mon profil de{" "}
           <Link href="/developpeur-web-freelance-casablanca" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             développeur web freelance à Casablanca
+          </Link>
+          {" "}ou l&apos;ensemble des{" "}
+          <Link href="/developpeur-web-freelance-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            villes desservies au Maroc
           </Link>
           . Votre site actuel traîne à charger ? Je détaille les causes et les solutions dans{" "}
           <Link href="/blog/site-web-lent-wordpress-vitesse-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">

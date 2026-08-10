@@ -122,6 +122,8 @@ const jsonLd = {
         { "@type": "City", name: "Casablanca" },
         { "@type": "City", name: "Rabat" },
         { "@type": "City", name: "Marrakech" },
+        { "@type": "City", name: "Tanger" },
+        { "@type": "City", name: "Agadir" },
         { "@type": "Country", name: "Morocco" },
         { "@type": "Country", name: "France" },
         "Worldwide",

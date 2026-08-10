@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
-import Footer from "../components/Footer";
-import WhatsAppLink from "../components/WhatsAppLink";
+import Footer from "./Footer";
+import WhatsAppLink from "./WhatsAppLink";
+import type { CityData } from "../lib/city-pages";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -18,40 +18,12 @@ const instrument = Instrument_Serif({
 });
 
 const ACCENT = "#e8ff47";
-const SITE = "https://www.mouhcinezhirou.com";
 const HOME = "/";
-const PAGE_PATH = "/developpeur-web-freelance-casablanca";
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=%2B212694738906&text&type=phone_number&app_absent=0";
 
-export const metadata: Metadata = {
-  title: "Développeur Web Freelance à Casablanca",
-  description:
-    "Développeur web freelance à Casablanca, spécialisé React et Next.js. Un seul interlocuteur, devis clair sous 24h, sites vitrines et e-commerce sur mesure.",
-  keywords: [
-    "développeur web freelance Casablanca",
-    "développeur freelance Casablanca",
-    "développeur web Casablanca",
-    "freelance informatique Casablanca",
-    "développeur React Casablanca",
-    "développeur Next.js Casablanca",
-    "développeur indépendant Casablanca",
-    "créer un site web Casablanca",
-    "développeur full stack Casablanca",
-    "webdesigner freelance Casablanca",
-  ],
-  alternates: { canonical: `${SITE}${PAGE_PATH}` },
-  openGraph: {
-    title: "Développeur Web Freelance à Casablanca | Mouhcine Zhirou",
-    description:
-      "Un seul interlocuteur, devis clair sous 24h. Développeur web freelance à Casablanca spécialisé React et Next.js.",
-    url: `${SITE}${PAGE_PATH}`,
-    locale: "fr_MA",
-    type: "website",
-  },
-};
-
-/* ── Data ── */
+/* ── Shared, city-agnostic content — genuinely true regardless of which city
+     the client is in, so it's reused rather than reworded per page. ── */
 const stats = [
   { n: "5+", l: "Ans d'expérience" },
   { n: "40+", l: "Projets livrés" },
@@ -74,12 +46,12 @@ const logos = [
 const comparison = [
   {
     critere: "Qui code réellement votre site",
-    freelance: "Moi, directement — du premier croquis au dernier déploiement",
+    freelance: "Moi, directement, du premier croquis au dernier déploiement",
     agence: "Un chef de projet, qui répartit le travail à des devs que vous ne rencontrez jamais",
   },
   {
     critere: "Structure de prix",
-    freelance: "Un tarif qui reflète le travail — pas de marge d'agence ni de frais de structure",
+    freelance: "Un tarif qui reflète le travail, pas de marge d'agence ni de frais de structure",
     agence: "Les mêmes prestations, majorées des frais commerciaux et de gestion",
   },
   {
@@ -101,7 +73,7 @@ const comparison = [
 
 const stack = [
   { t: "React", d: "Interfaces rapides et interactives, sans rechargement de page." },
-  { t: "Next.js", d: "Rendu serveur et SEO natif — vos pages sont indexées correctement dès la mise en ligne." },
+  { t: "Next.js", d: "Rendu serveur et SEO natif, vos pages sont indexées correctement dès la mise en ligne." },
   { t: "Node.js", d: "Un back-end unique en JavaScript, plus simple à maintenir sur la durée." },
   { t: "TypeScript", d: "Du code typé, donc moins de bugs qui remontent en production." },
   { t: "PostgreSQL", d: "Une base de données fiable pour vos commandes, utilisateurs et contenus." },
@@ -121,7 +93,7 @@ const steps = [
   {
     n: "02",
     t: "Un devis que vous comprenez",
-    d: "Sous 24h, vous recevez un prix clair et détaillé — ce qui est inclus, ce qui ne l'est pas, et le délai réel de livraison.",
+    d: "Sous 24h, vous recevez un prix clair et détaillé, ce qui est inclus, ce qui ne l'est pas, et le délai réel de livraison.",
   },
   {
     n: "03",
@@ -138,7 +110,7 @@ const steps = [
 const testimonials = [
   {
     quote:
-      "Mouhcine a repris notre projet rapidement et on a eu un seul interlocuteur du début à la fin — beaucoup plus simple qu'avec une agence.",
+      "Mouhcine a repris notre projet rapidement et on a eu un seul interlocuteur du début à la fin, beaucoup plus simple qu'avec une agence.",
     name: "Nostalgia Lovers",
     role: "Client — Casablanca",
     logo: "/logos/nostalgialovers.webp",
@@ -152,7 +124,7 @@ const testimonials = [
   },
   {
     quote:
-      "Travailler à distance n'a posé aucun problème — réponses rapides sur WhatsApp et un résultat fidèle à ce qu'on voulait.",
+      "Travailler à distance n'a posé aucun problème, réponses rapides sur WhatsApp et un résultat fidèle à ce qu'on voulait.",
     name: "Tangerino",
     role: "Client — Tanger",
     logo: "/logos/tangerino.png",
@@ -172,8 +144,7 @@ const testimonials = [
     logo: "/logos/palooza.png",
   },
   {
-    quote:
-      "Bonne communication du début à la fin, et un site livré dans les délais annoncés.",
+    quote: "Bonne communication du début à la fin, et un site livré dans les délais annoncés.",
     name: "Garden Corner",
     role: "Client",
     logo: "/logos/gardencorner.png",
@@ -181,78 +152,6 @@ const testimonials = [
   },
 ];
 
-const faqs = [
-  {
-    q: "Pourquoi choisir un développeur freelance plutôt qu'une agence web à Casablanca ?",
-    a: "Parce que vous parlez directement à la personne qui écrit le code — pas à un commercial qui transmet vos demandes à une équipe changeante. Résultat : des délais plus courts, un prix sans marge d'intermédiaire, et une vraie continuité si votre site évolue dans le temps.",
-  },
-  {
-    q: "Travaillez-vous uniquement avec des entreprises basées à Casablanca ?",
-    a: "Casablanca est ma base et la majorité de mes clients y sont installés (Maarif, Sidi Maarouf, CasaNearShore, Centre-Ville...), mais je travaille aussi en télétravail avec des clients partout au Maroc et à l'étranger. Un rendez-vous en présentiel à Casablanca est toujours possible si vous le préférez.",
-  },
-  {
-    q: "Est-il possible de se rencontrer en personne avant de démarrer ?",
-    a: "Oui, sans problème pour les clients basés à Casablanca ou de passage en ville. La plupart de mes clients démarrent toutefois directement par WhatsApp ou visio, ce qui suffit largement pour cadrer un projet.",
-  },
-  {
-    q: "Que se passe-t-il si vous êtes indisponible après la livraison de mon site ?",
-    a: "Le code vous appartient et reste propre, documenté et exploitable par n'importe quel développeur si besoin. Dans les faits, je reste l'interlocuteur de mes clients sur le long terme : plusieurs d'entre eux me recontactent des mois, voire des années après la première livraison.",
-  },
-  {
-    q: "Un freelance est-il aussi fiable qu'une agence pour un projet important ?",
-    a: "La fiabilité ne tient pas au statut juridique mais à la méthode : cahier des charges clair, jalons de validation, code versionné et testé. Sur des projets ambitieux, travailler avec un seul développeur senior évite justement les pertes d'information qui surviennent quand une agence fait tourner plusieurs profils sur le même dossier.",
-  },
-];
-
-/* ── Structured data ── */
-const professionalServiceLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${SITE}${PAGE_PATH}#service`,
-  name: "Mouhcine Zhirou — Développeur Web Freelance à Casablanca",
-  description:
-    "Développeur web freelance à Casablanca, spécialisé en React et Next.js. Création de sites vitrines, e-commerce et applications web sur mesure.",
-  url: `${SITE}${PAGE_PATH}`,
-  image: `${SITE}/opengraph-image`,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Casablanca",
-    addressRegion: "Casablanca-Settat",
-    addressCountry: "MA",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Casablanca",
-  },
-  provider: { "@id": `${SITE}/#person` },
-};
-
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/` },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Développeur Web Freelance à Casablanca",
-      item: `${SITE}${PAGE_PATH}`,
-    },
-  ],
-};
-
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
-/* ── UI atoms ── */
 function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
   return (
     <div className="reveal mb-6 flex items-center gap-3">
@@ -264,13 +163,9 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
   );
 }
 
-export default function DeveloppeurWebFreelanceCasablanca() {
+export default function CityLandingPage({ data }: { data: CityData }) {
   return (
     <main className={`${bricolage.variable} ${instrument.variable} bg-[#F2F0EB] font-[family-name:var(--font-bricolage)]`}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-
       {/* ══ TOP BAR ══ */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b border-black/10 bg-[#F2F0EB]/90 px-6 py-4 backdrop-blur-md md:px-14">
         <Link href={HOME} className="group flex items-center gap-3" style={{ textDecoration: "none" }}>
@@ -315,21 +210,18 @@ export default function DeveloppeurWebFreelanceCasablanca() {
           }}
         />
         <div className="relative mx-auto max-w-5xl">
-          <Eyebrow>Freelance basé à Casablanca — disponible cette semaine</Eyebrow>
+          <Eyebrow>{data.eyebrow}</Eyebrow>
 
           <h1 className="reveal max-w-4xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
             Développeur web freelance à{" "}
             <span className="relative inline-block">
               <span aria-hidden className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1" style={{ background: ACCENT }} />
-              Casablanca
+              {data.city}
             </span>
           </h1>
 
           <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-black/60 md:text-xl">
-            Je m&apos;appelle Mouhcine, <strong className="font-semibold text-black/80">développeur web freelance basé à Casablanca</strong>.
-            Pas d&apos;agence entre nous, pas de commercial, pas de sous-traitance : je conçois et je code moi-même
-            chaque site, du premier appel WhatsApp à la mise en ligne — en{" "}
-            <strong className="font-semibold text-black/80">React et Next.js</strong>.
+            {data.heroIntro}
           </p>
 
           <div className="reveal mt-10 flex flex-wrap items-center gap-4">
@@ -341,11 +233,11 @@ export default function DeveloppeurWebFreelanceCasablanca() {
               <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
             </WhatsAppLink>
             <a
-              href="#freelance-vs-agence"
+              href="#local"
               className="group flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
             >
               <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
-                Freelance vs agence
+                Pourquoi {data.city}
               </span>
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
@@ -366,7 +258,7 @@ export default function DeveloppeurWebFreelanceCasablanca() {
       <section className="border-y border-black/10 bg-[#F2F0EB] px-6 py-14 md:px-14">
         <div className="mx-auto max-w-5xl">
           <p className="reveal text-center text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-black/35">
-            Ils m&apos;ont fait confiance à Casablanca et ailleurs
+            Ils m&apos;ont fait confiance au Maroc
           </p>
           <div className="reveal mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
             {logos.map((l) => (
@@ -382,15 +274,32 @@ export default function DeveloppeurWebFreelanceCasablanca() {
         </div>
       </section>
 
-      {/* ══ FREELANCE VS AGENCE ══ */}
-      <section id="freelance-vs-agence" className="bg-[#080808] px-6 py-20 md:px-14 md:py-28">
+      {/* ══ LOCAL CONTEXT (the actually differentiated section) ══ */}
+      <section id="local" className="bg-[#080808] px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
-          <Eyebrow dark>Freelance ou agence ?</Eyebrow>
+          <Eyebrow dark>{data.city}</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+            {data.localContextTitle}
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5">
+            {data.localContextBody.map((p, i) => (
+              <p key={i} className="reveal text-base leading-relaxed text-white/60 md:text-lg">
+                {p}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ FREELANCE VS AGENCE ══ */}
+      <section className="px-6 py-20 md:px-14 md:py-28">
+        <div className="mx-auto max-w-5xl">
+          <Eyebrow>Freelance ou agence ?</Eyebrow>
+          <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             Ce qui change vraiment{" "}
             <span className="font-[family-name:var(--font-instrument)] italic">quand vous engagez un freelance</span>
           </h2>
-          <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
+          <p className="reveal mt-5 max-w-2xl text-black/55 md:text-lg">
             Aucune des deux options n&apos;est mauvaise en soi. Voici, honnêtement, ce qui distingue les deux
             façons de travailler, pour que vous choisissiez en connaissance de cause.
           </p>
@@ -398,20 +307,20 @@ export default function DeveloppeurWebFreelanceCasablanca() {
           <div className="mt-14 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse text-left">
               <thead>
-                <tr className="border-b border-white/15">
-                  <th className="py-4 pr-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/35">Critère</th>
-                  <th className="py-4 pr-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em]" style={{ color: ACCENT }}>
+                <tr className="border-b border-black/15">
+                  <th className="py-4 pr-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-black/35">Critère</th>
+                  <th className="py-4 pr-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em]" style={{ color: "#8a8a1f" }}>
                     Moi, en freelance
                   </th>
-                  <th className="py-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/35">Une agence</th>
+                  <th className="py-4 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-black/35">Une agence</th>
                 </tr>
               </thead>
               <tbody>
                 {comparison.map((row) => (
-                  <tr key={row.critere} className="reveal border-b border-white/10 align-top">
-                    <td className="py-5 pr-4 text-sm font-bold text-white md:text-base">{row.critere}</td>
-                    <td className="py-5 pr-4 text-sm leading-relaxed text-white/75 md:text-base">{row.freelance}</td>
-                    <td className="py-5 text-sm leading-relaxed text-white/40 md:text-base">{row.agence}</td>
+                  <tr key={row.critere} className="reveal border-b border-black/10 align-top">
+                    <td className="py-5 pr-4 text-sm font-bold text-black md:text-base">{row.critere}</td>
+                    <td className="py-5 pr-4 text-sm leading-relaxed text-black/75 md:text-base">{row.freelance}</td>
+                    <td className="py-5 text-sm leading-relaxed text-black/40 md:text-base">{row.agence}</td>
                   </tr>
                 ))}
               </tbody>
@@ -421,7 +330,7 @@ export default function DeveloppeurWebFreelanceCasablanca() {
       </section>
 
       {/* ══ STACK ══ */}
-      <section className="px-6 py-20 md:px-14 md:py-28">
+      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
           <Eyebrow>Ma stack technique</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
@@ -444,7 +353,7 @@ export default function DeveloppeurWebFreelanceCasablanca() {
       </section>
 
       {/* ══ PROCESS ══ */}
-      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
+      <section className="px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
           <Eyebrow>Comment on travaille ensemble</Eyebrow>
           <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
@@ -464,11 +373,11 @@ export default function DeveloppeurWebFreelanceCasablanca() {
       </section>
 
       {/* ══ TESTIMONIALS ══ */}
-      <section className="border-t border-black/10 px-6 py-20 md:px-14 md:py-28">
+      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
           <Eyebrow>Ce qu&apos;en disent mes clients</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
-            Des retours de clients à Casablanca
+            Des retours de clients au Maroc
           </h2>
 
           <div className="mt-14 grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-3">
@@ -501,11 +410,11 @@ export default function DeveloppeurWebFreelanceCasablanca() {
         <div className="mx-auto max-w-3xl">
           <Eyebrow>Questions fréquentes</Eyebrow>
           <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-black md:text-4xl">
-            Avant d&apos;engager un freelance à Casablanca
+            Avant d&apos;engager un freelance à {data.city}
           </h2>
 
           <div className="mt-12 divide-y divide-black/10 border-y border-black/10">
-            {faqs.map((f) => (
+            {data.faqs.map((f) => (
               <details key={f.q} className="group py-6">
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
                   <h3 className="text-lg font-bold leading-snug text-black md:text-xl">{f.q}</h3>
@@ -527,12 +436,23 @@ export default function DeveloppeurWebFreelanceCasablanca() {
             <Link href="/creation-site-web-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               création de site web au Maroc
             </Link>
-            . Vous n&apos;êtes pas à Casablanca ? Je travaille aussi avec des clients dans{" "}
-            <Link href="/developpeur-web-freelance-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
-              les autres grandes villes du Maroc
-            </Link>
             .
           </p>
+
+          {data.neighborCities.length > 0 && (
+            <p className="mt-4 text-sm text-black/45">
+              Je travaille aussi avec des clients à{" "}
+              {data.neighborCities.map((c, i) => (
+                <span key={c.slug}>
+                  <Link href={`/${c.slug}`} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+                    {c.name}
+                  </Link>
+                  {i < data.neighborCities.length - 1 ? " et " : ""}
+                </span>
+              ))}
+              .
+            </p>
+          )}
         </div>
       </section>
 
@@ -543,12 +463,12 @@ export default function DeveloppeurWebFreelanceCasablanca() {
             Un projet web à{" "}
             <span className="relative inline-block text-black">
               <span aria-hidden className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1" style={{ background: ACCENT }} />
-              Casablanca
+              {data.city}
             </span>{" "}
             ?
           </h2>
           <p className="reveal mx-auto mt-6 max-w-xl text-lg text-white/50">
-            Écrivez-moi sur WhatsApp — je réponds moi-même, en général en moins d&apos;une heure.
+            Écrivez-moi sur WhatsApp, je réponds moi-même, en général en moins d&apos;une heure.
           </p>
           <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-4">
             <WhatsAppLink

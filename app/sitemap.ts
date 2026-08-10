@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "./lib/blog-posts";
+import { cityPages } from "./lib/city-pages";
 
 const BASE = "https://www.mouhcinezhirou.com";
 
@@ -45,6 +46,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${BASE}/developpeur-web-freelance-maroc`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...cityPages.map((c) => ({
+      url: `${BASE}/${c.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${BASE}/faq`,
       lastModified,
