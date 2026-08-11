@@ -436,6 +436,10 @@ export default function CityLandingPage({ data }: { data: CityData }) {
             <Link href="/creation-site-web-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               création de site web au Maroc
             </Link>
+            . Vous voulez voir du concret avant de vous décider ?{" "}
+            <Link href="/#work" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+              Découvrez mes réalisations
+            </Link>
             .
           </p>
 

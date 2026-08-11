@@ -511,6 +511,10 @@ export default function DeveloppeurWebFreelanceMaroc() {
             <Link href="/blog/guide-complet-creation-site-web-maroc-2026" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               guide complet pour créer un site web en 2026
             </Link>
+            . Vous voulez voir du concret avant de vous décider ?{" "}
+            <Link href="/#work" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+              Découvrez mes réalisations
+            </Link>
             .
           </p>
         </div>

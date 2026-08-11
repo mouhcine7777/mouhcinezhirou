@@ -341,7 +341,7 @@ export default async function BlogArticle({
       </div>
 
       {/* ══ INLINE CTA ══ */}
-      <section className="border-y border-black/10 bg-white/40 px-6 py-14 md:px-14">
+      <section className="border-y border-black/10 px-6 py-14 md:px-14">
         <div className="mx-auto flex max-w-2xl flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-xl font-extrabold tracking-[-0.02em] text-black">

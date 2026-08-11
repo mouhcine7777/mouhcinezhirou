@@ -193,12 +193,12 @@ export default function BlogIndex() {
       {/* ══ ARTICLE GRID ══ */}
       <section className="px-6 py-16 md:px-14">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="reveal group flex flex-col justify-between bg-[#F2F0EB] transition-colors hover:bg-white/60"
+                className="reveal group flex flex-col justify-between border border-black/10 bg-[#F2F0EB] transition-colors hover:border-black/25 hover:bg-white/60"
                 style={{ textDecoration: "none" }}
               >
                 <BlogCover slug={post.slug} title={post.title} category={post.category} />

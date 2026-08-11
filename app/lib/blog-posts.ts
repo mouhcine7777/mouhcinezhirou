@@ -19,6 +19,138 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "seo-local-maroc-referencement-google-casablanca",
+    title: "SEO local au Maroc : comment être visible sur Google en 2026",
+    description:
+      "Comment optimiser le référencement local de votre entreprise au Maroc : Google Business Profile, mots-clés locaux, avis clients. Guide pratique par un développeur web.",
+    category: "SEO",
+    date: "2026-08-11",
+    readTime: "10 min",
+    keywords: [
+      "seo local maroc",
+      "référencement local maroc",
+      "seo casablanca",
+      "référencement google maroc",
+      "être visible sur google maroc",
+    ],
+    excerpt:
+      "Un site magnifique que Google ne trouve pas ne rapporte rien. Les 5 piliers du référencement local au Maroc, expliqués sans jargon marketing.",
+    content: [
+      {
+        type: "p",
+        text: "Vous avez un hôtel, un restaurant, une agence de voyage ou une boutique en ligne au Maroc, et vos clients potentiels ne vous trouvent pas sur Google ? Ce n'est presque jamais un problème de « chance » ou de concurrence écrasante. C'est un problème de SEO local mal fait, ou pas fait du tout.",
+      },
+      {
+        type: "p",
+        text: "En construisant des sites pour des hôtels, riads et agences au Maroc, je vois le même schéma revenir : un site rapide, bien codé, mais invisible sur Google. Voici ce qui fait la différence entre un site que personne ne trouve et un site qui apparaît en première page à Casablanca, Marrakech ou ailleurs.",
+      },
+      { type: "h2", text: "Qu'est-ce que le SEO local, et pourquoi c'est différent au Maroc" },
+      {
+        type: "p",
+        text: "Le SEO local, c'est l'ensemble des techniques qui permettent à votre entreprise d'apparaître quand quelqu'un cherche un service près de lui : « restaurant Casablanca centre-ville », « riad Marrakech médina », « agence web Maroc ». Au Maroc, ce jeu a ses propres règles.",
+      },
+      {
+        type: "ul",
+        items: [
+          "La concurrence reste faible dans la plupart des secteurs et villes, hors Casablanca et Marrakech : un travail sérieux paie vite",
+          "Le bilinguisme français/arabe (et souvent l'anglais pour le tourisme) change le ciblage des mots-clés : beaucoup d'entreprises ne ciblent qu'une langue et perdent la moitié du trafic potentiel",
+          "Google Business Profile est largement sous-exploité par les PME marocaines, alors que c'est souvent le levier le plus rapide",
+        ],
+      },
+      {
+        type: "p",
+        text: "Si votre site a des [performances lentes](/blog/site-web-lent-wordpress-vitesse-maroc), aucune stratégie de SEO local ne compensera : Google pénalise directement la lenteur dans son classement.",
+      },
+      { type: "h2", text: "Les 5 piliers du SEO local au Maroc" },
+      { type: "h3", text: "1. Optimiser sa fiche Google Business Profile" },
+      {
+        type: "p",
+        text: "C'est le levier n°1, et le plus négligé. Une fiche bien remplie peut, à elle seule, générer plus de visibilité qu'un site entier mal référencé.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Catégorie principale précise (pas « entreprise » mais « restaurant marocain », « riad », « agence de voyage »)",
+          "Adresse exacte, zone de service si vous vous déplacez",
+          "Photos réelles et récentes, mises à jour régulièrement",
+          "Horaires toujours à jour, notamment pendant Ramadan et les jours fériés marocains",
+          "Description avec vos mots-clés principaux, écrite naturellement",
+        ],
+      },
+      { type: "h3", text: "2. Les avis clients : le facteur le plus sous-estimé" },
+      {
+        type: "p",
+        text: "Google utilise le volume, la fréquence et la qualité des avis comme signal de confiance direct. Une entreprise avec 50 avis à 4,5 étoiles battra presque toujours un concurrent avec 5 avis, même si son site est mieux fait.",
+      },
+      {
+        type: "quote",
+        text: "Demandez systématiquement un avis après chaque prestation, et répondez à tous les avis, positifs et négatifs. Cette activité est elle-même un signal de référencement.",
+      },
+      { type: "h3", text: "3. Mots-clés locaux : penser comme vos clients cherchent" },
+      {
+        type: "p",
+        text: "Un piège fréquent : cibler « hôtel de luxe » au lieu de « hôtel de luxe Marrakech médina » ou « riad avec piscine Marrakech pas cher ». Plus une requête est précise géographiquement, plus elle convertit, et plus elle est facile à ranker. Utilisez ces mots-clés naturellement dans vos titres de page, vos H1/H2, l'URL et le contenu, jamais en les répétant artificiellement.",
+      },
+      { type: "h3", text: "4. Contenu local et pages dédiées par ville ou secteur" },
+      {
+        type: "p",
+        text: "Si vous servez plusieurs villes, une seule page générique « nos services » ne suffit pas. Google favorise les pages spécifiques à chaque zone géographique, avec du contenu réellement différent, pas du texte copié-collé avec juste le nom de ville changé. C'est le même principe qui structure notre [guide complet de création de site web au Maroc](/blog/guide-complet-creation-site-web-maroc-2026) : la structure du site doit refléter la structure réelle de votre activité, pas l'inverse.",
+      },
+      { type: "h3", text: "5. Les fondations techniques : vitesse, mobile, structure" },
+      {
+        type: "p",
+        text: "Le meilleur contenu local du monde ne sert à rien si le site met plus de 3 secondes à charger, s'il n'est pas parfaitement responsive sur mobile (plus de 70% des recherches locales au Maroc se font sur smartphone), ou si la structure HTML n'a pas de balises propres. C'est un point que je vois systématiquement mal géré par les templates génériques, une des raisons pour lesquelles bien choisir entre un [développeur freelance ou une agence](/blog/developpeur-freelance-vs-agence-web-maroc) compte autant que le référencement lui-même.",
+      },
+      { type: "h2", text: "Combien de temps avant de voir des résultats ?" },
+      {
+        type: "p",
+        text: "Le SEO local n'est pas instantané. Voici une timeline réaliste, basée sur des projets réels au Maroc :",
+      },
+      {
+        type: "ul",
+        items: [
+          "Semaines 1-2 : optimisation Google Business Profile et corrections techniques du site, premiers effets sur les recherches très locales",
+          "Mois 1-3 : montée progressive sur les mots-clés de niche, à faible concurrence",
+          "Mois 3-6 : positions stables en première page sur les requêtes locales ciblées, si le rythme de contenu et d'avis est maintenu",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Toute agence qui promet la première position en une semaine vend du vent.",
+      },
+      { type: "h2", text: "Questions fréquentes" },
+      { type: "h3", text: "Le SEO local coûte-t-il cher au Maroc ?" },
+      {
+        type: "p",
+        text: "Non, c'est souvent le levier marketing le plus rentable pour une PME marocaine : Google Business Profile est gratuit, et l'essentiel du travail est de la structure et de la constance, pas du budget publicitaire. Le vrai coût, c'est le temps, ou un prestataire qui s'en occupe pour vous.",
+      },
+      { type: "h3", text: "Faut-il un site en français, en arabe, ou les deux ?" },
+      {
+        type: "p",
+        text: "Idéalement les deux, avec des pages distinctes et correctement balisées, surtout si vous ciblez à la fois une clientèle locale et internationale (tourisme, hôtellerie). Un site uniquement en français perd une part significative des recherches locales en arabe.",
+      },
+      { type: "h3", text: "Google Business Profile suffit-il, ou ai-je besoin d'un site web ?" },
+      {
+        type: "p",
+        text: "Les deux sont complémentaires, pas interchangeables. La fiche Google capte l'intention immédiate (« près de moi »), le site convertit et construit la confiance sur le long terme, en plus de vous rendre indépendant de la plateforme.",
+      },
+      { type: "h3", text: "Puis-je faire le SEO local moi-même ?" },
+      {
+        type: "p",
+        text: "Oui, en grande partie : Google Business Profile et la collecte d'avis ne demandent pas de compétences techniques. En revanche, les fondations techniques du site (vitesse, structure, balisage) demandent souvent un développeur, ce qui est précisément le type de travail que je fais pour mes clients.",
+      },
+      { type: "h2", text: "En résumé" },
+      {
+        type: "p",
+        text: "Le SEO local au Maroc n'est pas un mystère réservé aux grandes agences : c'est une combinaison de fiche Google bien tenue, d'avis clients réguliers, de mots-clés précis, de contenu local pertinent, et d'un site techniquement solide. La plupart des entreprises marocaines n'en font qu'un seul de ces cinq piliers. Celles qui font les cinq dominent leur marché local.",
+      },
+      {
+        type: "p",
+        text: "Vous voulez un avis honnête sur la visibilité locale de votre entreprise, ou repartir sur un site pensé dès le départ pour le référencement ? [Discutons de votre projet](/#contact), je vous montre concrètement où vous perdez des clients potentiels, et je peux vous montrer des [réalisations pour le secteur hôtelier et touristique](/#work).",
+      },
+    ],
+  },
+  {
     slug: "combien-coute-un-site-web-au-maroc",
     title: "Combien coûte un site web au Maroc en 2026 ? Le guide des prix",
     description:
@@ -68,6 +200,10 @@ export const blogPosts: BlogPost[] = [
           "Le contenu : textes et photos déjà prêts, ou à produire ensemble (rédaction, shooting)",
           "La maintenance après livraison : mises à jour, sauvegardes, évolutions",
         ],
+      },
+      {
+        type: "p",
+        text: "Un budget bien pensé inclut aussi le [SEO local](/blog/seo-local-maroc-referencement-google-casablanca) : un site cher mais invisible sur Google rapporte moins qu'un site plus modeste, correctement référencé.",
       },
       { type: "h2", text: "Freelance ou agence : l'écart de prix expliqué" },
       {
@@ -201,7 +337,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "4. Construire pour le référencement, pas l'ajouter après coup" },
       {
         type: "p",
-        text: "Le SEO ne se « rajoute » pas à la fin. Il se construit dans la structure : balises de titre uniques par page, une seule balise h1 par page, des données structurées (schema.org), un site rapide, un sitemap XML, et un contenu qui répond réellement aux questions que vos clients tapent sur Google.",
+        text: "Le SEO ne se « rajoute » pas à la fin. Il se construit dans la structure : balises de titre uniques par page, une seule balise h1 par page, des données structurées (schema.org), un site rapide, un sitemap XML, et un contenu qui répond réellement aux questions que vos clients tapent sur Google. La structure technique n'est qu'une moitié du travail : l'autre moitié est le [SEO local](/blog/seo-local-maroc-referencement-google-casablanca), souvent décisif pour une entreprise qui cible une clientèle marocaine.",
       },
       {
         type: "quote",
@@ -286,7 +422,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "La vitesse n'est pas qu'un détail technique" },
       {
         type: "p",
-        text: "Un site rapide se classe mieux sur Google, retient plus longtemps les visiteurs, et convertit davantage sur mobile, qui représente la majorité du trafic au Maroc. Investir dans la vitesse dès la conception, plutôt que d'essayer de la rattraper après coup, reste la décision la plus rentable qu'on puisse prendre sur un projet web.",
+        text: "Un site rapide se classe mieux sur Google, retient plus longtemps les visiteurs, et convertit davantage sur mobile, qui représente la majorité du trafic au Maroc. Investir dans la vitesse dès la conception, plutôt que d'essayer de la rattraper après coup, reste la décision la plus rentable qu'on puisse prendre sur un projet web. Une fois cette base technique posée, c'est le [SEO local](/blog/seo-local-maroc-referencement-google-casablanca) qui détermine si vos clients vous trouvent réellement sur Google.",
       },
       {
         type: "p",
