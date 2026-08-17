@@ -27,16 +27,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "mouhcinezhirou.com" }],
-        destination: "https://www.mouhcinezhirou.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // Apex -> www redirect moved to middleware.ts: Cloudflare's Next.js
+  // adapter doesn't interpolate ":path*" in redirects() destinations the
+  // way Vercel does, which produced a broken literal "/:path*" redirect.
 };
 
 export default nextConfig;
