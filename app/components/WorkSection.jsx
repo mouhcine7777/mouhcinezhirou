@@ -39,7 +39,7 @@ const projects = [
   { id: 21, title: "Garden Bake's",                description: "Boulangerie artisanale proposant pains, pâtisseries et gourmandises fraîchement préparés dans une atmosphère chaleureuse.",              tags: ["Boulangerie", "Artisan"],   url: "https://gardenbakes.vercel.app",          image: "/projects/gardenbakes-portfolio.jpeg" },
   { id: 22, title: "Anzar Restaurant Tanger",      description: "Site web de restaurant à Tanger mettant en valeur le menu et l'ambiance avec un design chaleureux et accueillant.",                      tags: ["Restaurant", "Tanger"],     url: "https://anzar-morocco.com/",              image: "/projects/anzar-portfolio.jpeg" },
   { id: 23, title: "Céline Dion — Billetterie Concert", description: "Landing page de billetterie à fort taux de conversion pour le concert de Céline Dion au Maroc, optimisée pour tenir un trafic important.", tags: ["Landing Page", "Événements"], url: "https://publicevents.ma/celine-dion/", image: "/projects/celinedione-portfolio.jpeg" },
-  { id: 24, title: "Moubadala",                    description: "La plateforme pour échanger vos biens et services entre professionnels.",                                       tags: ["Marketplace", "B2B"],     url: "https://moubadala.vercel.app/",           image: "/projects/moubadala-portfolio.jpeg" },
+  { id: 24, title: "Moubadala",                    description: "La plateforme pour échanger vos biens et services entre professionnels.",                                       tags: ["Marketplace", "B2B"],     url: "https://moubadala.ma/",           image: "/projects/moubadala-portfolio.jpeg" },
 ];
 
 const PROJECTS_PER_PAGE = 9;

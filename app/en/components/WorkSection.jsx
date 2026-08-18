@@ -39,7 +39,7 @@ const projects = [
   { id: 21, title: "Garden Bake's",                description: "Artisan bakery offering freshly baked breads, pastries, and treats with a warm welcoming experience.",  tags: ["Bakery", "Artisan"],        url: "https://gardenbakes.vercel.app",          image: "/projects/gardenbakes-portfolio.jpeg" },
   { id: 22, title: "Anzar Restaurant Tanger",      description: "Restaurant website in Tanger showcasing the menu and atmosphere with a warm, inviting design.",              tags: ["Restaurant", "Tanger"],     url: "https://anzar-morocco.com/",              image: "/projects/anzar-portfolio.jpeg" },
   { id: 23, title: "Céline Dion — Concert Tickets", description: "High-conversion ticket landing page for Céline Dion's concert in Morocco, built for speed under heavy traffic.", tags: ["Landing Page", "Events"],  url: "https://publicevents.ma/celine-dion/",    image: "/projects/celinedione-portfolio.jpeg" },
-  { id: 24, title: "Moubadala",                    description: "A platform for professionals to exchange goods and services with each other.",                                  tags: ["Marketplace", "B2B"],      url: "https://moubadala.vercel.app/",           image: "/projects/moubadala-portfolio.jpeg" },
+  { id: 24, title: "Moubadala",                    description: "A platform for professionals to exchange goods and services with each other.",                                  tags: ["Marketplace", "B2B"],      url: "https://moubadala.ma/",           image: "/projects/moubadala-portfolio.jpeg" },
 ];
 
 const PROJECTS_PER_PAGE = 9;
