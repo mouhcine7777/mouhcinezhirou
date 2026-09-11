@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
+      url: `${BASE}/services`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE}/creation-site-web-maroc`,
       lastModified,
       changeFrequency: "monthly",

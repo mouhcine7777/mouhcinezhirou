@@ -4,6 +4,7 @@ import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import WhatsAppLink from "../../components/WhatsAppLink";
+import { useHideOnScroll, useMeasuredHeight } from "../../components/useHideOnScroll";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -382,6 +383,8 @@ export default function HeroSectionEn() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [clickedItem, setClickedItem] = useState<string | null>(null);
+  const navVisible = useHideOnScroll();
+  const { ref: navRef, height: navHeight } = useMeasuredHeight<HTMLElement>();
 
   const done = step >= 4;
   const built = step >= 3;
@@ -452,27 +455,32 @@ export default function HeroSectionEn() {
         ))}
       </div>
 
-      {/* ══════════════ NAVBAR ══════════════ */}
+      {/* ══════════════ NAVBAR — hides on scroll-down, reappears on scroll-up ══════════════ */}
       <nav
+        ref={navRef}
         className={`
-          sticky top-0 z-30 w-full border-b border-black/10
+          fixed left-0 top-0 z-30 w-full border-b border-black/10
           bg-[#F2F0EB]/90 backdrop-blur-md
-          transition-shadow duration-300
+          transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
           ${scrolled ? "shadow-[0_2px_20px_0_rgba(0,0,0,0.06)]" : ""}
+          ${navVisible ? "translate-y-0" : "-translate-y-full"}
         `}
         style={{
           opacity: built ? 1 : 0,
-          transition: "opacity 0.5s ease",
+          transition: "opacity 0.5s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease",
         }}
       >
         <div className="flex w-full items-center justify-between" style={{ padding: `${sp.navGapY} ${sp.padX}` }}>
           <a href="#" className="group flex items-center" style={{ textDecoration: "none" }}>
-            <span
-              className="flex items-center justify-center border border-black/20 font-[family-name:var(--font-bricolage)] font-extrabold tracking-[0.05em] text-black/70 transition-all duration-300 group-hover:border-black group-hover:bg-black group-hover:text-[#e8ff47]"
-              style={{ fontSize: fs.micro, width: fl(1.5, 1.7), height: fl(1.5, 1.7) }}
-            >
-              MZ
-            </span>
+            {/* Plain <img>, not next/image — this small static mark doesn't
+                need runtime optimization, and it avoids the optimizer's
+                response cache going stale after the file is replaced. */}
+            <img
+              src="/logo.png"
+              alt="Mouhcine Zhirou"
+              className="w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              style={{ height: fl(1.2, 1.35) }}
+            />
           </a>
 
           <div className="flex items-center" style={{ gap: sp.navGap }}>
@@ -524,6 +532,14 @@ export default function HeroSectionEn() {
 
           <div className="flex items-center gap-4">
             <a
+              href="/services"
+              className="hidden font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.22em] text-black/75 transition-colors hover:text-black sm:inline"
+              style={{ fontSize: fs.micro }}
+            >
+              Services
+            </a>
+            <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />
+            <a
               href="/blog"
               className="hidden font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.22em] text-black/75 transition-colors hover:text-black sm:inline"
               style={{ fontSize: fs.micro }}
@@ -546,6 +562,8 @@ export default function HeroSectionEn() {
         </div>
         <ScrollProgressLine />
       </nav>
+      {/* Layout spacer — the navbar above is `fixed`, this keeps its place in flow. */}
+      <div aria-hidden style={{ height: built ? navHeight : 0, transition: "height 0.4s ease" }} />
 
       {/* ══════════════ HERO BODY — two columns, full width ══════════════ */}
       <div className="relative z-10 flex w-full flex-1 flex-col">

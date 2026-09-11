@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "./Footer";
 import WhatsAppLink from "./WhatsAppLink";
+import SiteHeader from "./SiteHeader";
 import type { CityData } from "../lib/city-pages";
 
 const bricolage = Bricolage_Grotesque({
@@ -167,36 +168,14 @@ export default function CityLandingPage({ data }: { data: CityData }) {
   return (
     <main className={`${bricolage.variable} ${instrument.variable} bg-[#F2F0EB] font-[family-name:var(--font-bricolage)]`}>
       {/* ══ TOP BAR ══ */}
-      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-black/10 bg-[#F2F0EB]/90 px-6 py-4 backdrop-blur-md md:px-14">
-        <Link href={HOME} className="group flex items-center gap-3" style={{ textDecoration: "none" }}>
-          <span className="flex h-8 w-8 items-center justify-center border border-black/25 text-[0.6rem] font-extrabold tracking-widest text-black/70 transition-all group-hover:border-black group-hover:bg-black group-hover:text-[#e8ff47]">
-            MZ
-          </span>
-          <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-black/45">
-            Mouhcine Zhirou
-          </span>
-        </Link>
-        <div className="flex items-center gap-5">
-          <Link
-            href={HOME}
-            className="bg-[#e8ff47] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.97]"
-          >
-            Portfolio
-          </Link>
-          <Link
-            href="/blog"
-            className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
-          >
-            Blog
-          </Link>
-          <WhatsAppLink
-            href={WHATSAPP}
-            className="border border-black bg-black px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-colors hover:bg-transparent hover:text-black"
-          >
-            Devis gratuit
-          </WhatsAppLink>
-        </div>
-      </div>
+      <SiteHeader
+        links={[
+          { type: "pill", label: "Portfolio", href: HOME },
+          { type: "text", label: "Services", href: "/services" },
+          { type: "text", label: "Blog", href: "/blog" },
+          { type: "cta", label: "Devis gratuit", href: WHATSAPP },
+        ]}
+      />
 
       {/* ══ HERO ══ */}
       <section className="relative overflow-hidden px-6 pb-16 pt-16 md:px-14 md:pt-24">

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "../../components/Footer";
 import WhatsAppLink from "../../components/WhatsAppLink";
+import SiteHeader from "../../components/SiteHeader";
 import BlogCover from "../../components/BlogCover";
 import { blogPosts, getBlogPost, blogImagePath, type BlogBlock } from "../../lib/blog-posts";
 import { hasBlogImage } from "../../lib/blog-image";
@@ -208,36 +209,14 @@ export default async function BlogArticle({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* ══ TOP BAR ══ */}
-      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-black/10 bg-[#F2F0EB]/90 px-6 py-4 backdrop-blur-md md:px-14">
-        <Link href={HOME} className="group flex items-center gap-3" style={{ textDecoration: "none" }}>
-          <span className="flex h-8 w-8 items-center justify-center border border-black/25 text-[0.6rem] font-extrabold tracking-widest text-black/70 transition-all group-hover:border-black group-hover:bg-black group-hover:text-[#e8ff47]">
-            MZ
-          </span>
-          <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-black/45">
-            Mouhcine Zhirou
-          </span>
-        </Link>
-        <div className="flex items-center gap-5">
-          <Link
-            href={HOME}
-            className="bg-[#e8ff47] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.97]"
-          >
-            Portfolio
-          </Link>
-          <Link
-            href="/blog"
-            className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
-          >
-            Blog
-          </Link>
-          <WhatsAppLink
-            href={WHATSAPP}
-            className="border border-black bg-black px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-colors hover:bg-transparent hover:text-black"
-          >
-            Devis gratuit
-          </WhatsAppLink>
-        </div>
-      </div>
+      <SiteHeader
+        links={[
+          { type: "pill", label: "Portfolio", href: HOME },
+          { type: "text", label: "Services", href: "/services" },
+          { type: "text", label: "Blog", href: "/blog" },
+          { type: "cta", label: "Devis gratuit", href: WHATSAPP },
+        ]}
+      />
 
       <div className="px-6 md:px-14 lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start lg:gap-16">
         <div className="min-w-0">

@@ -5,6 +5,7 @@ const COPY = {
     tagline: "Freelance full stack web developer — Casablanca, Morocco",
     links: [
       { label: "Home", href: "/en" },
+      { label: "Services", href: "/services" },
       { label: "Web development", href: "/creation-site-web-maroc" },
       { label: "Freelance Developer in Morocco", href: "/developpeur-web-freelance-maroc" },
       { label: "Blog", href: "/blog" },
@@ -16,6 +17,7 @@ const COPY = {
     tagline: "Développeur web full stack freelance — Casablanca, Maroc",
     links: [
       { label: "Accueil", href: "/" },
+      { label: "Services", href: "/services" },
       { label: "Création de site web", href: "/creation-site-web-maroc" },
       { label: "Développeur Freelance au Maroc", href: "/developpeur-web-freelance-maroc" },
       { label: "Blog", href: "/blog" },
@@ -33,8 +35,13 @@ export default function Footer({ lang = "en" }: { lang?: "en" | "fr" }) {
     <footer className="w-full border-t border-white/10 bg-[#080808] px-6 py-10 md:px-14">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
-          <span className="flex h-8 w-8 items-center justify-center border border-white/25 text-[0.6rem] font-extrabold tracking-widest text-white/70">
-            MZ
+          {/* Plain <img>, not next/image — this small static mark doesn't
+              need runtime optimization, and it avoids the optimizer's
+              response cache going stale after the file is replaced. The
+              logo is drawn in black, so it needs a light chip on this
+              dark footer to stay visible. */}
+          <span className="flex h-8 w-8 items-center justify-center bg-[#F2F0EB] px-1">
+            <img src="/logo.png" alt="Mouhcine Zhirou" className="h-5 w-auto object-contain" />
           </span>
           <span className="text-[0.72rem] leading-snug text-white/40">
             {t.tagline}
