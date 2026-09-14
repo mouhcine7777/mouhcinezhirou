@@ -1,0 +1,19 @@
+{
+  // Static-assets-only deployment: no "main" worker script is defined, so
+  // Cloudflare serves everything in "out" (the Next.js static export)
+  // directly as static files, with zero Worker invocation per request.
+  // That's the whole point of this config — it's what makes the old
+  // "Worker exceeded CPU time limit" errors structurally impossible now,
+  // regardless of traffic or prefetching: there's no server-side code
+  // path left to spend CPU on.
+  "name": "mouhcinezhirou",
+  "compatibility_date": "2026-09-14",
+  "assets": {
+    "directory": "out",
+    // SPA-style fallback isn't needed (this is a fully static multi-page
+    // export, every route has its own prerendered .html file), but
+    // "not_found_handling" makes Cloudflare serve our custom 404.html
+    // instead of a generic Cloudflare error page for unmatched paths.
+    "not_found_handling": "404-page"
+  }
+}
