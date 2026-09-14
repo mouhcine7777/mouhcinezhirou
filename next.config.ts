@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   images: {
+    // Next.js's built-in image optimizer needs sharp, which isn't
+    // available on Cloudflare Workers — it falls back to a slow JS/WASM
+    // codec that was blowing through the Worker's CPU time limit on any
+    // page rendering a real (non-placeholder) <Image>, i.e. every blog
+    // page. Serving files as-is avoids running that optimizer at all.
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
