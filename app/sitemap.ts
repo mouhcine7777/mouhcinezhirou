@@ -2,6 +2,9 @@ import { MetadataRoute } from "next";
 import { blogPosts } from "./lib/blog-posts";
 import { cityPages } from "./lib/city-pages";
 
+// Required for static export — prerendered once at build time.
+export const dynamic = "force-static";
+
 const BASE = "https://www.mouhcinezhirou.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {

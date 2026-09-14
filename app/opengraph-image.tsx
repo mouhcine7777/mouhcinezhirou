@@ -1,5 +1,9 @@
 import { ImageResponse } from "next/og";
 
+// Required for static export — this image has no dynamic input, generated
+// once at build time either way.
+export const dynamic = "force-static";
+
 export const alt =
   "Mouhcine Zhirou — Développeur Web Full Stack Freelance au Maroc";
 export const size = { width: 1200, height: 630 };
