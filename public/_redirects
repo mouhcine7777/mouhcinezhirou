@@ -1,10 +1,11 @@
-# Cloudflare Pages redirects file — replaces the apex->www and /fr->/
-# redirects that used to live in middleware.ts. Static export has no
-# server to run middleware at request time, so this takes over instead.
-# Rules are matched top to bottom, first match wins.
-
-# Apex -> www (splat preserves the path, e.g. /blog/foo -> /blog/foo)
-https://mouhcinezhirou.com/*  https://www.mouhcinezhirou.com/:splat  301!
+# Cloudflare Workers Static Assets redirects file. Only relative source
+# paths are allowed here (a host-based rule like
+# "https://mouhcinezhirou.com/*  ->  https://www..." errors out at deploy
+# with "Only relative URLs are allowed" — that's zone-level routing, not
+# asset routing). The apex -> www redirect is instead configured as a
+# Cloudflare Redirect Rule on the zone (Rules -> Redirect Rules in the
+# dashboard) — it runs at the edge before any asset is served, so it
+# belongs there, not here.
 
 # "/fr" used to be the French homepage; French now lives at "/". 301 this
 # so the SEO equity already built up on "/fr" carries over.
