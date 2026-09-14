@@ -3,6 +3,7 @@
 import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import WhatsAppLink from "../../components/WhatsAppLink";
 import { useHideOnScroll, useMeasuredHeight } from "../../components/useHideOnScroll";
 
@@ -531,21 +532,23 @@ export default function HeroSectionEn() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a
+            <Link
               href="/services"
+              prefetch={false}
               className="hidden font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.22em] text-black/75 transition-colors hover:text-black sm:inline"
               style={{ fontSize: fs.micro }}
             >
               Services
-            </a>
+            </Link>
             <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />
-            <a
+            <Link
               href="/blog"
+              prefetch={false}
               className="hidden font-[family-name:var(--font-bricolage)] font-bold uppercase tracking-[0.22em] text-black/75 transition-colors hover:text-black sm:inline"
               style={{ fontSize: fs.micro }}
             >
               Blog
-            </a>
+            </Link>
             <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />
             <LangSwitcher />
             <span className="hidden w-px bg-black/10 sm:block" style={{ height: "0.7em", fontSize: fs.micro }} />

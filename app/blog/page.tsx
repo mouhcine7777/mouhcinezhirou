@@ -149,6 +149,7 @@ export default function BlogIndex() {
           <div className="mx-auto max-w-7xl">
             <Link
               href={`/blog/${featured.slug}`}
+              prefetch={false}
               className="reveal group grid grid-cols-1 overflow-hidden border border-black/10 bg-white/40 transition-colors hover:border-black/25 md:grid-cols-2"
               style={{ textDecoration: "none" }}
             >
@@ -182,6 +183,7 @@ export default function BlogIndex() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
+                prefetch={false}
                 className="reveal group flex flex-col justify-between border border-black/10 bg-[#F2F0EB] transition-colors hover:border-black/25 hover:bg-white/60"
                 style={{ textDecoration: "none" }}
               >

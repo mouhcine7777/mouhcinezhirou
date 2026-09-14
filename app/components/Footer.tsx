@@ -53,6 +53,7 @@ export default function Footer({ lang = "en" }: { lang?: "en" | "fr" }) {
             <Link
               key={l.href}
               href={l.href}
+              prefetch={false}
               className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/45 transition-colors hover:text-[#e8ff47]"
             >
               {l.label}

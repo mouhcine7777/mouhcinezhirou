@@ -105,6 +105,7 @@ function renderInline(text: string) {
       <Link
         key={i}
         href={m[2]}
+        prefetch={false}
         className="font-semibold text-black underline decoration-black/25 underline-offset-2 hover:decoration-black"
       >
         {m[1]}
@@ -307,6 +308,7 @@ export default async function BlogArticle({
                   <li key={p.slug}>
                     <Link
                       href={`/blog/${p.slug}`}
+                      prefetch={false}
                       className="block text-sm font-semibold leading-snug text-black/70 underline decoration-black/15 underline-offset-2 transition-colors hover:text-black hover:decoration-black/40"
                     >
                       {p.title}
@@ -347,6 +349,7 @@ export default async function BlogArticle({
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
+                  prefetch={false}
                   className="group flex flex-col justify-between bg-[#F2F0EB] p-8 transition-colors hover:bg-white/60"
                   style={{ textDecoration: "none" }}
                 >

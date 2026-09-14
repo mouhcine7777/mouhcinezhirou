@@ -383,6 +383,7 @@ export default function ServicesPage() {
                   {s.href && (
                     <Link
                       href={s.href}
+                      prefetch={false}
                       className="group/link mt-6 inline-flex w-fit items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#e8ff47]"
                     >
                       {s.hrefLabel}

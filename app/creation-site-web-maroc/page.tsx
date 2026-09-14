@@ -390,6 +390,7 @@ export default function CreationSiteWebMaroc() {
                 <Link
                   key={c}
                   href={`/${citySlugs[c]}`}
+                  prefetch={false}
                   className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55 transition-colors hover:border-black hover:text-black"
                 >
                   {c}
@@ -418,6 +419,7 @@ export default function CreationSiteWebMaroc() {
           </div>
           <Link
             href="/faq"
+            prefetch={false}
             className="shrink-0 border border-black px-6 py-3 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-black transition-colors hover:bg-black hover:text-[#F2F0EB]"
           >
             Voir la FAQ →
@@ -425,15 +427,15 @@ export default function CreationSiteWebMaroc() {
         </div>
         <p className="mx-auto mt-6 max-w-5xl text-sm text-black/45">
           Basé à Casablanca et disponible partout au Maroc, découvrez mon profil de{" "}
-          <Link href="/developpeur-web-freelance-casablanca" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+          <Link href="/developpeur-web-freelance-casablanca" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             développeur web freelance à Casablanca
           </Link>
           {" "}ou l&apos;ensemble des{" "}
-          <Link href="/developpeur-web-freelance-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+          <Link href="/developpeur-web-freelance-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             villes desservies au Maroc
           </Link>
           . Votre site actuel traîne à charger ? Je détaille les causes et les solutions dans{" "}
-          <Link href="/blog/site-web-lent-wordpress-vitesse-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+          <Link href="/blog/site-web-lent-wordpress-vitesse-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             cet article sur la vitesse d&apos;un site web au Maroc
           </Link>
           .

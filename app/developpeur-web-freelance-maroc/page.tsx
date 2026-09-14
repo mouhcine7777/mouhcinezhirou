@@ -363,6 +363,7 @@ export default function DeveloppeurWebFreelanceMaroc() {
           {/* Featured: Casablanca, the home base */}
           <Link
             href={`/${featured.slug}`}
+            prefetch={false}
             className="reveal group relative mt-12 flex flex-col justify-between gap-6 overflow-hidden border border-black/10 bg-[#080808] p-8 transition-colors hover:border-black/25 sm:flex-row sm:items-center md:p-12"
             style={{ textDecoration: "none" }}
           >
@@ -406,6 +407,7 @@ export default function DeveloppeurWebFreelanceMaroc() {
               <Link
                 key={d.slug}
                 href={`/${d.slug}`}
+                prefetch={false}
                 className="reveal group flex flex-col justify-between border border-black/10 bg-white/50 p-7 transition-colors hover:border-black/25 hover:bg-white/80"
                 style={{ textDecoration: "none" }}
               >
@@ -429,7 +431,7 @@ export default function DeveloppeurWebFreelanceMaroc() {
           <p className="mt-6 text-sm text-black/45">
             Votre ville n&apos;est pas dans la liste ? Ce n&apos;est pas un problème : je travaille en télétravail
             avec des clients partout au Maroc. Découvrez aussi mes services de{" "}
-            <Link href="/creation-site-web-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/creation-site-web-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               création de site web au Maroc
             </Link>
             .
@@ -483,15 +485,15 @@ export default function DeveloppeurWebFreelanceMaroc() {
           </div>
           <p className="mt-8 text-sm text-black/45">
             Une idée plus précise du budget de votre projet ? Consultez le{" "}
-            <Link href="/blog/combien-coute-un-site-web-au-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/blog/combien-coute-un-site-web-au-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               guide des prix d&apos;un site web au Maroc
             </Link>
             , ou le{" "}
-            <Link href="/blog/guide-complet-creation-site-web-maroc-2026" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/blog/guide-complet-creation-site-web-maroc-2026" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               guide complet pour créer un site web en 2026
             </Link>
             . Vous voulez voir du concret avant de vous décider ?{" "}
-            <Link href="/#work" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/#work" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               Découvrez mes réalisations
             </Link>
             .

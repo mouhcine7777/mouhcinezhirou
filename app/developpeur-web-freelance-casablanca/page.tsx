@@ -499,19 +499,19 @@ export default function DeveloppeurWebFreelanceCasablanca() {
 
           <p className="mt-8 text-sm text-black/45">
             Des questions sur les prix et les délais en général ? Consultez la{" "}
-            <Link href="/faq" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/faq" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               FAQ complète
             </Link>
             , ou découvrez l&apos;ensemble de mes services de{" "}
-            <Link href="/creation-site-web-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/creation-site-web-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               création de site web au Maroc
             </Link>
             . Vous n&apos;êtes pas à Casablanca ? Je travaille aussi avec des clients dans{" "}
-            <Link href="/developpeur-web-freelance-maroc" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/developpeur-web-freelance-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               les autres grandes villes du Maroc
             </Link>
             . Vous voulez voir du concret avant de vous décider ?{" "}
-            <Link href="/#work" className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            <Link href="/#work" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
               Découvrez mes réalisations
             </Link>
             .

@@ -78,6 +78,7 @@ function SiteHeaderLinkItem({ link }: { link: SiteHeaderLink }) {
     return (
       <Link
         href={link.href}
+        prefetch={false}
         className="bg-[#e8ff47] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.97]"
       >
         {link.label}
@@ -88,6 +89,7 @@ function SiteHeaderLinkItem({ link }: { link: SiteHeaderLink }) {
   return (
     <Link
       href={link.href}
+      prefetch={false}
       className="hidden text-[0.62rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black sm:inline"
     >
       {link.label}
