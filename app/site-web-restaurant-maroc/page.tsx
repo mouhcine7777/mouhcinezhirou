@@ -213,14 +213,9 @@ const faqs = [
   },
 ];
 
+// Kept for the Service schema's areaServed below — the visual "cities
+// served" section was removed from the page itself.
 const cities = ["Casablanca", "Rabat", "Marrakech", "Tanger", "Agadir"];
-const citySlugs: Record<string, string> = {
-  Casablanca: "developpeur-web-freelance-casablanca",
-  Rabat: "developpeur-web-freelance-rabat",
-  Marrakech: "developpeur-web-freelance-marrakech",
-  Tanger: "developpeur-web-freelance-tanger",
-  Agadir: "developpeur-web-freelance-agadir",
-};
 
 /* ── Structured data ── */
 const serviceLd = {
@@ -283,65 +278,27 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
   );
 }
 
-// Decorative digital-menu mockup for the hero — kept as inline SVG/markup
-// (matches the site's coded-aesthetic branding, e.g. the "dev.ts" mock on
-// the homepage) instead of a stock photo, and costs nothing at request
-// time since the whole site is static.
-function MenuMock() {
-  const rows = [
-    { name: "Salade César", price: "65 MAD" },
-    { name: "Tajine d'agneau", price: "110 MAD" },
-    { name: "Pizza Margherita", price: "85 MAD" },
-    { name: "Jus d'orange frais", price: "35 MAD" },
-  ];
+// Decorative phone mockup for the hero — an AI-generated product shot
+// (photoreal iPhone floating at an angle, screen showing a digital
+// restaurant menu app UI in the site's own lime accent, plus a floating
+// QR badge), transparent background so it sits directly on the section.
+// Plain <img>, not next/image: consistent with the rest of the site
+// (see BlogCover/services for why), and there's no server left to run
+// the optimizer on anyway now that the site is a static export.
+function PhoneMockImage() {
   return (
-    <div className="reveal relative mx-auto w-full max-w-sm">
-      <div className="overflow-hidden border border-black/10 bg-white shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]">
-        <div className="flex items-center justify-between border-b border-black/10 bg-[#080808] px-5 py-4">
-          <span className="font-[family-name:var(--font-instrument)] text-lg italic text-white">Le Menu</span>
-          <span className="flex h-8 w-8 items-center justify-center border border-white/20" style={{ background: ACCENT }}>
-            <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-              <rect x="3" y="3" width="7" height="7" fill="#000" />
-              <rect x="14" y="3" width="7" height="7" fill="#000" />
-              <rect x="3" y="14" width="7" height="7" fill="#000" />
-              <rect x="15" y="15" width="2" height="2" fill="#000" />
-              <rect x="19" y="15" width="2" height="2" fill="#000" />
-              <rect x="15" y="19" width="2" height="2" fill="#000" />
-              <rect x="19" y="19" width="2" height="2" fill="#000" />
-            </svg>
-          </span>
-        </div>
-        <div className="divide-y divide-black/5">
-          {rows.map((r) => (
-            <div key={r.name} className="flex items-center justify-between px-5 py-4">
-              <span className="text-sm font-semibold text-black/80">{r.name}</span>
-              <span className="text-sm font-bold text-black/40">{r.price}</span>
-            </div>
-          ))}
-        </div>
-        <div className="border-t border-black/10 px-5 py-4">
-          <span className="block w-full bg-black py-2.5 text-center text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB]">
-            Réserver une table
-          </span>
-        </div>
-      </div>
-      {/* floating QR chip */}
-      <div className="absolute -right-4 -top-5 flex h-16 w-16 -rotate-6 items-center justify-center border-2 border-black bg-white shadow-lg sm:-right-8">
-        <svg viewBox="0 0 24 24" fill="none" className="h-9 w-9">
-          <rect x="3" y="3" width="7" height="7" fill="#000" />
-          <rect x="14" y="3" width="7" height="7" fill="#000" />
-          <rect x="3" y="14" width="7" height="7" fill="#000" />
-          <rect x="15" y="15" width="2" height="2" fill="#000" />
-          <rect x="19" y="15" width="2" height="2" fill="#000" />
-          <rect x="15" y="19" width="2" height="2" fill="#000" />
-          <rect x="19" y="19" width="2" height="2" fill="#000" />
-          <rect x="17" y="17" width="2" height="2" fill="#000" />
-        </svg>
-      </div>
+    <div className="reveal relative mx-auto w-full max-w-[320px]">
       <span
         aria-hidden
-        className="absolute -bottom-6 -left-6 -z-10 h-28 w-28 rounded-full opacity-60 blur-3xl"
+        className="absolute -inset-x-6 -inset-y-10 -z-10 rounded-full opacity-40 blur-3xl"
         style={{ background: ACCENT }}
+      />
+      <img
+        src="/restaurant-menu-phone-mockup.webp"
+        alt="Application de menu digital pour restaurant sur smartphone, avec QR code"
+        width={1000}
+        height={1333}
+        className="w-full drop-shadow-[0_35px_55px_rgba(0,0,0,0.28)]"
       />
     </div>
   );
@@ -424,7 +381,7 @@ export default function SiteWebRestaurantMaroc() {
             </div>
           </div>
 
-          <MenuMock />
+          <PhoneMockImage />
         </div>
       </section>
 
@@ -535,48 +492,6 @@ export default function SiteWebRestaurantMaroc() {
         </div>
       </section>
 
-      {/* ══ TESTIMONIALS ══ */}
-      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
-          <Eyebrow>Ce qu&apos;ils en disent</Eyebrow>
-          <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
-            Des restaurateurs qui en parlent mieux que moi
-          </h2>
-
-          <div className="mt-14 grid grid-cols-1 gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
-            {[
-              {
-                quote:
-                  "On a apprécié d'avoir un devis clair dès le départ, sans surprise, et un suivi direct pendant tout le développement.",
-                name: "Chiringuito",
-                role: "Restaurant — Tanger",
-                logo: "/logos/chiringuito.png",
-              },
-              {
-                quote:
-                  "Travailler à distance n'a posé aucun problème, réponses rapides sur WhatsApp et un résultat fidèle à ce qu'on voulait.",
-                name: "Tangerino",
-                role: "Restaurant — Tanger & Rabat",
-                logo: "/logos/tangerino.png",
-              },
-            ].map((t) => (
-              <div key={t.name} className="reveal flex flex-col justify-between bg-[#F2F0EB] p-8">
-                <p className="text-base leading-relaxed text-black/70">&ldquo;{t.quote}&rdquo;</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="flex h-10 w-16 items-center justify-center bg-[#0d0d0d] p-2">
-                    <img src={t.logo} alt={t.name} className="max-h-6 w-auto object-contain" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-black">{t.name}</div>
-                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-black/40">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══ PROCESS ══ */}
       <section className="px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-5xl">
@@ -592,28 +507,6 @@ export default function SiteWebRestaurantMaroc() {
                 <h3 className="mt-2 text-lg font-bold text-black">{s.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-black/55">{s.d}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ CITIES ══ */}
-      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-16 md:px-14">
-        <div className="mx-auto max-w-5xl">
-          <Eyebrow>Zones desservies</Eyebrow>
-          <h2 className="reveal max-w-3xl text-2xl font-extrabold tracking-[-0.02em] text-black md:text-3xl">
-            Sites web pour restaurants partout au Maroc
-          </h2>
-          <div className="reveal mt-8 flex flex-wrap gap-3">
-            {cities.map((c) => (
-              <Link
-                key={c}
-                href={`/${citySlugs[c]}`}
-                prefetch={false}
-                className="border border-black/15 bg-white/50 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55 transition-colors hover:border-black hover:text-black"
-              >
-                {c}
-              </Link>
             ))}
           </div>
         </div>
