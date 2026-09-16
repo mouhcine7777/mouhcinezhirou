@@ -353,7 +353,6 @@ export default function ContactSection() {
 
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1" style={{ fontSize: fs.micro }}>
           {[
-            { label: "Accueil", href: "/" },
             { label: "Création de site web", href: "/creation-site-web-maroc" },
             { label: "Développeur Freelance au Maroc", href: "/developpeur-web-freelance-maroc" },
             { label: "Blog", href: "/blog" },
