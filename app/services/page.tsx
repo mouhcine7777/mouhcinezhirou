@@ -447,9 +447,18 @@ export default function ServicesPage() {
             suivi) dans{" "}
             <Link
               href="/blog/developpeur-freelance-vs-agence-web-maroc"
+              prefetch={false}
               className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black"
             >
               cet article comparatif
+            </Link>
+            . Vous tenez un restaurant ? J&apos;ai une offre dédiée avec{" "}
+            <Link
+              href="/site-web-restaurant-maroc"
+              prefetch={false}
+              className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black"
+            >
+              menu digital et QR code inclus
             </Link>
             .
           </p>

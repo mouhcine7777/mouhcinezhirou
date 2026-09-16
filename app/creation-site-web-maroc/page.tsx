@@ -438,6 +438,10 @@ export default function CreationSiteWebMaroc() {
           <Link href="/blog/site-web-lent-wordpress-vitesse-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             cet article sur la vitesse d&apos;un site web au Maroc
           </Link>
+          . Vous gérez un restaurant ? Découvrez mon offre{" "}
+          <Link href="/site-web-restaurant-maroc" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
+            site web restaurant avec menu digital et QR code
+          </Link>
           .
         </p>
       </section>
