@@ -74,60 +74,56 @@ type RestaurantProject = {
   title: string;
   city: string;
   cuisine: string;
-  description: string;
-  image: string;
+  card: string;
   url: string;
 };
 
 // Real, live client work — not mockups. Pulled from the same portfolio
-// shown on the homepage, filtered to food & beverage projects.
+// shown on the homepage, filtered to food & beverage projects. `card` is
+// one single AI-generated design (Freepik/Magnific) per restaurant, built
+// strictly in the site's own palette — name, phone mockup and typography
+// all baked into the image itself, not composed from separate HTML text.
 const projects: RestaurantProject[] = [
   {
     title: "Chiringuito Tanger",
     city: "Tanger",
     cuisine: "Méditerranéenne",
-    description: "Restaurant de plage avec vue côtière — menu digital et ambiance mise en scène par la photo.",
-    image: "/projects/Chiringuito-portfolio.jpeg",
+    card: "/restaurant-card-chiringuito.webp",
     url: "https://chiringuito-tanger.com/",
   },
   {
     title: "Tangerino Restaurant",
     city: "Tanger & Rabat",
     cuisine: "Cuisine locale",
-    description: "Deux adresses, un seul site : structure multi-établissement pensée pour évoluer avec l'enseigne.",
-    image: "/projects/tangerino-portfolio.jpeg",
+    card: "/restaurant-card-tangerino.webp",
     url: "https://tangerino-restaurant.com/",
   },
   {
     title: "Le Guépard Tanger",
     city: "Tanger",
     cuisine: "Gastronomique",
-    description: "Restaurant gastronomique — design raffiné qui reflète le positionnement haut de gamme de l'adresse.",
-    image: "/projects/leguepard-portfolio.jpeg",
+    card: "/restaurant-card-leguepard.webp",
     url: "http://leguepard-tanger.com/",
   },
   {
     title: "Garden Eataly",
     city: "Casablanca",
     cuisine: "Italienne",
-    description: "Pizzeria italienne — menu digital clair, pensé pour la commande rapide en heure de pointe.",
-    image: "/projects/gardeneataly-portfolio.jpeg",
+    card: "/restaurant-card-gardeneataly.webp",
     url: "https://gardeneataly.vercel.app",
   },
   {
     title: "Anzar Restaurant Tanger",
     city: "Tanger",
     cuisine: "Marocaine",
-    description: "Menu et ambiance mis en valeur avec un design chaleureux, pensé pour convertir un visiteur en réservation.",
-    image: "/projects/anzar-portfolio.jpeg",
+    card: "/restaurant-card-anzar.webp",
     url: "https://anzar-morocco.com/",
   },
   {
     title: "Garden Bake's",
     city: "Casablanca",
     cuisine: "Boulangerie & pâtisserie",
-    description: "Boulangerie artisanale — catalogue produits et ambiance chaleureuse pour une boutique gourmande.",
-    image: "/projects/gardenbakes-portfolio.jpeg",
+    card: "/restaurant-card-gardenbakes.webp",
     url: "https://gardenbakes.vercel.app",
   },
 ];
@@ -287,7 +283,7 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
 // the optimizer on anyway now that the site is a static export.
 function PhoneMockImage() {
   return (
-    <div className="reveal relative mx-auto w-full max-w-[320px]">
+    <div className="reveal relative mx-auto w-full max-w-[320px] md:max-w-[420px] lg:max-w-[520px]">
       <span
         aria-hidden
         className="absolute -inset-x-6 -inset-y-10 -z-10 rounded-full opacity-40 blur-3xl"
@@ -333,7 +329,7 @@ export default function SiteWebRestaurantMaroc() {
             backgroundSize: "3vw 3vw",
           }}
         />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_1fr]">
           <div>
             <Eyebrow>Développeur Web Freelance — Casablanca, Maroc</Eyebrow>
 
@@ -443,47 +439,62 @@ export default function SiteWebRestaurantMaroc() {
       </section>
 
       {/* ══ PORTFOLIO ══ */}
-      <section id="realisations" className="scroll-mt-20 px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <Eyebrow>Réalisations</Eyebrow>
-          <h2 className="reveal max-w-2xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
-            6 restaurants déjà équipés au Maroc
+      <section id="realisations" className="scroll-mt-20 border-t border-white/10 bg-[#080808] py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 md:px-14">
+          <Eyebrow dark>Réalisations</Eyebrow>
+          <h2 className="reveal max-w-2xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+            La preuve,{" "}
+            <span className="font-[family-name:var(--font-instrument)] italic">pas la promesse</span>
           </h2>
-          <p className="reveal mt-5 max-w-2xl text-black/55 md:text-lg">
+          <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
             Pas de maquette : des sites réellement en ligne, utilisés chaque jour par de vrais établissements.
           </p>
+        </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
+        {/* Auto-sliding card track, sized so ~3 cards show at once on desktop
+            (not 5 cramped) — pauses on hover, duplicated for a seamless loop.
+            Each card is one poster per restaurant (Nano Banana Pro, real
+            logo reproduced from each site, consistent angle/palette, title
+            baked into the design) — the small caption below adds city/
+            cuisine only, since the name is already on the poster itself. */}
+        <div className="reveal group/track relative mt-14 overflow-hidden px-6 md:px-14">
+          <div
+            className="flex w-max"
+            style={{ animation: "rwPortfolioSlide 40s linear infinite" }}
+          >
+            {/* Margin per card (not `gap` on the flex row) so every one of the
+                12 items — including duplicates — has an identical footprint.
+                A shared `gap` only sits *between* items (n-1 gaps for n
+                items), which breaks the clean 50/50 width split the loop's
+                translateX(-50%) depends on for a seamless, glitch-free jump. */}
+            {[...projects, ...projects].map((p, i) => (
               <a
-                key={p.title}
+                key={`${p.title}-${i}`}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="reveal group flex flex-col overflow-hidden border border-black/10 bg-white/40 transition-colors hover:border-black/25 hover:bg-white/70"
+                aria-hidden={i >= projects.length}
+                tabIndex={i >= projects.length ? -1 : 0}
+                className="group mr-6 block w-[300px] shrink-0 sm:w-[340px] lg:w-[370px]"
                 style={{ textDecoration: "none" }}
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-black/10">
+                <div className="relative overflow-hidden border border-white/10 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:border-white/30">
                   <img
-                    src={p.image}
-                    alt={`Site web ${p.title} — ${p.city}`}
+                    src={p.card}
+                    alt={`${p.title} — ${p.cuisine}, ${p.city} — site web créé par Mouhcine Zhirou`}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="aspect-[2/3] w-full object-cover"
                   />
-                  <span className="absolute left-0 top-0 border-b border-r border-black/10 bg-white/85 px-3 py-1.5 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-black/60 backdrop-blur-sm">
-                    {p.city}
+                  <span className="absolute inset-0 flex items-end justify-center bg-black/0 pb-6 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                    <span className="border border-[#e8ff47] bg-black/80 px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#e8ff47] backdrop-blur-sm">
+                      Visiter le site →
+                    </span>
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-black/35">{p.cuisine}</span>
-                  <h3 className="mt-2 text-lg font-bold leading-snug text-black transition-colors group-hover:underline">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-black/55">{p.description}</p>
-                  <span className="mt-4 inline-flex w-fit items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-black/70">
-                    Visiter le site
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                <div className="mt-3">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white/40 transition-colors group-hover:text-[#e8ff47]">
+                    {p.city} · {p.cuisine}
                   </span>
                 </div>
               </a>
@@ -583,6 +594,8 @@ export default function SiteWebRestaurantMaroc() {
 
       <style>{`
         @keyframes rwTicker { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+        @keyframes rwPortfolioSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .group\\/track:hover [style*="rwPortfolioSlide"] { animation-play-state: paused; }
         @keyframes rwReveal {
           from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
           to   { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -594,6 +607,7 @@ export default function SiteWebRestaurantMaroc() {
         @media (prefers-reduced-motion: reduce) {
           .reveal { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
           [style*="rwTicker"] { animation: none !important; }
+          [style*="rwPortfolioSlide"] { animation: none !important; }
         }
       `}</style>
     </main>
