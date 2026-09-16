@@ -17,7 +17,6 @@ const COPY = {
   fr: {
     tagline: "Développeur web full stack freelance — Casablanca, Maroc",
     links: [
-      { label: "Accueil", href: "/" },
       { label: "Services", href: "/services" },
       { label: "Création de site web", href: "/creation-site-web-maroc" },
       { label: "Développeur Freelance au Maroc", href: "/developpeur-web-freelance-maroc" },
