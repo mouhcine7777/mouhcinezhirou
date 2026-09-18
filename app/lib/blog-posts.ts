@@ -19,6 +19,150 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "creer-boutique-en-ligne-maroc-paiement-cmi",
+    title: "Créer une boutique en ligne au Maroc : le guide CMI",
+    description:
+      "Comment fonctionne réellement le paiement en ligne au Maroc : CMI, compte marchand, alternatives et paiement à la livraison. Guide pratique par un développeur freelance.",
+    category: "E-commerce",
+    date: "2026-09-18",
+    readTime: "9 min",
+    keywords: [
+      "paiement en ligne maroc",
+      "cmi paiement en ligne",
+      "créer boutique en ligne maroc",
+      "intégrer cmi site web",
+      "compte marchand cmi maroc",
+      "paiement à la livraison maroc",
+    ],
+    excerpt:
+      "Le vrai obstacle pour vendre en ligne au Maroc n'est presque jamais le design du site. C'est le paiement. Voici comment CMI fonctionne réellement, sans le jargon bancaire.",
+    content: [
+      {
+        type: "p",
+        text: "Presque tous les entrepreneurs qui veulent lancer une boutique en ligne au Maroc me posent la même question dans le désordre : Shopify ou sur-mesure, quel design, quel budget. La question qui bloque vraiment le projet trois semaines plus tard, c'est toujours la même, et personne ne la pose au bon moment : comment on encaisse une carte bancaire ?",
+      },
+      {
+        type: "p",
+        text: "La réponse courte : au Maroc, la quasi-totalité des paiements par carte en ligne transitent, à un moment ou un autre, par CMI. Comprendre ce que c'est, comment l'obtenir et ce qu'on peut en faire vous évite des semaines perdues à découvrir la réponse en plein développement.",
+      },
+      { type: "h2", text: "CMI, c'est quoi exactement" },
+      {
+        type: "p",
+        text: "CMI (Centre Monétique Interbancaire) est la plateforme de paiement en ligne créée par le consortium des banques marocaines pour traiter les paiements par carte, Visa et Mastercard, locales et internationales. Ce n'est pas une banque, c'est l'infrastructure technique que la plupart des banques marocaines utilisent pour faire passer l'argent du compte de votre client vers le vôtre.",
+      },
+      {
+        type: "p",
+        text: "Concrètement, quand un site marocain affiche « Payer par carte bancaire », il y a de fortes chances que la page de paiement qui s'ouvre ensuite soit une page CMI, même si la marque affichée à l'écran est celle de votre banque.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Attijariwafa Bank, Banque Populaire, BMCE Bank of Africa, CIH Bank, Société Générale Maroc, Crédit du Maroc : toutes proposent un compte marchand adossé à CMI",
+          "Le client final ne voit jamais « CMI » : il voit le logo de votre banque partenaire sur la page de paiement",
+          "Le taux d'acceptation des cartes marocaines est nettement meilleur via CMI qu'via une passerelle étrangère qui ne connaît pas les cartes locales",
+        ],
+      },
+      { type: "h2", text: "Obtenir un compte marchand : les étapes réelles" },
+      {
+        type: "p",
+        text: "On ne s'inscrit pas sur CMI directement comme on ouvrirait un compte Stripe en cinq minutes. Le compte marchand s'obtient via votre banque, qui joue le rôle d'intermédiaire et de garant.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Ouvrir ou disposer d'un compte bancaire professionnel auprès d'une banque partenaire CMI",
+          "Monter un dossier : Registre de Commerce, ICE, statuts pour une société, RIB professionnel, pièce d'identité du gérant",
+          "Signer la convention monétique, le contrat qui fixe les commissions et les conditions d'encaissement",
+          "Passer par une phase de validation technique et commerciale côté banque, souvent la partie la plus longue",
+          "Recevoir les identifiants d'intégration (identifiant marchand, clés d'API) une fois le dossier validé",
+        ],
+      },
+      {
+        type: "p",
+        text: "Comptez plusieurs semaines entre le dépôt du dossier et la réception des accès, rarement moins de deux, parfois plus selon la banque et la charge de son service monétique. C'est une des raisons pour lesquelles je conseille de lancer cette démarche en parallèle du développement du site, pas après : c'est exactement le type de dépendance externe qui peut retarder un [projet e-commerce](/blog/combien-coute-un-site-web-au-maroc) si elle est traitée en dernier.",
+      },
+      { type: "h2", text: "Combien ça coûte réellement" },
+      {
+        type: "p",
+        text: "La structure de coût est simple sur le papier : une commission par transaction, généralement entre 1,5% et 3% du montant selon la banque et votre volume prévisionnel, parfois un forfait d'installation ou un abonnement mensuel de la banque. Les gros volumes se négocient, les petits commerçants paient le tarif standard.",
+      },
+      {
+        type: "quote",
+        text: "La commission par transaction n'est presque jamais le vrai coût caché. Le vrai coût, c'est le temps de validation du dossier si vous ne l'anticipez pas.",
+      },
+      { type: "h2", text: "CMI face aux alternatives" },
+      { type: "h3", text: "PayZone et les agrégateurs" },
+      {
+        type: "p",
+        text: "PayZone et quelques autres agrégateurs marocains fonctionnent au-dessus de CMI : ils simplifient l'onboarding pour les petits commerçants et startups, moyennant une commission par transaction plus élevée. C'est une option raisonnable si votre dossier bancaire direct traîne, ou si votre volume ne justifie pas encore de négocier avec une banque.",
+      },
+      { type: "h3", text: "Le paiement à la livraison, toujours dominant" },
+      {
+        type: "p",
+        text: "C'est le point que beaucoup de porteurs de projet sous-estiment : au Maroc, le paiement à la livraison (COD) reste majoritaire dans une large partie de l'e-commerce, particulièrement en dehors de Casablanca et Rabat. La confiance dans le paiement en ligne progresse, mais elle n'est pas acquise partout ni pour tous les profils de clients.",
+      },
+      {
+        type: "p",
+        text: "La bonne approche n'est presque jamais « carte uniquement » ou « livraison uniquement », mais les deux en parallèle, avec un suivi logistique fiable pour limiter les retours sur les commandes en COD.",
+      },
+      { type: "h3", text: "Stripe, PayPal : pourquoi ce n'est pas la solution par défaut ici" },
+      {
+        type: "p",
+        text: "Stripe et PayPal ne permettent pas un encaissement direct et natif en dirhams vers un compte bancaire marocain dans la plupart des cas d'usage courants. Ils ont leur place si l'essentiel de votre clientèle est à l'étranger (produits digitaux, clientèle diaspora, tourisme haut de gamme), mais ce n'est pas la brique à construire en premier pour une boutique qui vend principalement à des clients au Maroc.",
+      },
+      { type: "h2", text: "L'intégration technique, concrètement" },
+      {
+        type: "p",
+        text: "CMI fonctionne par redirection : votre site envoie le client vers une page de paiement hébergée par CMI (le numéro de carte ne transite jamais par vos serveurs, ce qui vous décharge d'une bonne partie des contraintes de sécurité PCI-DSS), puis CMI redirige vers votre site avec le résultat de la transaction, confirmé en parallèle par un appel serveur à serveur qu'il faut vérifier et traiter correctement.",
+      },
+      {
+        type: "p",
+        text: "Sur un site WordPress/WooCommerce, un plugin gère ça, avec ses propres limites de fiabilité. Sur un site [développé sur mesure en Next.js](/blog/guide-complet-creation-site-web-maroc-2026), cette intégration est une route API dédiée : construction de la requête signée vers CMI, page de retour, et surtout la vérification serveur de la notification de paiement, l'étape que je vois le plus souvent bâclée dans des intégrations pressées, et qui ouvre la porte à des commandes validées sans paiement réel.",
+      },
+      { type: "h2", text: "Les erreurs qui coûtent des ventes" },
+      {
+        type: "ul",
+        items: [
+          "Ne proposer que la carte bancaire, sans alternative COD, sur un marché où la confiance au paiement en ligne varie encore beaucoup selon la zone géographique",
+          "Une page de paiement CMI mal testée sur mobile, alors que la majorité du trafic e-commerce marocain vient du smartphone",
+          "Aucune confirmation de commande claire par SMS ou email après le paiement, ce qui génère des messages d'inquiétude et des abandons de confiance",
+          "Lancer le site sans avoir anticipé le délai de validation du compte marchand, ce qui retarde tout le lancement commercial",
+          "Confondre validation de paiement côté navigateur et confirmation serveur réelle, une faille de sécurité classique sur les intégrations faites à la va-vite",
+        ],
+      },
+      { type: "h2", text: "Questions fréquentes" },
+      { type: "h3", text: "CMI est-il obligatoire pour vendre en ligne au Maroc ?" },
+      {
+        type: "p",
+        text: "Non, mais c'est le passage quasi obligé si vous voulez accepter les cartes bancaires marocaines directement et efficacement. Vous pouvez démarrer uniquement en paiement à la livraison, mais vous plafonnez alors votre panier moyen et votre capacité à vendre à distance.",
+      },
+      { type: "h3", text: "Combien de temps pour obtenir un compte marchand CMI ?" },
+      {
+        type: "p",
+        text: "En pratique, comptez de deux à six semaines entre le dépôt du dossier complet et la réception des accès techniques, selon la banque choisie et la qualité du dossier fourni dès le départ. Un dossier incomplet peut facilement doubler ce délai.",
+      },
+      { type: "h3", text: "Un auto-entrepreneur peut-il avoir un compte marchand ?" },
+      {
+        type: "p",
+        text: "Les conditions varient selon les banques et évoluent régulièrement : certaines banques proposent des offres adaptées aux auto-entrepreneurs, d'autres réservent le compte marchand aux sociétés constituées. Le plus fiable est de vérifier directement auprès de votre banque ou d'un agrégateur comme PayZone, plutôt que de se fier à une règle générale.",
+      },
+      { type: "h3", text: "Faut-il absolument proposer le paiement à la livraison ?" },
+      {
+        type: "p",
+        text: "Ce n'est pas obligatoire, mais c'est presque toujours plus rentable de le proposer en complément de la carte plutôt que de choisir l'un ou l'autre, sauf si votre produit ou votre logistique rend le COD structurellement trop risqué (produits chers, livraison longue distance, taux de retour élevé).",
+      },
+      { type: "h2", text: "En résumé" },
+      {
+        type: "p",
+        text: "CMI n'est pas un détail technique à régler à la dernière minute : c'est une dépendance bancaire avec ses propres délais, qu'il faut lancer en parallèle du développement du site, pas après. Le choix n'est presque jamais entre CMI et une alternative, mais entre CMI seul et CMI complété par le paiement à la livraison, selon votre clientèle réelle. Le budget global d'un site e-commerce, intégration de paiement comprise, est détaillé dans mon [guide des prix pour un site web au Maroc](/blog/combien-coute-un-site-web-au-maroc).",
+      },
+      {
+        type: "p",
+        text: "Vous montez une boutique en ligne et vous voulez éviter les faux pas sur l'intégration du paiement ? Discutons-en sur WhatsApp, je vous dis honnêtement à quoi ressemble le bon chemin pour votre projet.",
+      },
+    ],
+  },
+  {
     slug: "seo-local-maroc-referencement-google-casablanca",
     title: "SEO local au Maroc : comment être visible sur Google en 2026",
     description:
@@ -195,7 +339,7 @@ export const blogPosts: BlogPost[] = [
         type: "ul",
         items: [
           "Le sur-mesure du design : un design unique coûte plus cher qu'un template adapté, mais se démarque et convertit mieux",
-          "Les fonctionnalités dynamiques, comme la réservation, le paiement en ligne, l'espace membre ou la recherche filtrée",
+          "Les fonctionnalités dynamiques, comme la réservation, [le paiement en ligne](/blog/creer-boutique-en-ligne-maroc-paiement-cmi), l'espace membre ou la recherche filtrée",
           "L'intégration avec des outils tiers : CRM, ERP, WhatsApp Business API, systèmes de livraison",
           "Le contenu : textes et photos déjà prêts, ou à produire ensemble (rédaction, shooting)",
           "La maintenance après livraison : mises à jour, sauvegardes, évolutions",
@@ -328,6 +472,10 @@ export const blogPosts: BlogPost[] = [
           "Shopify : excellent pour l'e-commerce standard, moins flexible pour du sur-mesure poussé",
           "Sur-mesure (React, Next.js) : performance maximale, contrôle total, référencement optimisé dès la structure du code. Recommandé dès que le site doit se démarquer ou évoluer dans le temps",
         ],
+      },
+      {
+        type: "p",
+        text: "Si votre site doit encaisser des paiements, ce choix technique a un impact direct sur l'intégration du paiement en ligne : sur WordPress, un plugin fait le travail avec ses limites, sur du sur-mesure, c'est une intégration dédiée, plus robuste. Le détail de [comment fonctionne le paiement en ligne au Maroc via CMI](/blog/creer-boutique-en-ligne-maroc-paiement-cmi) mérite d'être lu avant de trancher, surtout pour un projet e-commerce.",
       },
       { type: "h2", text: "3. Penser mobile et vitesse dès le départ" },
       {

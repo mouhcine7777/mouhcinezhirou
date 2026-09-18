@@ -178,6 +178,50 @@ export default async function BlogArticle({
     .filter((b): b is { type: "h2"; text: string } => b.type === "h2")
     .map((b) => ({ text: b.text, id: slugify(b.text) }));
 
+  // Auto-derived FAQPage schema: any "Questions fréquentes" h2 section is
+  // just h3 question + p answer pairs, so we lift them straight into
+  // structured data instead of hand-maintaining a separate FAQ list. This
+  // is what lets Google/AI answer engines quote a post's Q&A directly.
+  const faqStart = post.content.findIndex(
+    (b) => b.type === "h2" && b.text.trim().toLowerCase() === "questions fréquentes"
+  );
+  const faqItems: { question: string; answer: string }[] = [];
+  if (faqStart !== -1) {
+    let question: string | null = null;
+    let answerParts: string[] = [];
+    const flush = () => {
+      if (question && answerParts.length > 0) {
+        faqItems.push({ question, answer: answerParts.join(" ").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") });
+      }
+      question = null;
+      answerParts = [];
+    };
+    for (let i = faqStart + 1; i < post.content.length; i++) {
+      const block = post.content[i];
+      if (block.type === "h2") break;
+      if (block.type === "h3") {
+        flush();
+        question = block.text;
+      } else if (block.type === "p" && question) {
+        answerParts.push(block.text);
+      }
+    }
+    flush();
+  }
+
+  const faqLd =
+    faqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
+
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -208,6 +252,9 @@ export default async function BlogArticle({
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      {faqLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      )}
 
       {/* ══ TOP BAR ══ */}
       <SiteHeader

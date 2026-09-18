@@ -34,6 +34,8 @@ const logos = [
   { src: "/logos/govelodrome.png",       alt: "Go Velodrome"     },
   { src: "/logos/fanzone.png",           alt: "Fanzone"          },
   { src: "/logos/gardencorner.png",      alt: "Magic Corner"     },
+  { src: "/logos/leonis.png",            alt: "Leonis Travel"    },
+  { src: "/logos/yellowsunpower.png",    alt: "YellowSun Power"  },
 ];
 
 const row1Logos = logos.slice(0, 9);
