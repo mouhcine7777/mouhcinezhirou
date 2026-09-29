@@ -1,14 +1,11 @@
 "use client";
 
-import type { CSSProperties, MouseEvent, ReactNode } from "react";
+import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from "react";
 import { gtagSendEvent } from "../lib/gtag";
 
-type Props = {
+type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children"> & {
   href: string;
   children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  "aria-label"?: string;
 };
 
 /**

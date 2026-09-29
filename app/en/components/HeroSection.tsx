@@ -46,6 +46,7 @@ const fs = {
   tagline: fl(1.05, 1.5),   // ~21.6px  @1440
   statNum: fl(1.7,  3.2),   // ~46px    @1440
   h1:      fl(3.4,  9.3),   // ~134px   @1440
+  h1Small: fl(2.7,  7),     // ~101px   @1440 — first headline line
 };
 
 const sp = {
@@ -596,9 +597,9 @@ export default function HeroSectionEn() {
             <Block step={step} order={1} className="w-fit max-w-full" >
               <p
                 className="font-[family-name:var(--font-bricolage)] font-extrabold leading-[0.88] tracking-[-0.045em] text-black"
-                style={{ fontSize: fs.h1, marginTop: fl(1.4, 1.6) }}
+                style={{ fontSize: fs.h1Small, marginTop: fl(1.4, 1.6) }}
               >
-                Mouhcine
+                Full stack
               </p>
             </Block>
 
@@ -616,7 +617,7 @@ export default function HeroSectionEn() {
                     transition: "transform 0.8s cubic-bezier(0.22,1,0.36,1) 0.35s",
                   }}
                 />
-                Zhirou
+                developer.
               </p>
             </Block>
 

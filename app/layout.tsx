@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -223,6 +224,8 @@ export default function RootLayout({
         </Script>
 
         {children}
+
+        <FloatingWhatsApp />
       </body>
     </html>
   );

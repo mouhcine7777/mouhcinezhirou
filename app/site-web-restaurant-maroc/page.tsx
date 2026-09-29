@@ -4,6 +4,7 @@ import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "../components/Footer";
 import WhatsAppLink from "../components/WhatsAppLink";
 import SiteHeader from "../components/SiteHeader";
+import RestaurantSlider, { type RestaurantProject } from "./RestaurantSlider";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -70,60 +71,49 @@ const marquee = [
   "Design sur mesure",
 ];
 
-type RestaurantProject = {
-  title: string;
-  city: string;
-  cuisine: string;
-  card: string;
-  url: string;
-};
-
-// Real, live client work — not mockups. Pulled from the same portfolio
-// shown on the homepage, filtered to food & beverage projects. `card` is
-// one single AI-generated design (Freepik/Magnific) per restaurant, built
-// strictly in the site's own palette — name, phone mockup and typography
-// all baked into the image itself, not composed from separate HTML text.
+// Real, live client work — the same screenshots as the homepage portfolio,
+// filtered to food & beverage projects.
 const projects: RestaurantProject[] = [
   {
     title: "Chiringuito Tanger",
     city: "Tanger",
     cuisine: "Méditerranéenne",
-    card: "/restaurant-card-chiringuito.webp",
+    image: "/projects/Chiringuito-portfolio.jpeg",
     url: "https://chiringuito-tanger.com/",
   },
   {
     title: "Tangerino Restaurant",
     city: "Tanger & Rabat",
     cuisine: "Cuisine locale",
-    card: "/restaurant-card-tangerino.webp",
+    image: "/projects/tangerino-portfolio.jpeg",
     url: "https://tangerino-restaurant.com/",
   },
   {
     title: "Le Guépard Tanger",
     city: "Tanger",
     cuisine: "Gastronomique",
-    card: "/restaurant-card-leguepard.webp",
+    image: "/projects/leguepard-portfolio.jpeg",
     url: "http://leguepard-tanger.com/",
   },
   {
     title: "Garden Eataly",
     city: "Casablanca",
     cuisine: "Italienne",
-    card: "/restaurant-card-gardeneataly.webp",
+    image: "/projects/gardeneataly-portfolio.jpeg",
     url: "https://gardeneataly.vercel.app",
   },
   {
     title: "Anzar Restaurant Tanger",
     city: "Tanger",
     cuisine: "Marocaine",
-    card: "/restaurant-card-anzar.webp",
+    image: "/projects/anzar-portfolio.jpeg",
     url: "https://anzar-morocco.com/",
   },
   {
     title: "Garden Bake's",
     city: "Casablanca",
     cuisine: "Boulangerie & pâtisserie",
-    card: "/restaurant-card-gardenbakes.webp",
+    image: "/projects/gardenbakes-portfolio.jpeg",
     url: "https://gardenbakes.vercel.app",
   },
 ];
@@ -180,20 +170,10 @@ const reasons = [
   },
 ];
 
-const steps = [
-  { n: "01", t: "Échange & devis gratuit", d: "On discute de votre restaurant, votre carte et vos objectifs sur WhatsApp. Devis clair sous 24h." },
-  { n: "02", t: "Design & menu digital", d: "Je conçois le site et structure votre menu digital, avec vos photos et votre identité visuelle." },
-  { n: "03", t: "Mise en ligne & QR code", d: "Votre site est publié, votre QR code généré pour vos tables, et le référencement local optimisé." },
-];
-
 const faqs = [
   {
     q: "Combien coûte un site web pour restaurant au Maroc ?",
     a: "Un site vitrine avec menu digital se situe généralement entre 4 000 et 9 000 MAD, selon le nombre de sections de carte et les fonctionnalités (réservation, multilingue). Le détail complet des prix est dans mon guide des tarifs pour un site web au Maroc.",
-  },
-  {
-    q: "Le menu digital remplace-t-il complètement le menu papier ?",
-    a: "C'est vous qui décidez. Beaucoup de mes clients gardent le menu papier pour l'ambiance en salle et utilisent le menu digital pour le site, les réseaux sociaux et le QR code sur table — les deux se complètent très bien.",
   },
   {
     q: "Puis-je mettre à jour mon menu moi-même après la livraison ?",
@@ -416,8 +396,24 @@ export default function SiteWebRestaurantMaroc() {
         </div>
       </section>
 
+      {/* ══ PORTFOLIO ══ */}
+      <section id="realisations" className="scroll-mt-20 bg-[#080808] py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 md:px-14">
+          <Eyebrow dark>Réalisations</Eyebrow>
+          <h2 className="reveal max-w-2xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+            La preuve,{" "}
+            <span className="font-[family-name:var(--font-instrument)] italic">pas la promesse</span>
+          </h2>
+          <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
+            Pas de maquette : des sites réellement en ligne, utilisés chaque jour par de vrais établissements.
+          </p>
+        </div>
+
+        <RestaurantSlider projects={projects} />
+      </section>
+
       {/* ══ FEATURES ══ */}
-      <section className="bg-[#080808] px-6 py-20 md:px-14 md:py-28">
+      <section className="border-t border-white/10 bg-[#080808] px-6 py-20 md:px-14 md:py-28">
         <div className="mx-auto max-w-6xl">
           <Eyebrow dark>Ce qui est inclus</Eyebrow>
           <h2 className="reveal max-w-2xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
@@ -432,91 +428,6 @@ export default function SiteWebRestaurantMaroc() {
                 </svg>
                 <h3 className="text-lg font-bold leading-snug text-white">{f.t}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/45">{f.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ PORTFOLIO ══ */}
-      <section id="realisations" className="scroll-mt-20 border-t border-white/10 bg-[#080808] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6 md:px-14">
-          <Eyebrow dark>Réalisations</Eyebrow>
-          <h2 className="reveal max-w-2xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
-            La preuve,{" "}
-            <span className="font-[family-name:var(--font-instrument)] italic">pas la promesse</span>
-          </h2>
-          <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
-            Pas de maquette : des sites réellement en ligne, utilisés chaque jour par de vrais établissements.
-          </p>
-        </div>
-
-        {/* Auto-sliding card track, sized so ~3 cards show at once on desktop
-            (not 5 cramped) — pauses on hover, duplicated for a seamless loop.
-            Each card is one poster per restaurant (Nano Banana Pro, real
-            logo reproduced from each site, consistent angle/palette, title
-            baked into the design) — the small caption below adds city/
-            cuisine only, since the name is already on the poster itself. */}
-        <div className="reveal group/track relative mt-14 overflow-hidden px-6 md:px-14">
-          <div
-            className="flex w-max"
-            style={{ animation: "rwPortfolioSlide 40s linear infinite" }}
-          >
-            {/* Margin per card (not `gap` on the flex row) so every one of the
-                12 items — including duplicates — has an identical footprint.
-                A shared `gap` only sits *between* items (n-1 gaps for n
-                items), which breaks the clean 50/50 width split the loop's
-                translateX(-50%) depends on for a seamless, glitch-free jump. */}
-            {[...projects, ...projects].map((p, i) => (
-              <a
-                key={`${p.title}-${i}`}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-hidden={i >= projects.length}
-                tabIndex={i >= projects.length ? -1 : 0}
-                className="group mr-6 block w-[300px] shrink-0 sm:w-[340px] lg:w-[370px]"
-                style={{ textDecoration: "none" }}
-              >
-                <div className="relative overflow-hidden border border-white/10 transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:border-white/30">
-                  <img
-                    src={p.card}
-                    alt={`${p.title} — ${p.cuisine}, ${p.city} — site web créé par Mouhcine Zhirou`}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[2/3] w-full object-cover"
-                  />
-                  <span className="absolute inset-0 flex items-end justify-center bg-black/0 pb-6 opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
-                    <span className="border border-[#e8ff47] bg-black/80 px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#e8ff47] backdrop-blur-sm">
-                      Visiter le site →
-                    </span>
-                  </span>
-                </div>
-                <div className="mt-3">
-                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white/40 transition-colors group-hover:text-[#e8ff47]">
-                    {p.city} · {p.cuisine}
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ PROCESS ══ */}
-      <section className="px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
-          <Eyebrow>Comment ça marche</Eyebrow>
-          <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
-            De la carte au site en ligne
-          </h2>
-
-          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {steps.map((s) => (
-              <div key={s.n} className="reveal border-t-2 border-black pt-5">
-                <span className="text-sm font-extrabold" style={{ color: "#8a8a70" }}>{s.n}</span>
-                <h3 className="mt-2 text-lg font-bold text-black">{s.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-black/55">{s.d}</p>
               </div>
             ))}
           </div>
@@ -593,9 +504,8 @@ export default function SiteWebRestaurantMaroc() {
       <Footer lang="fr" />
 
       <style>{`
+        @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
         @keyframes rwTicker { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
-        @keyframes rwPortfolioSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .group\\/track:hover [style*="rwPortfolioSlide"] { animation-play-state: paused; }
         @keyframes rwReveal {
           from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
           to   { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -607,7 +517,6 @@ export default function SiteWebRestaurantMaroc() {
         @media (prefers-reduced-motion: reduce) {
           .reveal { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
           [style*="rwTicker"] { animation: none !important; }
-          [style*="rwPortfolioSlide"] { animation: none !important; }
         }
       `}</style>
     </main>
