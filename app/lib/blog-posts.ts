@@ -19,6 +19,165 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "nom-de-domaine-ma-acheter-prix-hebergement-maroc",
+    title: "Nom de domaine .ma : achat, prix et hébergement au Maroc",
+    description:
+      "Acheter un nom de domaine .ma : conditions, prix réels, .ma ou .com, et comment choisir son hébergement. Le guide pratique d'un développeur web au Maroc.",
+    category: "Guide",
+    date: "2026-10-01",
+    readTime: "9 min",
+    keywords: [
+      "nom de domaine .ma",
+      "acheter nom de domaine .ma",
+      "prix nom de domaine .ma",
+      "hébergement site web maroc",
+      ".ma ou .com",
+      "registrar .ma",
+    ],
+    excerpt:
+      "Votre nom de domaine, c'est l'adresse de votre entreprise sur internet. Mal enregistré, il peut vous échapper. Voici comment bien faire, du premier achat à la mise en ligne.",
+    content: [
+      {
+        type: "p",
+        text: "Un client m'écrit pour refaire son site. Première question de ma part : « Le nom de domaine est à votre nom ? » Silence. Puis : « Je crois que c'est l'ancienne agence qui s'en occupe. » Ce scénario, je le vois beaucoup plus souvent qu'on ne l'imagine, et il peut bloquer un projet pendant des semaines.",
+      },
+      {
+        type: "p",
+        text: "Le nom de domaine est la seule partie de votre présence en ligne qui ne se remplace pas. Un site se refait, un hébergeur se change. Votre adresse, elle, est imprimée sur vos cartes de visite, vos factures et votre vitrine. Voici comment l'acheter correctement au Maroc, combien ça coûte vraiment, et où héberger votre site ensuite.",
+      },
+      { type: "h2", text: "Nom de domaine .ma : de quoi parle-t-on exactement" },
+      {
+        type: "p",
+        text: "Le .ma est l'extension nationale du Maroc, au même titre que le .fr pour la France. Elle est gérée par l'ANRT (Agence Nationale de Réglementation des Télécommunications) et s'achète auprès de registrars agréés, des sociétés autorisées à enregistrer des noms de domaine pour le compte de leurs clients. Il existe aussi des déclinaisons comme .co.ma, .net.ma ou .org.ma, tandis que .gov.ma et .ac.ma sont réservés aux administrations et aux établissements d'enseignement.",
+      },
+      {
+        type: "p",
+        text: "On confond souvent trois choses qui sont pourtant bien distinctes. La façon la plus simple de les retenir :",
+      },
+      {
+        type: "ul",
+        items: [
+          "Le nom de domaine, c'est l'adresse (votreentreprise.ma) : vous la louez à l'année",
+          "L'hébergement, c'est le local : le serveur où les fichiers de votre site sont stockés",
+          "Le site web, c'est la boutique elle-même : ce que vos visiteurs voient et utilisent",
+        ],
+      },
+      {
+        type: "p",
+        text: "Les trois peuvent venir de prestataires différents, et c'est même souvent une bonne idée. Si vous changez d'hébergeur ou de développeur, votre adresse ne bouge pas.",
+      },
+      { type: "h2", text: ".ma ou .com : lequel choisir ?" },
+      {
+        type: "p",
+        text: "La réponse courte : si vos clients sont au Maroc, prenez le .ma. Si vous visez surtout l'international, le .com reste la référence. Et dans beaucoup de cas, le meilleur choix est de réserver les deux, avec l'un qui redirige vers l'autre.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Le .ma envoie un signal clair à Google : une extension nationale est automatiquement associée au pays, ce qui aide sur les recherches faites depuis le Maroc",
+          "Le .ma inspire confiance à une clientèle locale, qui reconnaît immédiatement une entreprise marocaine",
+          "Les noms courts sont encore disponibles en .ma, alors qu'en .com ils sont pris depuis longtemps",
+          "Le .com reste plus naturel si vous vendez en France, dans le Golfe ou ailleurs, où un .ma peut surprendre",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Réservez le .com même si vous ne l'utilisez pas. Une centaine de dirhams par an, c'est le prix pour qu'un concurrent ne le récupère pas à votre place.",
+      },
+      { type: "h2", text: "Comment acheter un nom de domaine .ma, étape par étape" },
+      {
+        type: "ul",
+        items: [
+          "Vérifiez que le nom est libre, directement sur le site d'un registrar agréé ou via l'outil de recherche de l'ANRT",
+          "Choisissez un registrar figurant sur la liste des bureaux d'enregistrement agréés publiée par l'ANRT",
+          "Fournissez les justificatifs demandés : en général une pièce d'identité pour un particulier, un registre de commerce et un ICE pour une société",
+          "Payez, puis vérifiez que vous êtes bien le titulaire du domaine, avec vos coordonnées à vous",
+          "Pointez le domaine vers votre hébergement en configurant les DNS, ou confiez cette étape à votre développeur",
+        ],
+      },
+      {
+        type: "p",
+        text: "L'étape 4 est celle qui fait toute la différence plus tard. Un nom de domaine a un titulaire, c'est-à-dire son propriétaire légal. Si votre développeur ou votre agence l'enregistre à son nom « pour aller plus vite », c'est lui qui en détient les clés. Le jour où vous voulez changer de prestataire, vous dépendez de sa bonne volonté. Mettez toujours le domaine à votre nom, avec une adresse email que vous consultez réellement : c'est là qu'arrivent les avis de renouvellement.",
+      },
+      { type: "h2", text: "Combien coûte un nom de domaine .ma ?" },
+      {
+        type: "p",
+        text: "Pour un .ma, comptez en général entre 150 et 400 MAD par an selon le registrar, et à peu près entre 100 et 200 MAD pour un .com. Les écarts viennent surtout des services inclus : gestion des DNS, adresses email, réactivité du support. Les tarifs évoluent, donc comparez au moment de l'achat plutôt que de vous fier à un chiffre lu une fois.",
+      },
+      {
+        type: "p",
+        text: "Méfiez-vous des promotions à 10 MAD la première année : le prix qui compte, c'est celui du renouvellement, que vous paierez chaque année pendant toute la vie de votre entreprise. Activez le renouvellement automatique, ou réglez plusieurs années d'un coup. Un domaine qui expire peut être racheté par quelqu'un d'autre en quelques jours.",
+      },
+      {
+        type: "quote",
+        text: "Le vrai prix d'un nom de domaine, c'est celui qu'on paie le jour où on l'a perdu.",
+      },
+      { type: "h2", text: "L'hébergement : où mettre votre site une fois le domaine acheté" },
+      {
+        type: "p",
+        text: "Un nom de domaine seul n'affiche rien. Il faut encore un endroit où votre site tourne. Les options n'ont pas grand-chose à voir entre elles :",
+      },
+      {
+        type: "ul",
+        items: [
+          "L'hébergement mutualisé, au Maroc ou à l'étranger : le moins cher, suffisant pour un petit site WordPress, mais vos ressources sont partagées avec des centaines d'autres sites, ce qui finit souvent en [site lent](/blog/site-web-lent-wordpress-vitesse-maroc)",
+          "Le VPS ou serveur dédié : plus de puissance et de contrôle, mais il faut quelqu'un pour l'administrer, le sécuriser et le mettre à jour",
+          "Les plateformes modernes comme Vercel ou Cloudflare, pensées pour les sites en Next.js : le site est servi depuis des serveurs proches de chaque visiteur, et l'offre de départ suffit souvent pour un site vitrine",
+        ],
+      },
+      {
+        type: "p",
+        text: "Faut-il absolument un serveur au Maroc ? Pour la vitesse, plus vraiment : avec un réseau de diffusion (CDN), votre site s'affiche vite à Casablanca comme à Paris. En revanche, si votre site traite des données personnelles, comme des comptes clients ou des formulaires détaillés, renseignez-vous sur la loi 09-08 et les règles de la CNDP avant de choisir où elles sont stockées. Et pour une boutique, l'hébergement doit aussi tenir la route au moment du [paiement en ligne via CMI](/blog/creer-boutique-en-ligne-maroc-paiement-cmi).",
+      },
+      { type: "h2", text: "Les erreurs que je vois le plus souvent" },
+      {
+        type: "ul",
+        items: [
+          "Le domaine enregistré au nom de l'agence ou du développeur, et non de l'entreprise",
+          "Un renouvellement oublié parce que l'email d'alerte part vers une ancienne adresse que plus personne ne lit",
+          "Un nom trop long, avec des tirets ou une orthographe ambiguë, impossible à dicter au téléphone",
+          "Acheter le .ma sans réserver le .com, puis le voir pris par un concurrent ou un revendeur",
+          "Garder une adresse Gmail sur ses factures alors qu'un contact@votreentreprise.ma inspire bien plus confiance",
+        ],
+      },
+      { type: "h2", text: "Questions fréquentes" },
+      { type: "h3", text: "Un particulier peut-il acheter un nom de domaine .ma ?" },
+      {
+        type: "p",
+        text: "Oui, en général avec une simple pièce d'identité. Les justificatifs exacts dépendent du registrar et des règles de l'ANRT en vigueur, donc le plus sûr est de lui poser la question avant de payer.",
+      },
+      { type: "h3", text: "Une entreprise étrangère peut-elle enregistrer un .ma ?" },
+      {
+        type: "p",
+        text: "Les règles du .ma demandent historiquement un lien avec le Maroc, par exemple une présence locale ou une marque enregistrée au Maroc. Elles ont évolué avec le temps : vérifiez auprès d'un registrar agréé avant de bâtir votre projet sur un .ma.",
+      },
+      { type: "h3", text: "Combien de temps faut-il pour activer un .ma ?" },
+      {
+        type: "p",
+        text: "Une fois le dossier validé, l'activation prend en général de quelques heures à quelques jours. Ensuite, la propagation des DNS peut demander jusqu'à 24 à 48 heures avant que le site soit visible partout.",
+      },
+      { type: "h3", text: "Le .ma est-il meilleur pour le référencement Google ?" },
+      {
+        type: "p",
+        text: "Ce n'est pas un bonus magique, mais Google associe automatiquement une extension nationale à son pays, ce qui aide pour les recherches locales. Le contenu, la vitesse et la fiche Google Business Profile restent décisifs, comme je l'explique dans mon guide du [SEO local au Maroc](/blog/seo-local-maroc-referencement-google-casablanca).",
+      },
+      { type: "h3", text: "Puis-je changer d'hébergeur sans perdre mon nom de domaine ?" },
+      {
+        type: "p",
+        text: "Oui. Le domaine et l'hébergement sont indépendants : il suffit de modifier les DNS pour pointer vers le nouvel hébergeur. C'est justement pour ça qu'il vaut mieux garder le domaine chez un registrar, à votre nom, plutôt que noyé dans un pack tout-en-un.",
+      },
+      { type: "h2", text: "En résumé" },
+      {
+        type: "p",
+        text: "Prenez un .ma si votre clientèle est au Maroc, réservez aussi le .com, enregistrez le tout à votre nom auprès d'un registrar agréé et activez le renouvellement automatique. Ensuite seulement vient le choix de l'hébergement, qui dépend de la technologie de votre site. Le budget global, domaine et hébergement compris, est détaillé dans mon [guide des prix d'un site web au Maroc](/blog/combien-coute-un-site-web-au-maroc), et la suite du projet dans le [guide complet pour créer un site web au Maroc](/blog/guide-complet-creation-site-web-maroc-2026).",
+      },
+      {
+        type: "p",
+        text: "Vous hésitez sur le bon nom, l'extension ou l'hébergement pour votre projet ? Envoyez-moi un message sur WhatsApp, je vous aide à faire le bon choix avant même de parler de site.",
+      },
+    ],
+  },
+  {
     slug: "creer-boutique-en-ligne-maroc-paiement-cmi",
     title: "Créer une boutique en ligne au Maroc : le guide CMI",
     description:
@@ -245,6 +404,10 @@ export const blogPosts: BlogPost[] = [
         type: "p",
         text: "Le meilleur contenu local du monde ne sert à rien si le site met plus de 3 secondes à charger, s'il n'est pas parfaitement responsive sur mobile (plus de 70% des recherches locales au Maroc se font sur smartphone), ou si la structure HTML n'a pas de balises propres. C'est un point que je vois systématiquement mal géré par les templates génériques, une des raisons pour lesquelles bien choisir entre un [développeur freelance ou une agence](/blog/developpeur-freelance-vs-agence-web-maroc) compte autant que le référencement lui-même.",
       },
+      {
+        type: "p",
+        text: "Même l'adresse de votre site joue un petit rôle : Google associe automatiquement une extension .ma au Maroc. Je détaille ce choix dans mon guide sur [le nom de domaine .ma, .ma ou .com](/blog/nom-de-domaine-ma-acheter-prix-hebergement-maroc).",
+      },
       { type: "h2", text: "Combien de temps avant de voir des résultats ?" },
       {
         type: "p",
@@ -344,6 +507,10 @@ export const blogPosts: BlogPost[] = [
           "Le contenu : textes et photos déjà prêts, ou à produire ensemble (rédaction, shooting)",
           "La maintenance après livraison : mises à jour, sauvegardes, évolutions",
         ],
+      },
+      {
+        type: "p",
+        text: "À cela s'ajoutent des frais annuels qui ne dépendent pas du développeur : le [nom de domaine .ma et l'hébergement](/blog/nom-de-domaine-ma-acheter-prix-hebergement-maroc), à prévoir chaque année dans votre budget.",
       },
       {
         type: "p",
@@ -492,6 +659,10 @@ export const blogPosts: BlogPost[] = [
         text: "Un site magnifique que Google ne trouve pas ne rapporte rien. La technique et le design doivent avancer ensemble, pas l'un après l'autre.",
       },
       { type: "h2", text: "5. Lancer, puis mesurer et faire évoluer" },
+      {
+        type: "p",
+        text: "Avant la mise en ligne, il vous faut une adresse et un endroit où héberger le site. Le choix de l'extension, le prix réel et les pièges à éviter sont détaillés dans mon guide pour [acheter un nom de domaine .ma et choisir son hébergement](/blog/nom-de-domaine-ma-acheter-prix-hebergement-maroc).",
+      },
       {
         type: "p",
         text: "La mise en ligne n'est pas la fin du projet. Google Search Console et Google Analytics permettent de voir concrètement ce qui fonctionne : quelles pages attirent du trafic, où les visiteurs abandonnent, quels mots-clés génèrent des contacts. Un site vivant, ajusté sur des données réelles, performe toujours mieux qu'un site figé.",

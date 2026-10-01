@@ -4,7 +4,7 @@ import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "../components/Footer";
 import WhatsAppLink from "../components/WhatsAppLink";
 import SiteHeader from "../components/SiteHeader";
-import RestaurantSlider, { type RestaurantProject } from "./RestaurantSlider";
+import ProjectSlider from "../components/ProjectSlider";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -70,6 +70,14 @@ const marquee = [
   "Google Maps & avis",
   "Design sur mesure",
 ];
+
+type RestaurantProject = {
+  title: string;
+  city: string;
+  cuisine: string;
+  image: string;
+  url: string;
+};
 
 // Real, live client work — the same screenshots as the homepage portfolio,
 // filtered to food & beverage projects.
@@ -409,7 +417,15 @@ export default function SiteWebRestaurantMaroc() {
           </p>
         </div>
 
-        <RestaurantSlider projects={projects} />
+        <ProjectSlider
+          projects={projects.map((p) => ({
+            title: p.title,
+            meta: `${p.city} · ${p.cuisine}`,
+            image: p.image,
+            url: p.url,
+            alt: `${p.title} — ${p.cuisine}, ${p.city} — site web créé par Mouhcine Zhirou`,
+          }))}
+        />
       </section>
 
       {/* ══ FEATURES ══ */}

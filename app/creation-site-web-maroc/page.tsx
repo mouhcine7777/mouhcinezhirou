@@ -4,6 +4,9 @@ import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "../components/Footer";
 import WhatsAppLink from "../components/WhatsAppLink";
 import SiteHeader from "../components/SiteHeader";
+import ProjectSlider from "../components/ProjectSlider";
+import HeroShowcase from "../components/HeroShowcase";
+import { featuredProjects, COLUMN_7XL_GUTTER } from "../lib/featured-projects";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -148,14 +151,6 @@ const cities = [
   "Agadir", "Meknès", "Oujda", "Kénitra", "Tétouan",
 ];
 
-const citySlugs: Record<string, string> = {
-  Casablanca: "developpeur-web-freelance-casablanca",
-  Rabat: "developpeur-web-freelance-rabat",
-  Marrakech: "developpeur-web-freelance-marrakech",
-  Tanger: "developpeur-web-freelance-tanger",
-  Agadir: "developpeur-web-freelance-agadir",
-};
-
 /* ── Structured data ── */
 const serviceLd = {
   "@context": "https://schema.org",
@@ -234,58 +229,64 @@ export default function CreationSiteWebMaroc() {
             backgroundSize: "3vw 3vw",
           }}
         />
-        <div className="relative mx-auto max-w-5xl">
-          <Eyebrow>Développeur Web Freelance — Casablanca, Maroc</Eyebrow>
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-14 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:items-center xl:gap-16">
+          <div>
+            <Eyebrow>Développeur Web Freelance — Casablanca, Maroc</Eyebrow>
 
-          <h1 className="reveal max-w-4xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
-            Création de site web{" "}
-            <span className="relative inline-block">
-              <span
-                aria-hidden
-                className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1"
-                style={{ background: ACCENT }}
-              />
-              au Maroc
-            </span>
-          </h1>
-
-          <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-black/60 md:text-xl">
-            Vous cherchez un <strong className="font-semibold text-black/80">développeur web freelance au Maroc</strong>{" "}
-            pour créer votre site ? Je conçois des{" "}
-            <strong className="font-semibold text-black/80">sites web modernes, rapides et optimisés pour Google</strong>{" "}
-            — sites vitrines, boutiques e-commerce et applications sur mesure en React &amp; Next.js. Basé à
-            Casablanca, je travaille avec des clients partout au Maroc et à l&apos;international.
-          </p>
-
-          <div className="reveal mt-10 flex flex-wrap items-center gap-4">
-            <WhatsAppLink
-              href={WHATSAPP}
-              className="group bg-black px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-transform hover:scale-[0.98]"
-            >
-              Discuter de mon projet
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
-            </WhatsAppLink>
-            <Link
-              href={HOME}
-              className="group flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
-            >
-              <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
-                Voir mes réalisations
+            <h1 className="reveal max-w-4xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
+              Création de site web{" "}
+              <span className="relative inline-block">
+                <span
+                  aria-hidden
+                  className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1"
+                  style={{ background: ACCENT }}
+                />
+                au Maroc
               </span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
+            </h1>
+
+            <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-black/60 md:text-xl">
+              Vous cherchez un <strong className="font-semibold text-black/80">développeur web freelance au Maroc</strong>{" "}
+              pour créer votre site ? Je conçois des{" "}
+              <strong className="font-semibold text-black/80">sites web modernes, rapides et optimisés pour Google</strong>{" "}
+              — sites vitrines, boutiques e-commerce et applications sur mesure en React &amp; Next.js. Basé à
+              Casablanca, je travaille avec des clients partout au Maroc et à l&apos;international.
+            </p>
+
+            <div className="reveal mt-10 flex flex-wrap items-center gap-4">
+              <WhatsAppLink
+                href={WHATSAPP}
+                className="group bg-black px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-transform hover:scale-[0.98]"
+              >
+                Discuter de mon projet
+                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+              </WhatsAppLink>
+              <a
+                href="#realisations"
+                className="group flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
+              >
+                <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
+                  Voir mes réalisations
+                </span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+
+            {/* stats */}
+            <div className="reveal mt-16 grid max-w-2xl grid-cols-3 border-y border-black/10">
+              {stats.map((s, i) => (
+                <div key={s.l} className={`py-6 pl-4 first:pl-0 ${i < 2 ? "border-r border-black/10" : ""}`}>
+                  <div className="text-3xl font-extrabold tracking-tight text-black md:text-4xl">{s.n}</div>
+                  <div className="mt-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-black/30">
+                    {s.l}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* stats */}
-          <div className="reveal mt-16 grid max-w-2xl grid-cols-3 border-y border-black/10">
-            {stats.map((s, i) => (
-              <div key={s.l} className={`py-6 pl-4 first:pl-0 ${i < 2 ? "border-r border-black/10" : ""}`}>
-                <div className="text-3xl font-extrabold tracking-tight text-black md:text-4xl">{s.n}</div>
-                <div className="mt-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-black/30">
-                  {s.l}
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto hidden w-full max-w-xl md:block xl:max-w-none">
+            <HeroShowcase />
           </div>
         </div>
       </section>
@@ -304,7 +305,7 @@ export default function CreationSiteWebMaroc() {
 
       {/* ══ SERVICES ══ */}
       <section className="bg-[#080808] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow dark>Mes services</Eyebrow>
           <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
             Ce que je crée pour vous
@@ -337,7 +338,7 @@ export default function CreationSiteWebMaroc() {
 
       {/* ══ WHY ME ══ */}
       <section className="px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Pourquoi me choisir</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             Un <span className="font-[family-name:var(--font-instrument)] italic">développeur freelance</span> à vos côtés
@@ -357,9 +358,31 @@ export default function CreationSiteWebMaroc() {
         </div>
       </section>
 
+      {/* ══ RÉALISATIONS ══ */}
+      <section id="realisations" className="scroll-mt-20 bg-[#080808] py-20 md:py-28">
+        <div className="px-6 md:px-14">
+          <div className="mx-auto max-w-7xl">
+            <Eyebrow dark>Réalisations</Eyebrow>
+            <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+              Des sites livrés,{" "}
+              <span className="font-[family-name:var(--font-instrument)] italic">au Maroc et ailleurs</span>
+            </h2>
+            <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
+              Des sites réellement en ligne, conçus et développés pour des marques au Maroc et à l&apos;international.
+            </p>
+          </div>
+        </div>
+
+        <ProjectSlider
+          projects={featuredProjects()}
+          gutter={COLUMN_7XL_GUTTER}
+          cta={{ label: "Voir toutes les réalisations", href: "/#work" }}
+        />
+      </section>
+
       {/* ══ PROCESS ══ */}
       <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Comment ça marche</Eyebrow>
           <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             De l&apos;idée à la mise en ligne
@@ -377,40 +400,9 @@ export default function CreationSiteWebMaroc() {
         </div>
       </section>
 
-      {/* ══ CITIES ══ */}
-      <section className="border-t border-black/10 px-6 py-16 md:px-14">
-        <div className="mx-auto max-w-5xl">
-          <Eyebrow>Zones desservies</Eyebrow>
-          <h2 className="reveal max-w-3xl text-2xl font-extrabold tracking-[-0.02em] text-black md:text-3xl">
-            Création de site web partout au Maroc
-          </h2>
-          <div className="reveal mt-8 flex flex-wrap gap-3">
-            {cities.map((c) =>
-              citySlugs[c] ? (
-                <Link
-                  key={c}
-                  href={`/${citySlugs[c]}`}
-                  prefetch={false}
-                  className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55 transition-colors hover:border-black hover:text-black"
-                >
-                  {c}
-                </Link>
-              ) : (
-                <span
-                  key={c}
-                  className="border border-black/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-black/55"
-                >
-                  {c}
-                </span>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* ══ FAQ TEASER ══ */}
       <section className="border-t border-black/10 px-6 py-16 md:px-14">
-        <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
             <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-black md:text-3xl">
               Des questions sur les prix et les délais ?
@@ -425,7 +417,7 @@ export default function CreationSiteWebMaroc() {
             Voir la FAQ →
           </Link>
         </div>
-        <p className="mx-auto mt-6 max-w-5xl text-sm text-black/45">
+        <p className="mx-auto mt-6 max-w-7xl text-sm text-black/45">
           Basé à Casablanca et disponible partout au Maroc, découvrez mon profil de{" "}
           <Link href="/developpeur-web-freelance-casablanca" prefetch={false} className="font-semibold text-black underline decoration-black/20 underline-offset-2 hover:decoration-black">
             développeur web freelance à Casablanca

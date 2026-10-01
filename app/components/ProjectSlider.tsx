@@ -1,18 +1,36 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-export type RestaurantProject = {
+export type SliderProject = {
   title: string;
-  city: string;
-  cuisine: string;
+  meta: string;
   image: string;
   url: string;
+  alt: string;
 };
 
 const COPIES = 3;
 
-export default function RestaurantSlider({ projects }: { projects: RestaurantProject[] }) {
+// Side gutter of the track, arrows and left fade. Defaults to the page padding;
+// pages with a narrower centred column pass their own so cards line up with it.
+type Gutter = { pad: string; scrollPad: string; fadeWidth: string };
+const DEFAULT_GUTTER: Gutter = {
+  pad: "px-6 md:px-14",
+  scrollPad: "scroll-pl-6 md:scroll-pl-14",
+  fadeWidth: "w-6 md:w-14",
+};
+
+export default function ProjectSlider({
+  projects,
+  gutter = DEFAULT_GUTTER,
+  cta,
+}: {
+  projects: SliderProject[];
+  gutter?: Gutter;
+  cta?: { label: string; href: string };
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const settleTimer = useRef<number | undefined>(undefined);
 
@@ -72,7 +90,7 @@ export default function RestaurantSlider({ projects }: { projects: RestaurantPro
       <div
         ref={trackRef}
         onScroll={onScroll}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-pl-6 px-6 pb-2 [scrollbar-width:none] md:scroll-pl-14 md:px-14 [&::-webkit-scrollbar]:hidden"
+        className={`flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${gutter.pad} ${gutter.scrollPad}`}
       >
         {items.map((p, i) => {
           const isClone = p.copy !== 1;
@@ -91,7 +109,7 @@ export default function RestaurantSlider({ projects }: { projects: RestaurantPro
               <div className="relative overflow-hidden border border-white/10 transition-colors duration-300 group-hover:border-white/30">
                 <img
                   src={p.image}
-                  alt={isClone ? "" : `${p.title} — ${p.cuisine}, ${p.city} — site web créé par Mouhcine Zhirou`}
+                  alt={isClone ? "" : p.alt}
                   loading="lazy"
                   decoding="async"
                   className="aspect-[1500/770] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -107,7 +125,7 @@ export default function RestaurantSlider({ projects }: { projects: RestaurantPro
                   {p.title}
                 </h3>
                 <span className="shrink-0 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white/40 transition-colors group-hover:text-[#e8ff47]">
-                  {p.city} · {p.cuisine}
+                  {p.meta}
                 </span>
               </div>
             </a>
@@ -118,20 +136,32 @@ export default function RestaurantSlider({ projects }: { projects: RestaurantPro
       {/* Soft fade over the card peeking in on the left */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-0 top-0 h-[calc(100%-0.5rem)] w-6 bg-gradient-to-r from-[#080808] to-transparent md:w-14"
+        className={`pointer-events-none absolute left-0 top-0 h-[calc(100%-0.5rem)] bg-gradient-to-r from-[#080808] to-transparent ${gutter.fadeWidth}`}
       />
 
-      <div className="mt-8 flex gap-3 px-6 md:px-14">
-        <button type="button" onClick={() => scrollByCard(-1)} aria-label="Projet précédent" className={arrow}>
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        </button>
-        <button type="button" onClick={() => scrollByCard(1)} aria-label="Projet suivant" className={arrow}>
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M9 6l6 6-6 6" />
-          </svg>
-        </button>
+      <div className={`mt-8 flex flex-wrap items-center justify-between gap-4 ${gutter.pad}`}>
+        <div className="flex gap-3">
+          <button type="button" onClick={() => scrollByCard(-1)} aria-label="Projet précédent" className={arrow}>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button type="button" onClick={() => scrollByCard(1)} aria-label="Projet suivant" className={arrow}>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+
+        {cta && (
+          <Link
+            href={cta.href}
+            className="group inline-flex h-12 items-center gap-3 bg-[#e8ff47] px-6 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-black transition-transform hover:scale-[0.98]"
+          >
+            {cta.label}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        )}
       </div>
     </div>
   );

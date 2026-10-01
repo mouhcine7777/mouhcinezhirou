@@ -4,6 +4,9 @@ import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import Footer from "./Footer";
 import WhatsAppLink from "./WhatsAppLink";
 import SiteHeader from "./SiteHeader";
+import ProjectSlider from "./ProjectSlider";
+import HeroShowcase from "./HeroShowcase";
+import { featuredProjects, heroWindows, COLUMN_7XL_GUTTER } from "../lib/featured-projects";
 import type { CityData } from "../lib/city-pages";
 
 const bricolage = Bricolage_Grotesque({
@@ -188,74 +191,82 @@ export default function CityLandingPage({ data }: { data: CityData }) {
             backgroundSize: "3vw 3vw",
           }}
         />
-        <div className="relative mx-auto max-w-5xl">
-          <Eyebrow>{data.eyebrow}</Eyebrow>
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-14 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:items-center xl:gap-16">
+          <div>
+            <Eyebrow>{data.eyebrow}</Eyebrow>
 
-          <h1 className="reveal max-w-4xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
-            Développeur web freelance à{" "}
-            <span className="relative inline-block">
-              <span aria-hidden className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1" style={{ background: ACCENT }} />
-              {data.city}
-            </span>
-          </h1>
-
-          <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-black/60 md:text-xl">
-            {data.heroIntro}
-          </p>
-
-          <div className="reveal mt-10 flex flex-wrap items-center gap-4">
-            <WhatsAppLink
-              href={WHATSAPP}
-              className="group bg-black px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-transform hover:scale-[0.98]"
-            >
-              Discuter de mon projet
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
-            </WhatsAppLink>
-            <a
-              href="#local"
-              className="group flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
-            >
-              <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
-                Pourquoi {data.city}
+            <h1 className="reveal max-w-4xl text-4xl font-extrabold leading-[1.0] tracking-[-0.035em] text-black md:text-7xl">
+              Développeur web freelance à{" "}
+              <span className="relative inline-block">
+                <span aria-hidden className="absolute -inset-x-2 inset-y-1 -z-10 -rotate-1" style={{ background: ACCENT }} />
+                {data.city}
               </span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </h1>
+
+            <p className="reveal mt-7 max-w-2xl text-lg leading-relaxed text-black/60 md:text-xl">
+              {data.heroIntro}
+            </p>
+
+            <div className="reveal mt-10 flex flex-wrap items-center gap-4">
+              <WhatsAppLink
+                href={WHATSAPP}
+                className="group bg-black px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#F2F0EB] transition-transform hover:scale-[0.98]"
+              >
+                Discuter de mon projet
+                <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+              </WhatsAppLink>
+              <a
+                href="#local"
+                className="group flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-black/50 transition-colors hover:text-black"
+              >
+                <span className="border-b border-black/20 pb-0.5 transition-colors group-hover:border-black">
+                  Pourquoi {data.city}
+                </span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+
+            <div className="reveal mt-16 grid max-w-2xl grid-cols-3 border-y border-black/10">
+              {stats.map((s, i) => (
+                <div key={s.l} className={`py-6 pl-4 first:pl-0 ${i < 2 ? "border-r border-black/10" : ""}`}>
+                  <div className="text-3xl font-extrabold tracking-tight text-black md:text-4xl">{s.n}</div>
+                  <div className="mt-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-black/30">{s.l}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="reveal mt-16 grid max-w-2xl grid-cols-3 border-y border-black/10">
-            {stats.map((s, i) => (
-              <div key={s.l} className={`py-6 pl-4 first:pl-0 ${i < 2 ? "border-r border-black/10" : ""}`}>
-                <div className="text-3xl font-extrabold tracking-tight text-black md:text-4xl">{s.n}</div>
-                <div className="mt-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-black/30">{s.l}</div>
-              </div>
-            ))}
+          <div className="mx-auto hidden w-full max-w-xl md:block xl:max-w-none">
+            <HeroShowcase windows={heroWindows(data.city)} />
           </div>
         </div>
       </section>
 
-      {/* ══ LOGOS ══ */}
-      <section className="border-y border-black/10 bg-[#F2F0EB] px-6 py-14 md:px-14">
-        <div className="mx-auto max-w-5xl">
-          <p className="reveal text-center text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-black/35">
-            Ils m&apos;ont fait confiance au Maroc
-          </p>
-          <div className="reveal mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
-            {logos.map((l) => (
-              <div
-                key={l.alt}
-                className="flex h-20 items-center justify-center bg-[#0d0d0d] p-4 transition-transform hover:scale-[1.03]"
-                title={l.alt}
-              >
-                <Image src={l.src} alt={l.alt} width={120} height={48} className="max-h-9 w-auto object-contain" />
-              </div>
-            ))}
+      {/* ══ RÉALISATIONS ══ */}
+      <section id="realisations" className="scroll-mt-20 bg-[#080808] py-20 md:py-28">
+        <div className="px-6 md:px-14">
+          <div className="mx-auto max-w-7xl">
+            <Eyebrow dark>Réalisations</Eyebrow>
+            <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
+              Des sites livrés,{" "}
+              <span className="font-[family-name:var(--font-instrument)] italic">à {data.city} et ailleurs</span>
+            </h2>
+            <p className="reveal mt-5 max-w-2xl text-white/45 md:text-lg">
+              Des sites réellement en ligne, conçus et développés pour des marques au Maroc et à l&apos;international.
+            </p>
           </div>
         </div>
+
+        <ProjectSlider
+          projects={featuredProjects(data.city)}
+          gutter={COLUMN_7XL_GUTTER}
+          cta={{ label: "Voir toutes les réalisations", href: "/#work" }}
+        />
       </section>
 
       {/* ══ LOCAL CONTEXT (the actually differentiated section) ══ */}
-      <section id="local" className="bg-[#080808] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+      <section id="local" className="border-t border-white/10 bg-[#080808] px-6 py-20 md:px-14 md:py-28">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow dark>{data.city}</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-white md:text-5xl">
             {data.localContextTitle}
@@ -272,7 +283,7 @@ export default function CityLandingPage({ data }: { data: CityData }) {
 
       {/* ══ FREELANCE VS AGENCE ══ */}
       <section className="px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Freelance ou agence ?</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             Ce qui change vraiment{" "}
@@ -310,7 +321,7 @@ export default function CityLandingPage({ data }: { data: CityData }) {
 
       {/* ══ STACK ══ */}
       <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Ma stack technique</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             Les outils que j&apos;utilise, et pourquoi
@@ -333,7 +344,7 @@ export default function CityLandingPage({ data }: { data: CityData }) {
 
       {/* ══ PROCESS ══ */}
       <section className="px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Comment on travaille ensemble</Eyebrow>
           <h2 className="reveal text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             De WhatsApp à la mise en ligne
@@ -353,7 +364,7 @@ export default function CityLandingPage({ data }: { data: CityData }) {
 
       {/* ══ TESTIMONIALS ══ */}
       <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-20 md:px-14 md:py-28">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <Eyebrow>Ce qu&apos;en disent mes clients</Eyebrow>
           <h2 className="reveal max-w-3xl text-3xl font-extrabold tracking-[-0.03em] text-black md:text-5xl">
             Des retours de clients au Maroc
@@ -378,6 +389,26 @@ export default function CityLandingPage({ data }: { data: CityData }) {
                     <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-black/40">{t.role}</div>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ LOGOS ══ */}
+      <section className="border-t border-black/10 bg-[#F2F0EB] px-6 py-14 md:px-14">
+        <div className="mx-auto max-w-7xl">
+          <p className="reveal text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-black/35">
+            Ils m&apos;ont fait confiance au Maroc
+          </p>
+          <div className="reveal mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            {logos.map((l) => (
+              <div
+                key={l.alt}
+                className="flex h-20 items-center justify-center bg-[#0d0d0d] p-4 transition-transform hover:scale-[1.03]"
+                title={l.alt}
+              >
+                <Image src={l.src} alt={l.alt} width={120} height={48} className="max-h-9 w-auto object-contain" />
               </div>
             ))}
           </div>
